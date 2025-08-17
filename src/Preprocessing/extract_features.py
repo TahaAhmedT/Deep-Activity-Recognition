@@ -10,7 +10,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 from volleyball_annot_loader import load_tracking_annot
 
-dataset_root = '/home/moustafa/0hdd/research/sfu/volleyball-datasets'
+# dataset_root = '/home/moustafa/0hdd/research/sfu/volleyball-datasets'
 
 
 def check():
@@ -90,9 +90,9 @@ def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, 
                         x1, y1, x2, y2 = box_info.box
                         cropped_image = image.crop((x1, y1, x2, y2))
 
-                        if True:   # visualize a crop
-                            cv2.imshow('Cropped Image', np.array(cropped_image))
-                            cv2.waitKey(0)
+                        # if True:   # visualize a crop
+                        #     cv2.imshow('Cropped Image', np.array(cropped_image))
+                        #     cv2.waitKey(0)
 
                         preprocessed_images.append(preprocess(cropped_image).unsqueeze(0))
 
@@ -101,7 +101,7 @@ def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, 
                     dnn_repr = dnn_repr.view(len(preprocessed_images), -1)  # 12 x 2048 for resnet 50
 
                 # uncomment to save features
-                #np.save(output_file, dnn_repr.numpy())
+                np.save(output_file, dnn_repr.numpy())
             except Exception as e:
                 print(f"An error occurred: {e}")
 
@@ -133,9 +133,9 @@ if __name__ == '__main__':
     image_level = False
     model, preprocess = prepare_model(image_level)
 
-    videos_root = f'{dataset_root}/videos'
-    annot_root = f'{dataset_root}/volleyball_tracking_annotation'
-    output_root = f'{dataset_root}/features/image-level/resnet'
+    videos_root = f'/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_/videos'
+    annot_root = f'/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_tracking_annotation/volleyball_tracking_annotation'
+    output_root = f'/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/features/image-level/resnet'
 
     videos_dirs = os.listdir(videos_root)
     videos_dirs.sort()
