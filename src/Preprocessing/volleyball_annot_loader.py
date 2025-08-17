@@ -116,8 +116,8 @@ def load_volleyball_dataset(videos_root, annot_root):
 
 def create_pkl_version():
     # You can use this function to create and save pkl version of the dataset
-    videos_root = f'{dataset_root}/videos'
-    annot_root = f'{dataset_root}/volleyball_tracking_annotation'
+    videos_root = f'/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_/videos'
+    annot_root = f'/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_tracking_annotation/volleyball_tracking_annotation'
 
     videos_annot = load_volleyball_dataset(videos_root, annot_root)
 
