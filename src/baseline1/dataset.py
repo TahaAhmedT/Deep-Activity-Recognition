@@ -60,7 +60,7 @@ class B1Dataset(Dataset):
 
 
     def __len__(self):
-        pass
+        return len(self.get_images())
 
     def __getitem__(self, index):
         pass
