@@ -5,6 +5,7 @@ import torchvision
 from torchvision import transforms
 from torchvision.models import resnet50
 from torch.utils.data import DataLoader
+from src.baseline1.dataset import B1Dataset
 
 # Data transformation
 transform = transforms.Compose([
@@ -12,6 +13,13 @@ transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
+
+batch_size = 32
+train_dataset = B1Dataset(videos_root='path/to/videos', target_videos=[0, 1, 2], transform=transform)
+test_dataset = B1Dataset(videos_root='path/to/videos', target_videos=[3, 4, 5], transform=transform)
+
+trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+testloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 original_model = resnet50(pretrained=True)
 
