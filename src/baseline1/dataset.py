@@ -63,4 +63,6 @@ class B1Dataset(Dataset):
         return len(self.get_images())
 
     def __getitem__(self, index):
-        pass
+        if index < 0 or index >= len(self.get_images()):
+            raise IndexError("Index out of range")
+        return self.get_images()[index], self.get_classes()[index]
