@@ -6,6 +6,13 @@ from torchvision import transforms
 from torchvision.models import resnet50
 from torch.utils.data import DataLoader
 
+# Data transformation
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+
 original_model = resnet50(pretrained=True)
 
 # Remove the last 4 main blocks (layer3, layer4, avgpool, fc)
