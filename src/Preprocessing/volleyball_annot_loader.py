@@ -3,6 +3,7 @@ import os
 import pickle
 from typing import List
 from src.Preprocessing.boxinfo import BoxInfo
+import collections
 
 
 
@@ -65,7 +66,7 @@ def load_video_annot(video_annot):
             clip_dir = items[0].replace('.jpg', '')
             clip_category_dct[clip_dir] = items[1]
 
-        return clip_category_dct
+        return collections.OrderedDict(sorted(clip_category_dct.items()))
 
 
 def load_volleyball_dataset(videos_root, annot_root):
