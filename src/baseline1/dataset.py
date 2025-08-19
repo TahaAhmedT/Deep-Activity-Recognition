@@ -55,6 +55,7 @@ class B1Dataset(Dataset):
 
                 for _, category in clip_category_dict.items():
                     classes.append(category)
+                print(f"[INFO] Video #{idx}, Number of items in Classes list: {len(classes)}")
 
         return classes
 
