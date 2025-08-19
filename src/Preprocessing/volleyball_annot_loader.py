@@ -65,6 +65,7 @@ def load_video_annot(video_annot):
             items = line.strip().split(' ')[:2]
             clip_dir = items[0].replace('.jpg', '')
             clip_category_dct[clip_dir] = items[1]
+            clip_category_dct = {int(k):v for k,v in clip_category_dct.items()}
 
         return collections.OrderedDict(sorted(clip_category_dct.items()))
 
