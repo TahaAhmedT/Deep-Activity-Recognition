@@ -69,6 +69,6 @@ class B1Dataset(Dataset):
     
 
 if "__name__" == "__main__":
-    dataset = B1Dataset(videos_root='path/to/videos', target_videos=[0, 1, 2])
+    dataset = B1Dataset(videos_root='/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_/videos', target_videos=[0, 1, 2])
     print(f"Number of images: {len(dataset)}")
     print(f"First image class: {dataset[0][1]}")
