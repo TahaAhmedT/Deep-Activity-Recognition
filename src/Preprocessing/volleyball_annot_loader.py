@@ -67,6 +67,7 @@ def load_video_annot(video_annot):
             clip_category_dct[clip_dir] = items[1]
             clip_category_dct = {int(k):v for k,v in clip_category_dct.items()}
 
+        print(f"[INFO] Dictionary Length: {len(clip_category_dct)}")
         return collections.OrderedDict(sorted(clip_category_dct.items()))
 
 
