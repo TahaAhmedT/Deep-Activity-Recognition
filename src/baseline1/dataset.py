@@ -58,6 +58,9 @@ class B1Dataset(Dataset):
 
         return classes
 
+    def print_info(self):
+        print(f"Number of Images: {len(self.get_images())}")
+        print(f"Number of Classes: {len(self.get_classes())}")
 
     def __len__(self):
         return len(self.get_images())
@@ -70,5 +73,5 @@ class B1Dataset(Dataset):
 
 if __name__ == "__main__":
     dataset = B1Dataset(videos_root='/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_/videos', target_videos=[0, 1, 2])
-    print(f"Number of images: {len(dataset)}")
+    dataset.print_info()
     print(f"First image class: {dataset[0][1]}")
