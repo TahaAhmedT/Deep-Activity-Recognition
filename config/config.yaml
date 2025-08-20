@@ -1,60 +1,7 @@
 PATH:
-  data: "data"
-  raw_data: "data/raw"
-  pdf_samples: "data/PDF_Sample"
-  newspaper_images: "data/images"
-  output: "output"
-  annotation: "layout/annotated"
-  doclayout_crops: "layout/doclayout_crops"
-  article_crops: "layout/article_crops"
-  ad_crops: "layout/ad_crops"
-  rectangle_crops: "layout/rectangle_crops"
-  article_seg: "article_seg"
-  ocr_out: "ocr"
-  articles: "reconstructed/articles"
-  crew_out: "reconstructed/crew"
-  articles_ordered: "reconstructed/articles/ordered"
-  articles_formatted: "reconstructed/articles/formatted"
-  reconstructed_newspaper: "reconstructed/newspaper"
-  layout_json: "layout_json_representation"
-  final_result: "final_result"
-  logs: "logs"
-  ocr_model_cache: "models/cache"
-  layout_model: "models/DocLayout-YOLO-DocStructBench"
+  videos_root: "/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_/videos"
 
-PDF2IMAGE:
-  fmt: jpg
-
-OCR_MODEL:
-  model_id: NAMAA-Space/Qari-OCR-0.2.2.1-VL-2B-Instruct
-  temp: 0.3
-  max_tokens: 2000
-
-LAYOUT_MODEL:
-  model_id: juliozhao/DocLayout-YOLO-DocStructBench
-  conf_threshold: 0.3
-
-ARTICLE_MODEL:
-  model_id: runs/detect/train/weights/best.pt
-
-ROBOFLOW:
-  api_url: https://serverless.roboflow.com
-  workspace_name: visionmodels-rc1xp
-  workflow_id: article-seg
-  use_cache: 1
-
-AZURE:
-  endpoint: https://newspappertest.cognitiveservices.azure.com/
-  model_version: latest
-  language: ar
-
-CREW_MODEL:
-  # model_id: openai/gpt-4
-  model_id: ollama/gemma2:27b
-  temp: 0.5
-  base_url: http://localhost:11434 # ollama
-
-RUNNING: LOCAL
-PRINT_LOGS: 1
-OVERWRITE: 1
-DEVICE: cuda
+TARGET_VIDEOS:
+  train_ids: [1, 3, 6, 7, 10, 13, 15, 16, 18, 22, 23, 31,
+                 32, 36, 38, 39, 40, 41, 42, 48, 50, 52, 53, 54]
+  val_ids: [0, 2, 8, 12, 17, 19, 24, 26, 27, 28, 30, 33, 46, 49, 51]
