@@ -11,4 +11,13 @@ TRAINING_PARAMS:
   lr: 0.001
   num_epochs: 5
 
-DATA_CLASSES: ['l-pass', 'r-pass', 'l-spike', 'r_spike', 'l_set', 'r_set', 'l_winpoint', 'r_winpoint']
+CATEGORIES_DICT: {
+        'l-pass': 0,
+        'r-pass': 1,
+        'l-spike': 2,
+        'r_spike': 3,
+        'l_set': 4,
+        'r_set': 5,
+        'l_winpoint': 6,
+        'r_winpoint': 7
+    }
