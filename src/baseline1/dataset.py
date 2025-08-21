@@ -61,8 +61,8 @@ class B1Dataset(Dataset):
                     classes.append(category)
                 print(f"[INFO] Video #{idx}, Number of items in Classes list: {len(classes)}")
                 
-        classes = classes.apply(data_classes.index)
-        return classes
+        numeric_labels = [data_classes[label] for label in classes]
+        return numeric_labels
 
     def print_info(self):
         print(f"Number of Images: {len(self.get_images())}")
