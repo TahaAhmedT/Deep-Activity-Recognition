@@ -3,7 +3,6 @@ import torch
 def test_step(data_loader: torch.utils.data.DataLoader,
               model: torch.nn.Module,
               loss_fn: torch.nn.Module,
-              accuracy_fn,
               device: torch.device):
     test_loss, test_acc = 0, 0
     model.to(device)
@@ -20,8 +19,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
 
             # 2. Calculate loss and accuracy
             test_loss += loss_fn(test_pred, target)
-            test_acc += accuracy_fn(y_true=target,
-                                    y_pred=test_pred.argmax(dim=1))
+            test_acc += (test_pred.argmax(dim=1) == target).sum().item()
             
         # Adjust metrics and print out
         test_loss /= len(data_loader)
