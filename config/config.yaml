@@ -6,7 +6,9 @@ TARGET_VIDEOS:
                  32, 36, 38, 39, 40, 41, 42, 48, 50, 52, 53, 54]
   val_ids: [0, 2, 8, 12, 17, 19, 24, 26, 27, 28, 30, 33, 46, 49, 51]
 
-MODEL_PARAMS:
+TRAINING_PARAMS:
   batch_size: 32
   lr: 0.001
   num_epochs: 5
+
+DATA_CLASSES: ['l-pass', 'r-pass', 'l-spike', 'r_spike', 'l_set', 'r_set', 'l_winpoint', 'r_winpoint']
