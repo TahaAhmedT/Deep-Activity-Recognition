@@ -39,6 +39,7 @@ class B1Dataset(Dataset):
         return images
     
     def get_classes(self):
+        data_classes = ['l-pass', 'r-pass', 'l-spike', 'r_spike', 'l_set', 'r_set', 'l_winpoint', 'r_winpoint']
         classes = []
         videos_dirs = os.listdir(self.videos_root)
         videos_dirs.sort()
@@ -56,7 +57,8 @@ class B1Dataset(Dataset):
                 for _, category in clip_category_dict.items():
                     classes.append(category)
                 print(f"[INFO] Video #{idx}, Number of items in Classes list: {len(classes)}")
-
+                
+        classes = classes.apply(data_classes.index)
         return classes
 
     def print_info(self):
