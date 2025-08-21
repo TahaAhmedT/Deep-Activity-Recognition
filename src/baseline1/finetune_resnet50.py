@@ -20,9 +20,9 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-batch_size = 32
-train_dataset = B1Dataset(videos_root='path/to/videos', target_videos=[0, 1, 2], transform=transform)
-test_dataset = B1Dataset(videos_root='path/to/videos', target_videos=[3, 4, 5], transform=transform)
+batch_size = CONFIG["MODEL_PARAMS"]["batch_size"]
+train_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["train_ids"], transform=transform)
+test_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=["TARGET_VIDEOS"]["val_ids"], transform=transform)
 
 trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 testloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
@@ -40,10 +40,11 @@ model = ExtendedModel(truncated_model)
 
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=0.001) # Only optimize unfrozen params
+optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=CONFIG["MODEL_PARAMS"]["lr"]) # Only optimize unfrozen params
 
 # Training  and Testing Loop
-for epoch in range(5):
+NUM_EPOCHS = CONFIG["MODEL_PARAMS"]["num_epochs"]
+for epoch in range(NUM_EPOCHS):
     print(f"Epoch {epoch+1}\n-----------------------")
     # Training step
     train_step(data_loader=trainloader,
@@ -51,29 +52,10 @@ for epoch in range(5):
                loss_fn=criterion,
                optimizer=optimizer,
                device='cuda' if torch.cuda.is_available() else 'cpu')
-    # for batch_idx, (data, target) in enumerate(trainloader):
-    #     optimizer.zero_grad()
-    #     output = model(data)
-    #     loss = criterion(output, target)
-    #     loss.backward()
-    #     optimizer.step()
-
-    #     if batch_idx % 10 == 0:
-    #         print(f'Epoch: {epoch}, Batch: {batch_idx}, Loss: {loss.item()}')
+    
     # Testing Step
     test_step(data_loader=testloader,
               model=model,
               loss_fn=criterion,
               device='cuda' if torch.cuda.is_available() else 'cpu')
 
-# Model Evaluation
-# model.eval()
-# correct = 0
-# total = 0
-# with torch.no_grad():
-#     for data, target in testloader:
-#         output = model(data)
-#         _, predicted = torch.max(output, 1)
-#         total += target.size(0)
-#         correct += (predicted == target).sum().item()
-# print(f"Accuracy: {(correct / total) * 100}%")
