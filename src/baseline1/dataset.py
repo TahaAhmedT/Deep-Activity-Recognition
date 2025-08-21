@@ -34,7 +34,7 @@ class B1Dataset(Dataset):
                     for img in os.listdir(clip_dir_path):
                         img_path = os.path.join(clip_dir_path, img)
                         if img.endswith('.jpg') and img[:-4] == clip_dir:
-                            images.append(Image.open(img_path))
+                            images.append(img_path)
                             break  # Stop after finding the first matching image (there is only one per clip)
         return images
     
@@ -71,7 +71,8 @@ class B1Dataset(Dataset):
     def __getitem__(self, index):
         if index < 0 or index >= len(self.get_images()):
             raise IndexError("Index out of range")
-        return self.get_images()[index], self.get_classes()[index]
+        image = Image.open(self.get_images()[index]).convert('RGB')
+        return image, self.get_classes()[index]
     
 
 if __name__ == "__main__":
