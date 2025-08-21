@@ -42,7 +42,7 @@ class B1Dataset(Dataset):
         return images
     
     def get_classes(self):
-        data_classes = CONFIG["DATA_CLASSES"]
+        data_classes = CONFIG["CATEGORIES_DICT"]
         classes = []
         videos_dirs = os.listdir(self.videos_root)
         videos_dirs.sort()
@@ -79,6 +79,6 @@ class B1Dataset(Dataset):
     
 
 if __name__ == "__main__":
-    dataset = B1Dataset(videos_root='/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_/videos', target_videos=[0, 1, 2])
+    dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[0, 1, 2])
     dataset.print_info()
     print(f"First image class: {dataset[0][1]}")
