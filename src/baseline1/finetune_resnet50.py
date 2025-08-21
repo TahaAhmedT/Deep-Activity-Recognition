@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import torchvision
 from torchvision import transforms
 from torchvision.models import resnet50
 from torch.utils.data import DataLoader
@@ -22,10 +21,12 @@ transform = transforms.Compose([
 
 batch_size = CONFIG["MODEL_PARAMS"]["batch_size"]
 train_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["train_ids"], transform=transform)
-test_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=["TARGET_VIDEOS"]["val_ids"], transform=transform)
+test_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["val_ids"], transform=transform)
 
 trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 testloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 original_model = resnet50(pretrained=True)
 
@@ -51,11 +52,11 @@ for epoch in range(NUM_EPOCHS):
                model=model,
                loss_fn=criterion,
                optimizer=optimizer,
-               device='cuda' if torch.cuda.is_available() else 'cpu')
+               device=device)
     
     # Testing Step
     test_step(data_loader=testloader,
               model=model,
               loss_fn=criterion,
-              device='cuda' if torch.cuda.is_available() else 'cpu')
+              device=device)
 
