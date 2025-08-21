@@ -19,7 +19,7 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-batch_size = CONFIG["MODEL_PARAMS"]["batch_size"]
+batch_size = CONFIG["TRAINING_PARAMS"]["batch_size"]
 train_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["train_ids"], transform=transform)
 test_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["val_ids"], transform=transform)
 
@@ -41,10 +41,10 @@ model = ExtendedModel(truncated_model)
 
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=CONFIG["MODEL_PARAMS"]["lr"]) # Only optimize unfrozen params
+optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=CONFIG["TRAINING_PARAMS"]["lr"]) # Only optimize unfrozen params
 
 # Training  and Testing Loop
-NUM_EPOCHS = CONFIG["MODEL_PARAMS"]["num_epochs"]
+NUM_EPOCHS = CONFIG["TRAINING_PARAMS"]["num_epochs"]
 for epoch in range(NUM_EPOCHS):
     print(f"Epoch {epoch+1}\n-----------------------")
     # Training step
