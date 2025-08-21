@@ -7,6 +7,8 @@ from torchvision.models import resnet50
 from torch.utils.data import DataLoader
 from src.baseline1.dataset import B1Dataset
 from src.baseline1.extended_model import ExtendedModel
+from src.utils.train_test.train_step import train_step
+from src.utils.train_test.test_step import test_step
 
 # Data transformation
 transform = transforms.Compose([
@@ -37,26 +39,38 @@ model = ExtendedModel(truncated_model)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=0.001) # Only optimize unfrozen params
 
-# Training loop
+# Training  and Testing Loop
 for epoch in range(5):
-    for batch_idx, (data, target) in enumerate(trainloader):
-        optimizer.zero_grad()
-        output = model(data)
-        loss = criterion(output, target)
-        loss.backward()
-        optimizer.step()
+    print(f"Epoch {epoch+1}\n-----------------------")
+    # Training step
+    train_step(data_loader=trainloader,
+               model=model,
+               loss_fn=criterion,
+               optimizer=optimizer,
+               device='cuda' if torch.cuda.is_available() else 'cpu')
+    # for batch_idx, (data, target) in enumerate(trainloader):
+    #     optimizer.zero_grad()
+    #     output = model(data)
+    #     loss = criterion(output, target)
+    #     loss.backward()
+    #     optimizer.step()
 
-        if batch_idx % 10 == 0:
-            print(f'Epoch: {epoch}, Batch: {batch_idx}, Loss: {loss.item()}')
+    #     if batch_idx % 10 == 0:
+    #         print(f'Epoch: {epoch}, Batch: {batch_idx}, Loss: {loss.item()}')
+    # Testing Step
+    test_step(data_loader=testloader,
+              model=model,
+              loss_fn=criterion,
+              device='cuda' if torch.cuda.is_available() else 'cpu')
 
 # Model Evaluation
-model.eval()
-correct = 0
-total = 0
-with torch.no_grad():
-    for data, target in testloader:
-        output = model(data)
-        _, predicted = torch.max(output, 1)
-        total += target.size(0)
-        correct += (predicted == target).sum().item()
-print(f"Accuracy: {(correct / total) * 100}%")
+# model.eval()
+# correct = 0
+# total = 0
+# with torch.no_grad():
+#     for data, target in testloader:
+#         output = model(data)
+#         _, predicted = torch.max(output, 1)
+#         total += target.size(0)
+#         correct += (predicted == target).sum().item()
+# print(f"Accuracy: {(correct / total) * 100}%")
