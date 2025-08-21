@@ -2,6 +2,9 @@ from torch.utils.data import Dataset
 import os
 from PIL import Image
 from src.Preprocessing.volleyball_annot_loader import load_video_annot
+from src.utils.config_utils.load_config import load_config
+
+CONFIG = load_config()
 
 class B1Dataset(Dataset):
     def __init__(self, videos_root: str, target_videos: list[int], transform=None):
@@ -39,7 +42,7 @@ class B1Dataset(Dataset):
         return images
     
     def get_classes(self):
-        data_classes = ['l-pass', 'r-pass', 'l-spike', 'r_spike', 'l_set', 'r_set', 'l_winpoint', 'r_winpoint']
+        data_classes = CONFIG["DATA_CLASSES"]
         classes = []
         videos_dirs = os.listdir(self.videos_root)
         videos_dirs.sort()
