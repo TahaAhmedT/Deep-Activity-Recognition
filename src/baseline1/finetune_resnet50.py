@@ -9,7 +9,7 @@ from src.baseline1.extended_model import ExtendedModel
 from src.utils.train_test.train_step import train_step
 from src.utils.train_test.test_step import test_step
 
-from src.utils.config_utils import load_config
+from src.utils.config_utils.load_config import load_config
 CONFIG = load_config()
 
 # Data transformation
