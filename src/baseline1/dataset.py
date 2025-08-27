@@ -59,7 +59,7 @@ class B1Dataset(Dataset):
 
                 for _, category in clip_category_dict.items():
                     classes.append(category)
-                print(f"[INFO] Video #{idx}, Number of items in Classes list: {len(classes)}")
+                # print(f"[INFO] Video #{idx}, Number of items in Classes list: {len(classes)}")
                 
         numeric_labels = [data_classes[label] for label in classes]
         return numeric_labels
@@ -80,5 +80,5 @@ class B1Dataset(Dataset):
 
 if __name__ == "__main__":
     dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[0, 1, 2])
-    dataset.print_info()
-    print(f"First image class: {dataset[0][1]}")
+    # dataset.print_info()
+    # print(f"First image class: {dataset[0][1]}")
