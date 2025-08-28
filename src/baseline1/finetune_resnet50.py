@@ -21,8 +21,8 @@ transform = transforms.Compose([
 ])
 
 batch_size = CONFIG["TRAINING_PARAMS"]["batch_size"]
-train_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["train_ids"], transform=transform)
-test_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["val_ids"], transform=transform)
+train_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[1, 3], transform=transform)
+test_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[0], transform=transform)
 
 trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 testloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
