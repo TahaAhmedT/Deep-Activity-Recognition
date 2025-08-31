@@ -62,6 +62,24 @@ class B1Dataset(Dataset):
         print(f"Number of Images: {len(self.get_images())}")
         print(f"Number of Classes: {len(self.get_classes())}")
 
+    def prepare_data(self):
+        # 1. Merge two dicts by keys (images, classes)
+        # Sort by keys to keep consistent order
+        keys = sorted(self.get_images().keys())
+
+        self.images = [self.get_images()[k] for k in keys]
+        self.labels = [self.get_classes()[k] for k in keys]
+
+        print("Images:", self.images)
+        print("Labels:", self.labels)
+
+        # 2. Convert labels to numeric
+        categories_dict = CONFIG["CATEGORIES_DICT"]
+        self.labels_numeric = [categories_dict[label] for label in self.labels]
+
+        print("Numeric labels:", self.labels_numeric)
+
+
     def __len__(self):
         return len(self.get_images())
 
