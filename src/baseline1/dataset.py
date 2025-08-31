@@ -86,13 +86,14 @@ class B1Dataset(Dataset):
     def __getitem__(self, index):
         if index < 0 or index >= len(self.get_images()):
             raise IndexError("Index out of range")
-        image = Image.open(self.get_images()[index]).convert('RGB')
+        image_path = self.images[index]
+        label = self.labels_numeric[index]
 
+        img = Image.open(image_path).convert("RGB")
         if self.transform:
-            image = self.transform(image)
-
-        label = self.get_classes()[index]
-        return image, label
+            img = self.transform(img)
+        
+        return img, label
     
 
 if __name__ == "__main__":
