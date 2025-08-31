@@ -99,4 +99,5 @@ class B1Dataset(Dataset):
 if __name__ == "__main__":
     dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[0, 1, 2])
     # dataset.print_info()
+    dataset.prepare_data()
     # print(f"First image class: {dataset[0][1]}")
