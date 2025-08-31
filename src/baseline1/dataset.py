@@ -42,8 +42,7 @@ class B1Dataset(Dataset):
         return images_dict
 
     def get_classes(self):
-        data_classes = CONFIG["CATEGORIES_DICT"]
-        classes = []
+        classes_dict = {}
         videos_dirs = os.listdir(self.videos_root)
         videos_dirs.sort()
 
@@ -54,12 +53,10 @@ class B1Dataset(Dataset):
                 video_annot = os.path.join(video_dir_path, 'annotations.txt')
                 clip_category_dict = load_video_annot(video_annot)
 
-                for _, category in clip_category_dict.items():
-                    classes.append(category)
-                # print(f"[INFO] Video #{idx}, Number of items in Classes list: {len(classes)}")
-                
-        numeric_labels = [data_classes[label] for label in classes]
-        return numeric_labels
+                for clip, category in clip_category_dict.items():
+                    classes_dict[clip] = category
+
+        return classes_dict
 
     def print_info(self):
         print(f"Number of Images: {len(self.get_images())}")
