@@ -13,7 +13,7 @@ class B1Dataset(Dataset):
         self.transform = transform
 
     def get_images(self):
-        images = []
+        images_dict = {}
         videos_dirs = os.listdir(self.videos_root)
         videos_dirs.sort()
 
@@ -37,10 +37,10 @@ class B1Dataset(Dataset):
                     for img in os.listdir(clip_dir_path):
                         img_path = os.path.join(clip_dir_path, img)
                         if img.endswith('.jpg') and img[:-4] == clip_dir:
-                            images.append(img_path)
+                            images_dict[clip_dir] = img_path
                             break  # Stop after finding the first matching image (there is only one per clip)
-        return images
-    
+        return images_dict
+
     def get_classes(self):
         data_classes = CONFIG["CATEGORIES_DICT"]
         classes = []
@@ -53,9 +53,6 @@ class B1Dataset(Dataset):
                 
                 video_annot = os.path.join(video_dir_path, 'annotations.txt')
                 clip_category_dict = load_video_annot(video_annot)
-
-                # clips_dir = os.listdir(video_dir_path)
-                # clips_dir.sort()
 
                 for _, category in clip_category_dict.items():
                     classes.append(category)
