@@ -39,6 +39,7 @@ class B1Dataset(Dataset):
                         if img.endswith('.jpg') and img[:-4] == clip_dir:
                             images_dict[clip_dir] = img_path
                             break  # Stop after finding the first matching image (there is only one per clip)
+        images_dict = {int(k):v for k,v in images_dict.items()}
         return images_dict
 
     def get_classes(self):
@@ -97,7 +98,7 @@ class B1Dataset(Dataset):
     
 
 if __name__ == "__main__":
-    dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[0, 1, 2])
+    dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[0])
     # dataset.print_info()
     dataset.prepare_data()
     # print(f"First image class: {dataset[0][1]}")
