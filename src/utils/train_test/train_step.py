@@ -12,7 +12,7 @@ def train_step(model: torch.nn.Module,
     model.train()
     
     # TorchMetrics Accuracy (for multiclass classification)
-    metric_acc = Accuracy(task="multiclass", num_classes=model.fc.out_features).to(device)
+    metric_acc = Accuracy(task="multiclass", num_classes=8).to(device)
     
     for batch_idx, (data, target) in enumerate(data_loader):
         data, target = data.to(device), target.to(device)

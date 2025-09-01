@@ -11,7 +11,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     model.eval()
     
     # TorchMetrics Accuracy (multiclass)
-    metric_acc = Accuracy(task="multiclass", num_classes=model.fc.out_features).to(device)
+    metric_acc = Accuracy(task="multiclass", num_classes=8).to(device)
     
     with torch.inference_mode():
         for data, target in data_loader:
