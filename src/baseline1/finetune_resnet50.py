@@ -19,10 +19,12 @@ transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
+print("[INFO] After transforms")
 
 batch_size = CONFIG["TRAINING_PARAMS"]["batch_size"]
-train_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[1, 3], transform=transform)
-test_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[0], transform=transform)
+train_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["train_ids"], transform=transform)
+test_dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["val_ids"], transform=transform)
+print("[INFO] After initialize the dataset class")
 
 trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 testloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
@@ -46,6 +48,7 @@ optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), l
 
 # Training  and Testing Loop
 NUM_EPOCHS = CONFIG["TRAINING_PARAMS"]["num_epochs"]
+print("[INFO] Before for loooooooooooooop")
 for epoch in range(NUM_EPOCHS):
     print(f"Epoch {epoch+1}\n-----------------------")
     # Training step
