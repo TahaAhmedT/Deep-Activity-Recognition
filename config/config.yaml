@@ -9,7 +9,7 @@ TARGET_VIDEOS:
 TRAINING_PARAMS:
   batch_size: 32
   lr: 0.001
-  num_epochs: 5
+  num_epochs: 10
 
 CATEGORIES_DICT: {
         'l-pass': 0,
