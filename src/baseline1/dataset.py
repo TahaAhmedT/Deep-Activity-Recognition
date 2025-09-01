@@ -12,6 +12,8 @@ class B1Dataset(Dataset):
         self.target_videos = target_videos
         self.transform = transform
 
+        self.prepare_data()
+
     def get_images(self):
         images_dict = {}
         videos_dirs = os.listdir(self.videos_root)
@@ -71,15 +73,9 @@ class B1Dataset(Dataset):
         self.images = [self.get_images()[k] for k in keys]
         self.labels = [self.get_classes()[k] for k in keys]
 
-        print("Images:", self.images)
-        print("Labels:", self.labels)
-
         # 2. Convert labels to numeric
         categories_dict = CONFIG["CATEGORIES_DICT"]
         self.labels_numeric = [categories_dict[label] for label in self.labels]
-
-        print("Numeric labels:", self.labels_numeric)
-
 
     def __len__(self):
         return len(self.get_images())
