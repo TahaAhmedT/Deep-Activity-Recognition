@@ -1,27 +1,34 @@
 import torch
+from torchmetrics.classification import Accuracy
 
-def test_step(data_loader: torch.utils.data.DataLoader,
-              model: torch.nn.Module,
-              loss_fn: torch.nn.Module,
+def test_step(data_loader: torch.utils.data.DataLoader, 
+              model: torch.nn.Module, 
+              loss_fn: torch.nn.Module, 
               device: torch.device):
-    test_loss, test_acc = 0, 0
+    
+    test_loss = 0.0
     model.to(device)
-    model.eval() # Put model in eval mode
-
-    # Turn on inference context manager
+    model.eval()
+    
+    # TorchMetrics Accuracy (multiclass)
+    metric_acc = Accuracy(task="multiclass", num_classes=model.fc.out_features).to(device)
+    
     with torch.inference_mode():
         for data, target in data_loader:
-            # Send data to GPU
             data, target = data.to(device), target.to(device)
 
             # 1. Forward pass
             test_pred = model(data)
 
-            # 2. Calculate loss and accuracy
-            test_loss += loss_fn(test_pred, target)
-            test_acc += (test_pred.argmax(dim=1) == target).sum().item()
-            
-        # Adjust metrics and print out
-        test_loss /= len(data_loader)
-        test_acc /= len(data_loader)
-        print(f"Test Loss: {test_loss:.5f} | Test Accuracy: {test_acc:.2f}%\n")
+            # 2. Loss
+            loss = loss_fn(test_pred, target)
+            test_loss += loss.item()
+
+            # 3. Update accuracy
+            metric_acc.update(test_pred, target)
+
+    # Compute final metrics
+    epoch_loss = test_loss / len(data_loader)
+    epoch_acc = metric_acc.compute().item() * 100  # %
+    
+    print(f"Test Loss: {epoch_loss:.5f} | Test Accuracy: {epoch_acc:.2f}%\n")
