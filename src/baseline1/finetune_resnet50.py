@@ -31,9 +31,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 original_model = resnet50(pretrained=True)
 
-# Remove the last 4 main blocks (layer3, layer4, avgpool, fc)
-layers = list(original_model.children())[:-4]
-# By debugging: our last layer's shape: 512 * 28 * 28
+# Remove the last main blocks (fc)
+layers = list(original_model.children())[:-1]
+
 
 # Create a new model with the modified layers
 truncated_model = nn.Sequential(*layers)
