@@ -12,17 +12,20 @@ class B1Dataset(Dataset):
         self.target_videos = target_videos
         self.transform = transform
 
-        self.prepare_data()
+        self.get_images_paths_labels()
 
-    def get_images(self):
-        images_dict = {}
+    def get_images_paths_labels(self):
+        self.dataset = []
         videos_dirs = os.listdir(self.videos_root)
         videos_dirs.sort()
 
-        # Iterate on each video, in each video: iterate on each clip, in each clip: iterate on each image untill find the image that has the same id like the clip
+        # Iterate on each video, in each video: iterate on each clip, in each clip: iterate on each image, append it and its category to dataset list
         for idx, video_dir in enumerate(videos_dirs):
             if idx in self.target_videos:
                 video_dir_path = os.path.join(self.videos_root, video_dir)
+
+                video_annot = os.path.join(video_dir_path, 'annotations.txt')
+                clip_category_dict = load_video_annot(video_annot)
 
                 if not os.path.isdir(video_dir_path):
                     continue
@@ -38,53 +41,16 @@ class B1Dataset(Dataset):
 
                     for img in os.listdir(clip_dir_path):
                         img_path = os.path.join(clip_dir_path, img)
-                        if img.endswith('.jpg') and img[:-4] == clip_dir:
-                            images_dict[clip_dir] = img_path
-                            break  # Stop after finding the first matching image (there is only one per clip)
-        images_dict = {int(k):v for k,v in images_dict.items()}
-        return images_dict
-
-    def get_classes(self):
-        classes_dict = {}
-        videos_dirs = os.listdir(self.videos_root)
-        videos_dirs.sort()
-
-        for idx, video_dir in enumerate(videos_dirs):
-            if idx in self.target_videos:
-                video_dir_path = os.path.join(self.videos_root, video_dir)
-                
-                video_annot = os.path.join(video_dir_path, 'annotations.txt')
-                clip_category_dict = load_video_annot(video_annot)
-
-                for clip, category in clip_category_dict.items():
-                    classes_dict[clip] = category
-
-        return classes_dict
-
-    def print_info(self):
-        print(f"Number of Images: {len(self.get_images())}")
-        print(f"Number of Classes: {len(self.get_classes())}")
-
-    def prepare_data(self):
-        # 1. Merge two dicts by keys (images, classes)
-        # Sort by keys to keep consistent order
-        keys = sorted(self.get_images().keys())
-
-        self.images = [self.get_images()[k] for k in keys]
-        self.labels = [self.get_classes()[k] for k in keys]
-
-        # 2. Convert labels to numeric
-        categories_dict = CONFIG["CATEGORIES_DICT"]
-        self.labels_numeric = [categories_dict[label] for label in self.labels]
+                        label = CONFIG["CATEGORIES_DICT"][clip_category_dict[clip_dir]]
+                        self.dataset.append((img_path, label))
 
     def __len__(self):
-        return len(self.get_images())
+        return len(self.dataset)
 
     def __getitem__(self, index):
-        if index < 0 or index >= len(self.get_images()):
+        if index < 0 or index >= len(self.dataset):
             raise IndexError("Index out of range")
-        image_path = self.images[index]
-        label = self.labels_numeric[index]
+        image_path, label = self.dataset[index]
 
         img = Image.open(image_path).convert("RGB")
         if self.transform:
@@ -95,6 +61,3 @@ class B1Dataset(Dataset):
 
 if __name__ == "__main__":
     dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[0])
-    # dataset.print_info()
-    dataset.prepare_data()
-    # print(f"First image class: {dataset[0][1]}")
