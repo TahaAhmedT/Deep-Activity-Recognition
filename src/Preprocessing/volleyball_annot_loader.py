@@ -55,8 +55,6 @@ def vis_clip(annot_path, video_dir):
         cv2.waitKey(180)
     cv2.destroyAllWindows()
 
-
-
 def load_video_annot(video_annot):
     with open(video_annot, 'r') as file:
         clip_category_dct = {}
@@ -65,11 +63,8 @@ def load_video_annot(video_annot):
             items = line.strip().split(' ')[:2]
             clip_dir = items[0].replace('.jpg', '')
             clip_category_dct[clip_dir] = items[1]
-            clip_category_dct = {int(k):v for k,v in clip_category_dct.items()}
 
-        # print(f"[INFO] Dictionary Length: {len(clip_category_dct)}")
-        return collections.OrderedDict(sorted(clip_category_dct.items()))
-
+        return clip_category_dct
 
 def load_volleyball_dataset(videos_root, annot_root):
     videos_dirs = os.listdir(videos_root)
