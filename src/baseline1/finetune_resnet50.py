@@ -94,7 +94,7 @@ def main(verbose=True):
         verbose (bool): If True, prints info logs.
     """
     CONFIG = load_config()
-    log_stream(log_file="finetune_resnet50_logs", prog="baselines_logs/baseline1")
+    log_stream(log_file="finetune_resnet50_logs", prog="baselines_logs/baseline1_logs")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if verbose:
         print(f"[INFO] Using device: {device}")
@@ -130,4 +130,4 @@ def main(verbose=True):
             print("[INFO] Testing step completed.")
 
 if __name__ == "__main__":
-    main(verbose=False)
+    main()
