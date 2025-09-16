@@ -29,7 +29,7 @@ class B1Dataset(Dataset):
         self.videos_root = videos_root
         self.target_videos = target_videos
         self.transform = transform
-        self.verbose = CONFIG.get("verbose", False)
+        self.verbose = True
 
         if self.verbose:
             print("[INFO] Initializing B1Dataset...")
