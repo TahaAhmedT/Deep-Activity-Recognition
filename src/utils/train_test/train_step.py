@@ -5,17 +5,32 @@ def train_step(model: torch.nn.Module,
                data_loader: torch.utils.data.DataLoader, 
                loss_fn: torch.nn.Module, 
                optimizer: torch.optim.Optimizer, 
-               device: torch.device):
-    
+               device: torch.device,
+               verbose: bool = False):
+    """Runs a training step for one epoch.
+
+    Args:
+        model (torch.nn.Module): Model to train.
+        data_loader (torch.utils.data.DataLoader): DataLoader for training data.
+        loss_fn (torch.nn.Module): Loss function.
+        optimizer (torch.optim.Optimizer): Optimizer for training.
+        device (torch.device): Device to run training on.
+        verbose (bool, optional): If True, prints info logs. Defaults to False.
+
+    Returns:
+        tuple: (epoch_loss, epoch_acc)
+    """
     train_loss = 0.0
     model.to(device)
     model.train()
-    
+
     # TorchMetrics Accuracy (for multiclass classification)
     metric_acc = Accuracy(task="multiclass", num_classes=8).to(device)
     
     for batch_idx, (data, target) in enumerate(data_loader):
         data, target = data.to(device), target.to(device)
+        if verbose:
+            print(f"[INFO] Training batch {batch_idx+1}/{len(data_loader)}")
 
         # 1. Forward pass
         y_pred = model(data)
@@ -37,3 +52,6 @@ def train_step(model: torch.nn.Module,
     epoch_acc = metric_acc.compute().item() * 100  # convert to %
     
     print(f"Train Loss: {epoch_loss:.5f} | Train Accuracy: {epoch_acc:.2f}%")
+    if verbose:
+        print(f"[INFO] Final Train Loss: {epoch_loss:.5f}, Train Accuracy: {epoch_acc:.2f}%")
+    return epoch_loss, epoch_acc
