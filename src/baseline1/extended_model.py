@@ -1,16 +1,43 @@
 import torch.nn as nn
 
-# Extend the truncated model with custom layers
 class ExtendedModel(nn.Module):
-    def __init__(self, backbone):
+    """Extended model that adds a custom classification layer to a backbone.
+
+    Attributes:
+        backbone (nn.Module): Feature extractor (e.g., truncated ResNet).
+        fc_layer (nn.Sequential): Fully connected layer for classification.
+        verbose (bool): If True, prints info logs.
+    """
+
+    def __init__(self, backbone, verbose=False):
+        """
+        Args:
+            backbone (nn.Module): Feature extractor model.
+            verbose (bool, optional): If True, prints info logs. Defaults to False.
+        """
         super(ExtendedModel, self).__init__()
         self.backbone = backbone
         self.fc_layer = nn.Sequential(
-            nn.Linear(2048, 8)  # we have 8 classes in our dataset
+            nn.Linear(2048, 8)  # 8 classes in the dataset
         )
+        self.verbose = verbose
+        if self.verbose:
+            print("[INFO] ExtendedModel initialized with backbone and FC layer.")
 
     def forward(self, x):
+        """Forward pass through the backbone and classification layer.
+
+        Args:
+            x (torch.Tensor): Input tensor.
+
+        Returns:
+            torch.Tensor: Output logits for classification.
+        """
+        if self.verbose:
+            print(f"[INFO] Forward pass with input shape: {x.shape}")
         x = self.backbone(x)
         x = x.view(x.size(0), -1)
         x = self.fc_layer(x)
+        if self.verbose:
+            print(f"[INFO] Output shape after FC layer: {x.shape}")
         return x
