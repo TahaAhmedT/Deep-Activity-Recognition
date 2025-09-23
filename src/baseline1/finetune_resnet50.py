@@ -9,7 +9,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import transforms
-from torchvision.models import resnet50
+from torchvision.models import resnet50, ResNet50_Weights
 from torch.utils.data import DataLoader
 
 def get_data_loaders(config, verbose=False):
@@ -58,7 +58,7 @@ def get_model(verbose=False):
     """
     if verbose:
         print("[INFO] Initializing ResNet50 model...")
-    original_model = resnet50(pretrained=True)
+    original_model = resnet50(weights=ResNet50_Weights.DEFAULT, progress=verbose)
     layers = list(original_model.children())[:-1]
     truncated_model = nn.Sequential(*layers)
     model = ExtendedModel(truncated_model)
@@ -80,9 +80,7 @@ def get_optimizer(model, config, verbose=False):
     if verbose:
         print("[INFO] Creating optimizer...")
     lr = config["TRAINING_PARAMS"]["lr"]
-    optimizer = optim.AdamW(
-        filter(lambda p: p.requires_grad, model.parameters()), lr=lr
-    )
+    optimizer = optim.AdamW(model.parameters(), lr=lr)
     if verbose:
         print(f"[INFO] Optimizer created with learning rate {lr}.")
     return optimizer
@@ -94,7 +92,7 @@ def main(verbose=True):
         verbose (bool): If True, prints info logs.
     """
     CONFIG = load_config()
-    log_stream(log_file="finetune_resnet50_logs", prog="baselines_logs/baseline1_logs")
+    log_stream(log_file="finetune_resnet50_logs", prog="baselines_logs/baseline1_logs", verbose=True)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if verbose:
         print(f"[INFO] Using device: {device}")
