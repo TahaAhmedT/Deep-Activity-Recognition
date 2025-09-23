@@ -5,7 +5,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
               model: torch.nn.Module, 
               loss_fn: torch.nn.Module, 
               device: torch.device,
-              verbose: bool = False):
+              verbose: bool = True):
     """Runs a test/validation step for one epoch.
 
     Args:
@@ -40,6 +40,8 @@ def test_step(data_loader: torch.utils.data.DataLoader,
 
             # 3. Update accuracy
             metric_acc.update(test_pred, target)
+            if verbose:
+                print(f"batch #{batch_idx+1} Loss: {loss}")
 
     # Compute final metrics
     epoch_loss = test_loss / len(data_loader)

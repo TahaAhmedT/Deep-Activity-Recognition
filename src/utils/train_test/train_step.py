@@ -6,7 +6,7 @@ def train_step(model: torch.nn.Module,
                loss_fn: torch.nn.Module, 
                optimizer: torch.optim.Optimizer, 
                device: torch.device,
-               verbose: bool = False):
+               verbose: bool = True):
     """Runs a training step for one epoch.
 
     Args:
@@ -46,6 +46,9 @@ def train_step(model: torch.nn.Module,
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+
+        if verbose:
+            print(f"batch #{batch_idx+1} Loss: {loss}")
 
     # Compute final metrics
     epoch_loss = train_loss / len(data_loader)
