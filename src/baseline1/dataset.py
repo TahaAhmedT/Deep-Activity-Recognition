@@ -6,7 +6,7 @@ from src.utils.config_utils.load_config import load_config
 from src.utils.stream_utils.stream_utils import log_stream
 
 CONFIG = load_config()
-log_stream("Dataset_logs", prog="baselines_logs/baseline1_logs")
+log_stream("Dataset_logs", prog="baselines_logs/baseline1_logs", verbose=True)
 
 class B1Dataset(Dataset):
     """Custom Dataset for loading volleyball video frames and labels.
@@ -29,7 +29,7 @@ class B1Dataset(Dataset):
         self.videos_root = videos_root
         self.target_videos = target_videos
         self.transform = transform
-        self.verbose = True
+        self.verbose = False
 
         if self.verbose:
             print("[INFO] Initializing B1Dataset...")
@@ -64,11 +64,15 @@ class B1Dataset(Dataset):
 
                     if not os.path.isdir(clip_dir_path):
                         continue
+                    
+                    imgs_list = os.listdir(clip_dir_path)
+                    mid_idx = len(imgs_list) // 2
 
-                    for img in os.listdir(clip_dir_path):
+                    for img in imgs_list[mid_idx-5: mid_idx+5]:
                         img_path = os.path.join(clip_dir_path, img)
                         label = CONFIG["CATEGORIES_DICT"][clip_category_dict[clip_dir]]
                         self.dataset.append((img_path, label))
+
         if self.verbose:
             print(f"[INFO] Collected {len(self.dataset)} image-label pairs.")
 
@@ -101,4 +105,4 @@ class B1Dataset(Dataset):
         return img, label
 
 if __name__ == "__main__":
-    dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=[0])
+    dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["train_ids"])
