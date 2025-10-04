@@ -3,10 +3,9 @@ import os
 from PIL import Image
 from src.Preprocessing.volleyball_annot_loader import load_video_annot
 from src.utils.config_utils.load_config import load_config
-from src.utils.stream_utils.stream_utils import log_stream
+from src.utils.logging_utils.logging_utils import setup_logger
 
 CONFIG = load_config()
-log_stream("Dataset_logs", prog="baselines_logs/baseline1_logs", verbose=True)
 
 class B1Dataset(Dataset):
     """Custom Dataset for loading volleyball video frames and labels.
@@ -30,17 +29,22 @@ class B1Dataset(Dataset):
         self.target_videos = target_videos
         self.transform = transform
         self.verbose = False
+        self.logger = setup_logger(
+            log_file=__file__,
+            log_dir="logs/baselines_logs_baseline1_logs",
+            log_to_console=self.verbose,
+            use_tqdm=True,
+        )
+        self.logger.info("Initializing B1Dataset Module...")
 
-        if self.verbose:
-            print("[INFO] Initializing B1Dataset...")
         self.get_images_paths_labels()
-        if self.verbose:
-            print(f"[INFO] B1Dataset initialized with {len(self.dataset)} samples.")
+        self.logger.info(f"[INFO] B1Dataset initialized with {len(self.dataset)} samples.")
 
     def get_images_paths_labels(self):
         """Populates self.dataset with image paths and labels."""
-        if self.verbose:
-            print("[INFO] Collecting image paths and labels...")
+
+        self.logger.info("[INFO] Collecting image paths and labels...")
+
         self.dataset = []
         videos_dirs = os.listdir(self.videos_root)
         videos_dirs.sort()
@@ -73,8 +77,7 @@ class B1Dataset(Dataset):
                         label = CONFIG["CATEGORIES_DICT"][clip_category_dict[clip_dir]]
                         self.dataset.append((img_path, label))
 
-        if self.verbose:
-            print(f"[INFO] Collected {len(self.dataset)} image-label pairs.")
+        self.logger.info(f"[INFO] Collected {len(self.dataset)} image-label pairs.")
 
     def __len__(self):
         """Returns the number of samples in the dataset.
@@ -97,8 +100,6 @@ class B1Dataset(Dataset):
             raise IndexError("Index out of range")
         image_path, label = self.dataset[index]
 
-        if self.verbose:
-            print(f"[INFO] Loading image at index {index}: {image_path}")
         img = Image.open(image_path).convert("RGB")
         if self.transform:
             img = self.transform(img)
