@@ -40,7 +40,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
 
             # 3. Update accuracy
             metric_acc.update(test_pred, target)
-            if verbose:
+            if verbose and (batch_idx + 1) % 20 == 0:
                 print(f"batch #{batch_idx+1} Loss: {loss}")
 
     # Compute final metrics

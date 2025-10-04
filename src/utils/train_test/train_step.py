@@ -47,7 +47,7 @@ def train_step(model: torch.nn.Module,
         loss.backward()
         optimizer.step()
 
-        if verbose:
+        if verbose and (batch_idx + 1) % 20 == 0:
             print(f"batch #{batch_idx+1} Loss: {loss}")
 
     # Compute final metrics
