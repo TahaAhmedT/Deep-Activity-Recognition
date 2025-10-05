@@ -1,3 +1,5 @@
+from src.utils.logging_utils.logging_utils import setup_logger
+
 import torch
 from torchmetrics.classification import Accuracy
 
@@ -20,6 +22,12 @@ def train_step(model: torch.nn.Module,
     Returns:
         tuple: (epoch_loss, epoch_acc)
     """
+    logger = setup_logger(
+            log_file=__file__,
+            log_dir="logs\baselines_logs\baseline1_logs",
+            log_to_console=verbose,
+            use_tqdm=True,
+        )
     train_loss = 0.0
     model.to(device)
     model.train()
@@ -29,8 +37,6 @@ def train_step(model: torch.nn.Module,
     
     for batch_idx, (data, target) in enumerate(data_loader):
         data, target = data.to(device), target.to(device)
-        if verbose:
-            print(f"[INFO] Training batch {batch_idx+1}/{len(data_loader)}")
 
         # 1. Forward pass
         y_pred = model(data)
@@ -47,14 +53,13 @@ def train_step(model: torch.nn.Module,
         loss.backward()
         optimizer.step()
 
-        if verbose and (batch_idx + 1) % 20 == 0:
-            print(f"batch #{batch_idx+1} Loss: {loss}")
+        if (batch_idx + 1) % 100 == 0:
+            print(f"batch #{batch_idx+1}/{len(data_loader)} Loss: {loss}")
 
     # Compute final metrics
     epoch_loss = train_loss / len(data_loader)
     epoch_acc = metric_acc.compute().item() * 100  # convert to %
     
-    print(f"Train Loss: {epoch_loss:.5f} | Train Accuracy: {epoch_acc:.2f}%")
-    if verbose:
-        print(f"[INFO] Final Train Loss: {epoch_loss:.5f}, Train Accuracy: {epoch_acc:.2f}%")
+    logger.info(f"Train Loss: {epoch_loss:.5f} | Train Accuracy: {epoch_acc:.2f}%")
+    
     return epoch_loss, epoch_acc
