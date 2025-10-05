@@ -2,6 +2,7 @@ from src.baseline1.dataset import B1Dataset
 from src.baseline1.extended_model import ExtendedModel
 from src.utils.train_test.train_step import train_step
 from src.utils.train_test.test_step import test_step
+from src.utils.checkpoints_utils.checkpoints_utils import save_checkpoint
 from src.utils.config_utils.load_config import load_config
 from src.utils.logging_utils.logging_utils import setup_logger
 
@@ -117,7 +118,7 @@ def main(verbose=True):
         logger.info(f"Epoch {epoch+1}\n-----------------------")
         # Training step
         logger.info("[INFO] Starting training step...")
-        train_loss, train_acc = train_step(
+        model, train_loss, train_acc = train_step(
             data_loader=trainloader,
             model=model,
             loss_fn=criterion,
@@ -126,6 +127,18 @@ def main(verbose=True):
             device=device
         )
         logger.info("[INFO] Training step completed.")
+
+        if (epoch + 1) % 2 == 0:
+            logger.info("[INFO] Saving model checkpoint...")
+            checkpoint = {
+                'state_dict': model.state_dict(),
+                'optimizer': optimizer.state_dict(),
+                'loss': train_loss,
+                'acc': train_acc
+            }
+            save_checkpoint(checkpoint, f"models\b1_models\checkpoints\epoch_{epoch}.pth")
+            logger.info(f"[INFO] Model checkpoint saved at epoch {epoch+1}/{num_epochs}.")
+
         logger.info("[INFO] Starting testing step...")
         # Testing step
         test_loss, test_acc, test_f1_score = test_step(
