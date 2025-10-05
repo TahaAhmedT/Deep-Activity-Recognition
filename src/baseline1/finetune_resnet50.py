@@ -8,6 +8,7 @@ from src.utils.logging_utils.logging_utils import setup_logger
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torchvision import transforms
 from torchvision.models import resnet50, ResNet50_Weights
 from torch.utils.data import DataLoader
@@ -70,7 +71,7 @@ def get_model(verbose=False):
     logger.info("[INFO] Model initialized and truncated.")
     return model
 
-def get_optimizer(model, config, verbose=False):
+def get_optimizer(model, config):
     """Creates the optimizer for training.
 
     Args:
@@ -84,9 +85,11 @@ def get_optimizer(model, config, verbose=False):
     logger.info("[INFO] Creating optimizer...")
     lr = config["TRAINING_PARAMS"]["lr"]
     optimizer = optim.AdamW(model.parameters(), lr=lr)
+    scheduler = ReduceLROnPlateau(optimizer, "min")
     logger.info("[INFO] Optimizer created: AdamW Optimizer.")
-    logger.info(f"[INFO] Learning Rate: {lr}.")
-    return optimizer
+    logger.info("[INFO] Learning Rate Scheduler Created: ReduceLROnPlateau.")
+    logger.info(f"[INFO] Initial Learning Rate: {lr}.")
+    return optimizer, scheduler
 
 def main(verbose=True):
     """Main function to run training and testing loop.
@@ -100,7 +103,7 @@ def main(verbose=True):
     trainloader, testloader = get_data_loaders(CONFIG, verbose=verbose)
     model = get_model(verbose=verbose)
     criterion = nn.CrossEntropyLoss()
-    optimizer = get_optimizer(model, CONFIG, verbose=verbose)
+    optimizer, scheduler = get_optimizer(model, CONFIG)
     num_epochs = CONFIG["TRAINING_PARAMS"]["num_epochs"]
     logger.info(f"[INFO] Starting Training and Testing with number of epochs = {num_epochs}")
 
@@ -119,6 +122,7 @@ def main(verbose=True):
             model=model,
             loss_fn=criterion,
             optimizer=optimizer,
+            scheduler=scheduler,
             device=device
         )
         logger.info("[INFO] Training step completed.")
