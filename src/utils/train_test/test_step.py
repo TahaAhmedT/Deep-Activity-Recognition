@@ -1,4 +1,7 @@
+from src.utils.logging_utils.logging_utils import setup_logger
+
 import torch
+from torcheval.metrics.functional import multiclass_f1_score
 from torchmetrics.classification import Accuracy
 
 def test_step(data_loader: torch.utils.data.DataLoader, 
@@ -18,7 +21,15 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     Returns:
         tuple: (epoch_loss, epoch_acc)
     """
+    logger = setup_logger(
+            log_file=__file__,
+            log_dir="logs\baselines_logs\baseline1_logs",
+            log_to_console=verbose,
+            use_tqdm=True,
+        )
     test_loss = 0.0
+    y_true = []
+    y_test = []
     model.to(device)
     model.eval()
 
@@ -28,8 +39,6 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     with torch.inference_mode():
         for batch_idx, (data, target) in enumerate(data_loader):
             data, target = data.to(device), target.to(device)
-            if verbose:
-                print(f"[INFO] Testing batch {batch_idx+1}/{len(data_loader)}")
 
             # 1. Forward pass
             test_pred = model(data)
@@ -38,16 +47,21 @@ def test_step(data_loader: torch.utils.data.DataLoader,
             loss = loss_fn(test_pred, target)
             test_loss += loss.item()
 
+            y_true.extend(target.cpu().numpy())
+            y_test.extend(torch.argmax(test_pred, dim=1).cpu().numpy())
+
             # 3. Update accuracy
             metric_acc.update(test_pred, target)
-            if verbose and (batch_idx + 1) % 20 == 0:
-                print(f"batch #{batch_idx+1} Loss: {loss}")
+            if (batch_idx + 1) % 100 == 0:
+                logger.info(f"batch #{batch_idx+1}/{len(data_loader)} Loss: {loss}")
 
     # Compute final metrics
+    y_true = torch.tensor(y_true)
+    y_test = torch.tensor(y_test)
+    epoch_f1_score = multiclass_f1_score(y_test, y_true, num_classes=8)
     epoch_loss = test_loss / len(data_loader)
     epoch_acc = metric_acc.compute().item() * 100  # %
     
-    print(f"Test Loss: {epoch_loss:.5f} | Test Accuracy: {epoch_acc:.2f}%\n")
-    if verbose:
-        print(f"[INFO] Final Test Loss: {epoch_loss:.5f}, Test Accuracy: {epoch_acc:.2f}%")
-    return epoch_loss, epoch_acc
+    logger.info(f"Test Loss: {epoch_loss:.5f} | Test Accuracy: {epoch_acc:.2f}% | Test F1-score: {epoch_f1_score}\n")
+
+    return epoch_f1_score, epoch_loss, epoch_acc
