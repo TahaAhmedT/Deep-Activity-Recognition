@@ -11,6 +11,7 @@ import torch.optim as optim
 from torchvision import transforms
 from torchvision.models import resnet50, ResNet50_Weights
 from torch.utils.data import DataLoader
+import csv
 
 logger = setup_logger(
             log_file=__file__,
@@ -103,11 +104,17 @@ def main(verbose=True):
     num_epochs = CONFIG["TRAINING_PARAMS"]["num_epochs"]
     logger.info(f"[INFO] Starting Training and Testing with number of epochs = {num_epochs}")
 
+    # Create or open a CSV file and define headers
+    logger.info("[INFO] Opening a CSV file to log training metrics.")
+    with open("logs\training_logs\b1_training.csv", mode="w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["epoch", "train_loss", "train_acc", "test_loss", "test_acc", "test_f1"])
+
     for epoch in range(num_epochs):
         logger.info(f"Epoch {epoch+1}\n-----------------------")
         # Training step
         logger.info("[INFO] Starting training step...")
-        train_step(
+        train_loss, train_acc = train_step(
             data_loader=trainloader,
             model=model,
             loss_fn=criterion,
@@ -117,13 +124,19 @@ def main(verbose=True):
         logger.info("[INFO] Training step completed.")
         logger.info("[INFO] Starting testing step...")
         # Testing step
-        test_step(
+        test_loss, test_acc, test_f1_score = test_step(
             data_loader=testloader,
             model=model,
             loss_fn=criterion,
             device=device
         )
         logger.info("[INFO] Testing step completed.")
+        # Append results to CSV
+        logger.info("[INFO] Appending the epoch's metrics to CSV.")
+        with open("logs\training_logs\b1_training.csv", mode="a", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc, test_f1_score])
+        logger.info("[INFO] Epoch's metrics appended successfully!")
 
 if __name__ == "__main__":
     main()
