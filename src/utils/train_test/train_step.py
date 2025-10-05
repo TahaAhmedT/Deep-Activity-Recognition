@@ -6,7 +6,8 @@ from torchmetrics.classification import Accuracy
 def train_step(model: torch.nn.Module, 
                data_loader: torch.utils.data.DataLoader, 
                loss_fn: torch.nn.Module, 
-               optimizer: torch.optim.Optimizer, 
+               optimizer: torch.optim.Optimizer,
+               scheduler: torch.optim.lr_scheduler._LRScheduler,
                device: torch.device,
                verbose: bool = True):
     """Runs a training step for one epoch.
@@ -52,6 +53,7 @@ def train_step(model: torch.nn.Module,
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        scheduler.step()
 
         if (batch_idx + 1) % 100 == 0:
             print(f"batch #{batch_idx+1}/{len(data_loader)} Loss: {loss}")
