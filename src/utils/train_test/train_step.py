@@ -64,4 +64,4 @@ def train_step(model: torch.nn.Module,
     
     logger.info(f"Train Loss: {epoch_loss:.5f} | Train Accuracy: {epoch_acc:.2f}%")
     
-    return epoch_loss, epoch_acc
+    return model, epoch_loss, epoch_acc
