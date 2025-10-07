@@ -38,12 +38,12 @@ class B1Dataset(Dataset):
         self.logger.info("Initializing B1Dataset Module...")
 
         self.get_images_paths_labels()
-        self.logger.info(f"[INFO] B1Dataset initialized with {len(self.dataset)} samples.")
+        self.logger.info(f"B1Dataset initialized with {len(self.dataset)} samples.")
 
     def get_images_paths_labels(self):
         """Populates self.dataset with image paths and labels."""
 
-        self.logger.info("[INFO] Collecting image paths and labels...")
+        self.logger.info("Collecting image paths and labels...")
 
         self.dataset = []
         videos_dirs = os.listdir(self.videos_root)
@@ -77,7 +77,7 @@ class B1Dataset(Dataset):
                         label = CONFIG["CATEGORIES_DICT"][clip_category_dict[clip_dir]]
                         self.dataset.append((img_path, label))
 
-        self.logger.info(f"[INFO] Collected {len(self.dataset)} image-label pairs.")
+        self.logger.info(f"Collected {len(self.dataset)} image-label pairs.")
 
     def __len__(self):
         """Returns the number of samples in the dataset.

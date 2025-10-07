@@ -54,19 +54,19 @@ def main():
     Loads data, prepares results, and generates plots for metrics and confusion matrix.
     """
     # Load metrics data and confusion matrix required data (y_true, y_pred)
-    logger.info("[INFO] Loading Required Data for Visualization...")
+    logger.info("Loading Required Data for Visualization...")
     metrics_data, cm_data = load_data("logs\training_logs\b1_training.csv", "logs\training_logs\b1_test_predictions.csv")
-    logger.info("[INFO] Required Data Loaded Successfully!")
+    logger.info("Required Data Loaded Successfully!")
 
     # Prepare results dict to pass to plotting utils
-    logger.info("[INFO] Preparing Results' Dictionary...")
+    logger.info("Preparing Results' Dictionary...")
     results = prepare_results_dict(metrics_data, cm_data)
-    logger.info("[INFO] Results' Dictionary Prepared Successfully!")
+    logger.info("Results' Dictionary Prepared Successfully!")
 
     # Pass results to plot_results function
-    logger.info("[INFO] Starting Plotting...")
+    logger.info("Starting Plotting...")
     plot_results(results, "assets\baseline1_plots")
-    logger.info("[INFO] Plotting Finished Successfully!")
+    logger.info("Plotting Finished Successfully!")
 
 
 if __name__ == "__main__":
