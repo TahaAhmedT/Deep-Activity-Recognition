@@ -12,10 +12,28 @@ logger = setup_logger(
 
 
 def load_data(metrics_path: str, ys_path: str):
+    """Loads metrics and confusion matrix data from CSV files.
+
+    Args:
+        metrics_path (str): Path to the metrics CSV file.
+        ys_path (str): Path to the CSV file containing y_true and y_pred.
+
+    Returns:
+        tuple: Tuple containing metrics DataFrame and confusion matrix DataFrame.
+    """
     return pd.read_csv(metrics_path), pd.read_csv(ys_path)
 
 
 def prepare_results_dict(metrics_data, cm_data):
+    """Prepares a dictionary of results for plotting.
+
+    Args:
+        metrics_data (pd.DataFrame): DataFrame containing training/testing metrics.
+        cm_data (pd.DataFrame): DataFrame containing true and predicted labels.
+
+    Returns:
+        dict: Dictionary formatted for the plot_results function.
+    """
     results = {"Train_Loss": [metrics_data["train_loss"]],
                "Train_Accuracy": [metrics_data["train_acc"]],
                "Test_Loss": [metrics_data["test_loss"]],
@@ -31,6 +49,10 @@ def prepare_results_dict(metrics_data, cm_data):
 
 
 def main():
+    """Main entry point for plotting baseline1 results.
+
+    Loads data, prepares results, and generates plots for metrics and confusion matrix.
+    """
     # Load metrics data and confusion matrix required data (y_true, y_pred)
     logger.info("[INFO] Loading Required Data for Visualization...")
     metrics_data, cm_data = load_data("logs\training_logs\b1_training.csv", "logs\training_logs\b1_test_predictions.csv")
@@ -49,4 +71,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
