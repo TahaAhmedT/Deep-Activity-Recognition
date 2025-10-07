@@ -141,7 +141,7 @@ def main(verbose=True):
 
         logger.info("[INFO] Starting testing step...")
         # Testing step
-        test_loss, test_acc, test_f1_score = test_step(
+        test_f1_score, test_loss, test_acc = test_step(
             data_loader=testloader,
             model=model,
             loss_fn=criterion,
