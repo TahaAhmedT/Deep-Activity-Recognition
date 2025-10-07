@@ -53,7 +53,7 @@ def train_step(model: torch.nn.Module,
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-        scheduler.step()
+        scheduler.step(loss)
 
         if (batch_idx + 1) % 100 == 0:
             print(f"batch #{batch_idx+1}/{len(data_loader)} Loss: {loss}")
