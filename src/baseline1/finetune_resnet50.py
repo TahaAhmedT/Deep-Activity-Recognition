@@ -176,7 +176,7 @@ def main(verbose=True):
         logger.info("[INFO] Testing step completed.")
         # Append results to CSV
         logger.info("[INFO] Appending the epoch's metrics to CSV.")
-        with open("logs\training_logs\b1_training.csv", mode="a", newline="") as f:
+        with open("logs/training_logs/b1_training.csv", mode="a", newline="") as f:
             writer = csv.writer(f)
             writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc, test_f1_score])
         logger.info("[INFO] Epoch's metrics appended successfully!")
