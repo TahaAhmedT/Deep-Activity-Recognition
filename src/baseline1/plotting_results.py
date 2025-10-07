@@ -1,9 +1,19 @@
 from src.utils.plotting_utils.plotting_utils import plot_results
+from src.utils.logging_utils.logging_utils import setup_logger
 
 import pandas as pd
 
+logger = setup_logger(
+            log_file=__file__,
+            log_dir="logs\baselines_logs\baseline1_logs",
+            log_to_console=True,
+            use_tqdm=True,
+        )
+
+
 def load_data(metrics_path: str, ys_path: str):
     return pd.read_csv(metrics_path), pd.read_csv(ys_path)
+
 
 def prepare_results_dict(metrics_data, cm_data):
     results = {"Train_Loss": [metrics_data["train_loss"]],
@@ -19,13 +29,23 @@ def prepare_results_dict(metrics_data, cm_data):
                }
     return results
 
+
 def main():
     # Load metrics data and confusion matrix required data (y_true, y_pred)
+    logger.info("[INFO] Loading Required Data for Visualization...")
     metrics_data, cm_data = load_data("logs\training_logs\b1_training.csv", "logs\training_logs\b1_test_predictions.csv")
+    logger.info("[INFO] Required Data Loaded Successfully!")
+
     # Prepare results dict to pass to plotting utils
+    logger.info("[INFO] Preparing Results' Dictionary...")
     results = prepare_results_dict(metrics_data, cm_data)
+    logger.info("[INFO] Results' Dictionary Prepared Successfully!")
+
     # Pass results to plot_results function
+    logger.info("[INFO] Starting Plotting...")
     plot_results(results, "assets\baseline1_plots")
+    logger.info("[INFO] Plotting Finished Successfully!")
+
 
 if __name__ == "__main__":
     main()
