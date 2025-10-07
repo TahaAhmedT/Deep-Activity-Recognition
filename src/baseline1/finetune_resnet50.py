@@ -185,7 +185,7 @@ def main(verbose=True):
         "y_true": Y_true,
         "y_pred": Y_pred
     })
-    df.to_csv("logs\training_logs\b1_test_predictions.csv")
+    df.to_csv("logs/training_logs/b1_test_predictions.csv")
 
 if __name__ == "__main__":
     main()
