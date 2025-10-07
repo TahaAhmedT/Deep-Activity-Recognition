@@ -7,6 +7,9 @@ from src.utils.config_utils.load_config import load_config
 from src.utils.logging_utils.logging_utils import setup_logger
 
 import pandas as pd
+import numpy as np
+import random
+import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -93,12 +96,29 @@ def get_optimizer(model, config):
     logger.info(f"[INFO] Initial Learning Rate: {lr}.")
     return optimizer, scheduler
 
+def set_all_seeds(seed_value: int) -> None:
+        """Set random seeds for reproducibility across Python, NumPy, and PyTorch.
+
+        Args:
+            seed_value (int): The seed value to set.
+        """
+
+        logger.info("Setting all seeds...")
+        torch.manual_seed(seed_value)
+        torch.cuda.manual_seed_all(seed_value)
+        np.random.seed(seed_value)
+        random.seed(seed_value)
+        os.environ["PYTHONHASHSEED"] = str(seed_value)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+
 def main(verbose=True):
     """Main function to run training and testing loop.
 
     Args:
         verbose (bool): If True, prints info logs.
     """
+    set_all_seeds(42)
     CONFIG = load_config()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"[INFO] Using device: {device}")
