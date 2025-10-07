@@ -6,6 +6,7 @@ from src.utils.checkpoints_utils.checkpoints_utils import save_checkpoint
 from src.utils.config_utils.load_config import load_config
 from src.utils.logging_utils.logging_utils import setup_logger
 
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -114,6 +115,9 @@ def main(verbose=True):
         writer = csv.writer(f)
         writer.writerow(["epoch", "train_loss", "train_acc", "test_loss", "test_acc", "test_f1"])
 
+    
+    Y_true = []
+    Y_pred = []
     for epoch in range(num_epochs):
         logger.info(f"Epoch {epoch+1}\n-----------------------")
         # Training step
@@ -141,12 +145,14 @@ def main(verbose=True):
 
         logger.info("[INFO] Starting testing step...")
         # Testing step
-        test_f1_score, test_loss, test_acc = test_step(
+        test_f1_score, test_loss, test_acc, y_true, y_pred = test_step(
             data_loader=testloader,
             model=model,
             loss_fn=criterion,
             device=device
         )
+        Y_true.extend(y_true)
+        Y_pred.extend(y_pred)
         logger.info("[INFO] Testing step completed.")
         # Append results to CSV
         logger.info("[INFO] Appending the epoch's metrics to CSV.")
@@ -154,6 +160,12 @@ def main(verbose=True):
             writer = csv.writer(f)
             writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc, test_f1_score])
         logger.info("[INFO] Epoch's metrics appended successfully!")
+    # Save Y_true and Y_pred to CSV (to visualize confusion matrix later)
+    df = pd.DataFrame({
+        "y_true": Y_true,
+        "y_pred": Y_pred
+    })
+    df.to_csv("logs\training_logs\b1_test_predictions.csv")
 
 if __name__ == "__main__":
     main()
