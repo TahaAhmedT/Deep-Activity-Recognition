@@ -131,7 +131,7 @@ def main(verbose=True):
 
     # Create or open a CSV file and define headers
     logger.info("[INFO] Opening a CSV file to log training metrics.")
-    with open("logs\training_logs\b1_training.csv", mode="w", newline="") as f:
+    with open("logs/training_logs/b1_training.csv", mode="w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["epoch", "train_loss", "train_acc", "test_loss", "test_acc", "test_f1"])
 
@@ -160,7 +160,7 @@ def main(verbose=True):
                 'loss': train_loss,
                 'acc': train_acc
             }
-            save_checkpoint(checkpoint, f"models\b1_models\checkpoints\epoch_{epoch}.pth")
+            save_checkpoint(checkpoint, f"models/b1_models/checkpoints/epoch_{epoch}.pth")
             logger.info(f"[INFO] Model checkpoint saved at epoch {epoch+1}/{num_epochs}.")
 
         logger.info("[INFO] Starting testing step...")
