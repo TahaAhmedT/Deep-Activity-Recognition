@@ -64,4 +64,4 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     
     logger.info(f"Test Loss: {epoch_loss:.5f} | Test Accuracy: {epoch_acc:.2f}% | Test F1-score: {epoch_f1_score}\n")
 
-    return epoch_f1_score, epoch_loss, epoch_acc
+    return epoch_f1_score, epoch_loss, epoch_acc, y_true.numpy(), y_test.numpy()
