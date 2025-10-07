@@ -36,7 +36,7 @@ def get_data_loaders(config, verbose=False):
     Returns:
         tuple: (trainloader, testloader)
     """
-    logger.info("[INFO] Creating data loaders...")
+    logger.info("Creating data loaders...")
     transform = transforms.Compose([
         transforms.Resize((256, 256)),
         transforms.CenterCrop((224, 224)),
@@ -56,7 +56,7 @@ def get_data_loaders(config, verbose=False):
     )
     trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     testloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
-    logger.info("[INFO] Data loaders created.")
+    logger.info("Data loaders created.")
     return trainloader, testloader
 
 def get_model(verbose=False):
@@ -68,12 +68,12 @@ def get_model(verbose=False):
     Returns:
         nn.Module: Modified ResNet50 model wrapped in ExtendedModel.
     """
-    logger.info("[INFO] Initializing ResNet50 model...")
+    logger.info("Initializing ResNet50 model...")
     original_model = resnet50(weights=ResNet50_Weights.DEFAULT, progress=verbose)
     layers = list(original_model.children())[:-1]
     truncated_model = nn.Sequential(*layers)
     model = ExtendedModel(truncated_model)
-    logger.info("[INFO] Model initialized and truncated.")
+    logger.info("Model initialized and truncated.")
     return model
 
 def get_optimizer(model, config):
@@ -87,13 +87,13 @@ def get_optimizer(model, config):
     Returns:
         torch.optim.Optimizer: AdamW optimizer.
     """
-    logger.info("[INFO] Creating optimizer...")
+    logger.info("Creating optimizer...")
     lr = config["TRAINING_PARAMS"]["lr"]
     optimizer = optim.AdamW(model.parameters(), lr=lr)
     scheduler = ReduceLROnPlateau(optimizer, "min")
-    logger.info("[INFO] Optimizer created: AdamW Optimizer.")
-    logger.info("[INFO] Learning Rate Scheduler Created: ReduceLROnPlateau.")
-    logger.info(f"[INFO] Initial Learning Rate: {lr}.")
+    logger.info("Optimizer created: AdamW Optimizer.")
+    logger.info("Learning Rate Scheduler Created: ReduceLROnPlateau.")
+    logger.info(f"Initial Learning Rate: {lr}.")
     return optimizer, scheduler
 
 def set_all_seeds(seed_value: int) -> None:
@@ -121,16 +121,16 @@ def main(verbose=True):
     set_all_seeds(42)
     CONFIG = load_config()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    logger.info(f"[INFO] Using device: {device}")
+    logger.info(f"Using device: {device}")
     trainloader, testloader = get_data_loaders(CONFIG, verbose=verbose)
     model = get_model(verbose=verbose)
     criterion = nn.CrossEntropyLoss()
     optimizer, scheduler = get_optimizer(model, CONFIG)
     num_epochs = CONFIG["TRAINING_PARAMS"]["num_epochs"]
-    logger.info(f"[INFO] Starting Training and Testing with number of epochs = {num_epochs}")
+    logger.info(f"Starting Training and Testing with number of epochs = {num_epochs}")
 
     # Create or open a CSV file and define headers
-    logger.info("[INFO] Opening a CSV file to log training metrics.")
+    logger.info("Opening a CSV file to log training metrics.")
     with open("logs/training_logs/b1_training.csv", mode="w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["epoch", "train_loss", "train_acc", "test_loss", "test_acc", "test_f1"])
@@ -141,7 +141,7 @@ def main(verbose=True):
     for epoch in range(num_epochs):
         logger.info(f"Epoch {epoch+1}\n-----------------------")
         # Training step
-        logger.info("[INFO] Starting training step...")
+        logger.info("Starting training step...")
         model, train_loss, train_acc = train_step(
             data_loader=trainloader,
             model=model,
@@ -150,10 +150,10 @@ def main(verbose=True):
             scheduler=scheduler,
             device=device
         )
-        logger.info("[INFO] Training step completed.")
+        logger.info("Training step completed.")
 
         if (epoch + 1) % 2 == 0:
-            logger.info("[INFO] Saving model checkpoint...")
+            logger.info("Saving model checkpoint...")
             checkpoint = {
                 'state_dict': model.state_dict(),
                 'optimizer': optimizer.state_dict(),
@@ -161,9 +161,9 @@ def main(verbose=True):
                 'acc': train_acc
             }
             save_checkpoint(checkpoint, f"models/b1_models/checkpoints/epoch_{epoch}.pth")
-            logger.info(f"[INFO] Model checkpoint saved at epoch {epoch+1}/{num_epochs}.")
+            logger.info(f"Model checkpoint saved at epoch {epoch+1}/{num_epochs}.")
 
-        logger.info("[INFO] Starting testing step...")
+        logger.info("Starting testing step...")
         # Testing step
         test_f1_score, test_loss, test_acc, y_true, y_pred = test_step(
             data_loader=testloader,
@@ -173,13 +173,13 @@ def main(verbose=True):
         )
         Y_true.extend(y_true)
         Y_pred.extend(y_pred)
-        logger.info("[INFO] Testing step completed.")
+        logger.info("Testing step completed.")
         # Append results to CSV
-        logger.info("[INFO] Appending the epoch's metrics to CSV.")
+        logger.info("Appending the epoch's metrics to CSV.")
         with open("logs/training_logs/b1_training.csv", mode="a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc, test_f1_score])
-        logger.info("[INFO] Epoch's metrics appended successfully!")
+            writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc, test_f1_score.item()])
+        logger.info("Epoch's metrics appended successfully!")
     # Save Y_true and Y_pred to CSV (to visualize confusion matrix later)
     df = pd.DataFrame({
         "y_true": Y_true,
