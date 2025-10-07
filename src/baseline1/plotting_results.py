@@ -1,0 +1,32 @@
+from src.utils.plotting_utils.plotting_utils import plot_results
+
+import pandas as pd
+
+def load_data(metrics_path: str, ys_path: str):
+    return pd.read_csv(metrics_path), pd.read_csv(ys_path)
+
+def prepare_results_dict(metrics_data, cm_data):
+    results = {"Train_Loss": [metrics_data["train_loss"]],
+               "Train_Accuracy": [metrics_data["train_acc"]],
+               "Test_Loss": [metrics_data["test_loss"]],
+               "Test_Accuracy": [metrics_data["test_acc"]],
+               "Test_F1_Score": [metrics_data["test_f1"]],
+               "Train_Loss_and_Accuracy": [metrics_data["train_loss"], metrics_data["train_acc"]],
+               "Test_Loss_and_Accuracy": [metrics_data["test_loss"], metrics_data["test_acc"]],
+               "Train_Test_Loss": [metrics_data["train_loss"], metrics_data["test_loss"]],
+               "Train_Test_Accuracy": [metrics_data["train_acc"], metrics_data["test_acc"]],
+               "Confusion_Matrix": [cm_data["y_true"], cm_data["y_pred"]]
+               }
+    return results
+
+def main():
+    # Load metrics data and confusion matrix required data (y_true, y_pred)
+    metrics_data, cm_data = load_data("logs\training_logs\b1_training.csv", "logs\training_logs\b1_test_predictions.csv")
+    # Prepare results dict to pass to plotting utils
+    results = prepare_results_dict(metrics_data, cm_data)
+    # Pass results to plot_results function
+    plot_results(results, "assets\baseline1_plots")
+
+if __name__ == "__main__":
+    main()
+
