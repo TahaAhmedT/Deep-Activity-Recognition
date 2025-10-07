@@ -5,7 +5,7 @@ import pandas as pd
 
 logger = setup_logger(
             log_file=__file__,
-            log_dir="logs\baselines_logs\baseline1_logs",
+            log_dir="logs/baselines_logs/baseline1_logs",
             log_to_console=True,
             use_tqdm=True,
         )

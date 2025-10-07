@@ -25,7 +25,7 @@ def train_step(model: torch.nn.Module,
     """
     logger = setup_logger(
             log_file=__file__,
-            log_dir="logs\baselines_logs\baseline1_logs",
+            log_dir="logs/baselines_logs/baseline1_logs",
             log_to_console=verbose,
             use_tqdm=True,
         )
