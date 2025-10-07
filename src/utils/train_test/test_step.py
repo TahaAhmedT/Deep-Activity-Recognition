@@ -29,7 +29,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
         )
     test_loss = 0.0
     y_true = []
-    y_test = []
+    y_pred = []
     model.to(device)
     model.eval()
 
@@ -48,7 +48,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
             test_loss += loss.item()
 
             y_true.extend(target.cpu().numpy())
-            y_test.extend(torch.argmax(test_pred, dim=1).cpu().numpy())
+            y_pred.extend(torch.argmax(test_pred, dim=1).cpu().numpy())
 
             # 3. Update accuracy
             metric_acc.update(test_pred, target)
@@ -57,11 +57,11 @@ def test_step(data_loader: torch.utils.data.DataLoader,
 
     # Compute final metrics
     y_true = torch.tensor(y_true)
-    y_test = torch.tensor(y_test)
-    epoch_f1_score = multiclass_f1_score(y_test, y_true, num_classes=8)
+    y_pred = torch.tensor(y_pred)
+    epoch_f1_score = multiclass_f1_score(y_pred, y_true, num_classes=8)
     epoch_loss = test_loss / len(data_loader)
     epoch_acc = metric_acc.compute().item() * 100  # %
     
     logger.info(f"Test Loss: {epoch_loss:.5f} | Test Accuracy: {epoch_acc:.2f}% | Test F1-score: {epoch_f1_score}\n")
 
-    return epoch_f1_score, epoch_loss, epoch_acc, y_true.numpy(), y_test.numpy()
+    return epoch_f1_score, epoch_loss, epoch_acc, y_true.numpy(), y_pred.numpy()
