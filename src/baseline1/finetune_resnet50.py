@@ -147,11 +147,11 @@ def main(verbose=True):
             model=model,
             loss_fn=criterion,
             optimizer=optimizer,
-            scheduler=scheduler,
             device=device
         )
         logger.info("Training step completed.")
 
+        # Saving Checkpoint
         if (epoch + 1) % 2 == 0:
             logger.info("Saving model checkpoint...")
             checkpoint = {
@@ -163,8 +163,9 @@ def main(verbose=True):
             save_checkpoint(checkpoint, f"models/b1_models/checkpoints/epoch_{epoch}.pth")
             logger.info(f"Model checkpoint saved at epoch {epoch+1}/{num_epochs}.")
 
-        logger.info("Starting testing step...")
+        
         # Testing step
+        logger.info("Starting testing step...")
         test_f1_score, test_loss, test_acc, y_true, y_pred = test_step(
             data_loader=testloader,
             model=model,
@@ -173,13 +174,16 @@ def main(verbose=True):
         )
         Y_true.extend(y_true)
         Y_pred.extend(y_pred)
+        scheduler.step(test_loss)
         logger.info("Testing step completed.")
+
         # Append results to CSV
         logger.info("Appending the epoch's metrics to CSV.")
         with open("logs/training_logs/b1_training.csv", mode="a", newline="") as f:
             writer = csv.writer(f)
             writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc, test_f1_score.item()])
         logger.info("Epoch's metrics appended successfully!")
+
     # Save Y_true and Y_pred to CSV (to visualize confusion matrix later)
     df = pd.DataFrame({
         "y_true": Y_true,
