@@ -1,4 +1,4 @@
-from src.utils.logging_utils.logging_utils import setup_logger
+from src.utils.logging_utils import setup_logger
 
 import torch
 from torcheval.metrics.functional import multiclass_f1_score

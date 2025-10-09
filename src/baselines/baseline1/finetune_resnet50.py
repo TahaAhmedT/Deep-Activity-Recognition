@@ -1,10 +1,10 @@
-from src.baseline1.dataset import B1Dataset
-from src.baseline1.extended_model import ExtendedModel
-from src.utils.train_test.train_step import train_step
-from src.utils.train_test.test_step import test_step
-from src.utils.checkpoints_utils.checkpoints_utils import save_checkpoint
-from src.utils.config_utils.load_config import load_config
-from src.utils.logging_utils.logging_utils import setup_logger
+from src.baselines.baseline1.dataset import B1Dataset
+from src.baselines.baseline1.extended_model import ExtendedModel
+from src.utils.train_utils import train_step
+from src.utils.test_utils import test_step
+from src.utils.checkpoints_utils import save_checkpoint
+from src.utils.config_utils import load_config
+from src.utils.logging_utils import setup_logger
 
 import pandas as pd
 import numpy as np

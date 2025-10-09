@@ -1,5 +1,5 @@
-from src.utils.plotting_utils.plotting_utils import plot_results
-from src.utils.logging_utils.logging_utils import setup_logger
+from src.utils.plotting_utils import plot_results
+from src.utils.logging_utils import setup_logger
 
 import pandas as pd
 

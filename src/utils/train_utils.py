@@ -1,4 +1,4 @@
-from src.utils.logging_utils.logging_utils import setup_logger
+from src.utils.logging_utils import setup_logger
 
 import torch
 from torchmetrics.classification import Accuracy

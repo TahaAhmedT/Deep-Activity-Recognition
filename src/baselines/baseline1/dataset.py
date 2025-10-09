@@ -2,8 +2,8 @@ from torch.utils.data import Dataset
 import os
 from PIL import Image
 from src.Preprocessing.volleyball_annot_loader import load_video_annot
-from src.utils.config_utils.load_config import load_config
-from src.utils.logging_utils.logging_utils import setup_logger
+from src.utils.config_utils import load_config
+from src.utils.logging_utils import setup_logger
 
 CONFIG = load_config()
 
