@@ -106,4 +106,4 @@ class B1Dataset(Dataset):
         return img, label
 
 if __name__ == "__main__":
-    dataset = B1Dataset(videos_root=CONFIG["PATH"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["train_ids"])
+    dataset = B1Dataset(videos_root=CONFIG["DATA_PATHS"]["videos_root"], target_videos=CONFIG["TARGET_VIDEOS"]["train_ids"])

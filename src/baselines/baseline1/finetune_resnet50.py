@@ -45,12 +45,12 @@ def get_data_loaders(config, verbose=False):
     ])
     batch_size = config["TRAINING_PARAMS"]["batch_size"]
     train_dataset = B1Dataset(
-        videos_root=config["PATH"]["videos_root"],
+        videos_root=config["DATA_PATHS"]["videos_root"],
         target_videos=config["TARGET_VIDEOS"]["train_ids"],
         transform=transform
     )
     test_dataset = B1Dataset(
-        videos_root=config["PATH"]["videos_root"],
+        videos_root=config["DATA_PATHS"]["videos_root"],
         target_videos=config["TARGET_VIDEOS"]["val_ids"],
         transform=transform
     )
