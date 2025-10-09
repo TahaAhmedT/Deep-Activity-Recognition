@@ -1,0 +1,102 @@
+[2025-10-08 13:01:52] - [finetune_resnet50.py:106] - [INFO]: Setting all seeds...
+[2025-10-08 13:01:52] - [finetune_resnet50.py:124] - [INFO]: Using device: cuda
+[2025-10-08 13:01:52] - [finetune_resnet50.py:39] - [INFO]: Creating data loaders...
+[2025-10-08 13:01:55] - [finetune_resnet50.py:59] - [INFO]: Data loaders created.
+[2025-10-08 13:01:55] - [finetune_resnet50.py:71] - [INFO]: Initializing ResNet50 model...
+[2025-10-08 13:01:55] - [finetune_resnet50.py:76] - [INFO]: Model initialized and truncated.
+[2025-10-08 13:01:55] - [finetune_resnet50.py:90] - [INFO]: Creating optimizer...
+[2025-10-08 13:01:55] - [finetune_resnet50.py:94] - [INFO]: Optimizer created: AdamW Optimizer.
+[2025-10-08 13:01:55] - [finetune_resnet50.py:95] - [INFO]: Learning Rate Scheduler Created: ReduceLROnPlateau.
+[2025-10-08 13:01:55] - [finetune_resnet50.py:96] - [INFO]: Initial Learning Rate: 0.001.
+[2025-10-08 13:01:55] - [finetune_resnet50.py:130] - [INFO]: Starting Training and Testing with number of epochs = 10
+[2025-10-08 13:01:55] - [finetune_resnet50.py:133] - [INFO]: Opening a CSV file to log training metrics.
+[2025-10-08 13:01:55] - [finetune_resnet50.py:142] - [INFO]: Epoch 1
+-----------------------
+[2025-10-08 13:01:55] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 13:17:17] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 13:17:17] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 13:21:38] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 13:21:38] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 13:21:38] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-08 13:21:38] - [finetune_resnet50.py:142] - [INFO]: Epoch 2
+-----------------------
+[2025-10-08 13:21:38] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 13:28:59] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 13:28:59] - [finetune_resnet50.py:156] - [INFO]: Saving model checkpoint...
+[2025-10-08 13:28:59] - [finetune_resnet50.py:164] - [INFO]: Model checkpoint saved at epoch 2/10.
+[2025-10-08 13:28:59] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 13:33:03] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 13:33:03] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 13:33:03] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-08 13:33:03] - [finetune_resnet50.py:142] - [INFO]: Epoch 3
+-----------------------
+[2025-10-08 13:33:03] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 13:39:34] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 13:39:34] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 13:43:43] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 13:43:43] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 13:43:43] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-08 13:43:43] - [finetune_resnet50.py:142] - [INFO]: Epoch 4
+-----------------------
+[2025-10-08 13:43:43] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 13:50:47] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 13:50:47] - [finetune_resnet50.py:156] - [INFO]: Saving model checkpoint...
+[2025-10-08 13:50:47] - [finetune_resnet50.py:164] - [INFO]: Model checkpoint saved at epoch 4/10.
+[2025-10-08 13:50:47] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 13:54:55] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 13:54:55] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 13:54:55] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-08 13:54:55] - [finetune_resnet50.py:142] - [INFO]: Epoch 5
+-----------------------
+[2025-10-08 13:54:55] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 14:01:57] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 14:01:57] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 14:06:02] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 14:06:02] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 14:06:02] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-08 14:06:02] - [finetune_resnet50.py:142] - [INFO]: Epoch 6
+-----------------------
+[2025-10-08 14:06:02] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 14:13:03] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 14:13:03] - [finetune_resnet50.py:156] - [INFO]: Saving model checkpoint...
+[2025-10-08 14:13:04] - [finetune_resnet50.py:164] - [INFO]: Model checkpoint saved at epoch 6/10.
+[2025-10-08 14:13:04] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 14:17:11] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 14:17:11] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 14:17:11] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-08 14:17:11] - [finetune_resnet50.py:142] - [INFO]: Epoch 7
+-----------------------
+[2025-10-08 14:17:11] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 14:23:42] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 14:23:42] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 14:27:50] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 14:27:50] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 14:27:50] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-08 14:27:50] - [finetune_resnet50.py:142] - [INFO]: Epoch 8
+-----------------------
+[2025-10-08 14:27:50] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 14:34:54] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 14:34:54] - [finetune_resnet50.py:156] - [INFO]: Saving model checkpoint...
+[2025-10-08 14:34:54] - [finetune_resnet50.py:164] - [INFO]: Model checkpoint saved at epoch 8/10.
+[2025-10-08 14:34:54] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 14:39:01] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 14:39:01] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 14:39:01] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-08 14:39:01] - [finetune_resnet50.py:142] - [INFO]: Epoch 9
+-----------------------
+[2025-10-08 14:39:01] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 14:46:08] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 14:46:08] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 14:50:17] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 14:50:17] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 14:50:17] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-08 14:50:17] - [finetune_resnet50.py:142] - [INFO]: Epoch 10
+-----------------------
+[2025-10-08 14:50:17] - [finetune_resnet50.py:144] - [INFO]: Starting training step...
+[2025-10-08 14:56:50] - [finetune_resnet50.py:152] - [INFO]: Training step completed.
+[2025-10-08 14:56:50] - [finetune_resnet50.py:156] - [INFO]: Saving model checkpoint...
+[2025-10-08 14:56:50] - [finetune_resnet50.py:164] - [INFO]: Model checkpoint saved at epoch 10/10.
+[2025-10-08 14:56:50] - [finetune_resnet50.py:168] - [INFO]: Starting testing step...
+[2025-10-08 15:00:59] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
+[2025-10-08 15:00:59] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-08 15:00:59] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!

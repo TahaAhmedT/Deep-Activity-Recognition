@@ -1,0 +1,50 @@
+[2025-10-08 13:18:19] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 1.4792345762252808
+[2025-10-08 13:19:33] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 1.7733135223388672
+[2025-10-08 13:20:35] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 0.005412810482084751
+[2025-10-08 13:21:38] - [test_step.py:65] - [INFO]: Test Loss: 1.16930 | Test Accuracy: 67.69% | Test F1-score: 0.6769352555274963
+
+[2025-10-08 13:29:58] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 2.3449559211730957
+[2025-10-08 13:31:04] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 2.0167174339294434
+[2025-10-08 13:32:03] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 0.0005803306121379137
+[2025-10-08 13:33:03] - [test_step.py:65] - [INFO]: Test Loss: 1.27641 | Test Accuracy: 71.09% | Test F1-score: 0.7109004855155945
+
+[2025-10-08 13:40:34] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 2.6414577960968018
+[2025-10-08 13:41:42] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 1.6761937141418457
+[2025-10-08 13:42:40] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 0.04296861216425896
+[2025-10-08 13:43:43] - [test_step.py:65] - [INFO]: Test Loss: 1.10960 | Test Accuracy: 72.75% | Test F1-score: 0.727488100528717
+
+[2025-10-08 13:51:46] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 2.525505304336548
+[2025-10-08 13:52:54] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 1.7145909070968628
+[2025-10-08 13:53:54] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 0.011213808320462704
+[2025-10-08 13:54:55] - [test_step.py:65] - [INFO]: Test Loss: 1.26624 | Test Accuracy: 71.04% | Test F1-score: 0.7104265689849854
+
+[2025-10-08 14:02:54] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 2.3626387119293213
+[2025-10-08 14:04:02] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 3.428020477294922
+[2025-10-08 14:05:01] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 0.027590906247496605
+[2025-10-08 14:06:02] - [test_step.py:65] - [INFO]: Test Loss: 1.38481 | Test Accuracy: 71.51% | Test F1-score: 0.7150868773460388
+
+[2025-10-08 14:14:03] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 2.3037543296813965
+[2025-10-08 14:15:13] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 2.2205705642700195
+[2025-10-08 14:16:11] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 1.69304694281891e-05
+[2025-10-08 14:17:11] - [test_step.py:65] - [INFO]: Test Loss: 1.23415 | Test Accuracy: 73.61% | Test F1-score: 0.7360978722572327
+
+[2025-10-08 14:24:41] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 3.0735957622528076
+[2025-10-08 14:25:48] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 1.1866648197174072
+[2025-10-08 14:26:48] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 0.0015917093260213733
+[2025-10-08 14:27:50] - [test_step.py:65] - [INFO]: Test Loss: 1.59997 | Test Accuracy: 66.03% | Test F1-score: 0.660347580909729
+
+[2025-10-08 14:35:53] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 1.805467963218689
+[2025-10-08 14:37:01] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 0.9447942972183228
+[2025-10-08 14:38:01] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 0.012186631560325623
+[2025-10-08 14:39:01] - [test_step.py:65] - [INFO]: Test Loss: 1.36219 | Test Accuracy: 70.76% | Test F1-score: 0.707582950592041
+
+[2025-10-08 14:47:07] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 0.7664216756820679
+[2025-10-08 14:48:16] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 1.8570572137832642
+[2025-10-08 14:49:16] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 0.2165037989616394
+[2025-10-08 14:50:17] - [test_step.py:65] - [INFO]: Test Loss: 1.35860 | Test Accuracy: 71.66% | Test F1-score: 0.7165876626968384
+
+[2025-10-08 14:57:48] - [test_step.py:56] - [INFO]: batch #100/396 Loss: 1.8423129320144653
+[2025-10-08 14:58:57] - [test_step.py:56] - [INFO]: batch #200/396 Loss: 1.9765032529830933
+[2025-10-08 14:59:57] - [test_step.py:56] - [INFO]: batch #300/396 Loss: 0.2309732586145401
+[2025-10-08 15:00:59] - [test_step.py:65] - [INFO]: Test Loss: 1.52740 | Test Accuracy: 71.41% | Test F1-score: 0.7141390442848206
+
