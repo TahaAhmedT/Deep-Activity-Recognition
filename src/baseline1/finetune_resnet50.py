@@ -174,7 +174,7 @@ def main(verbose=True):
         )
         Y_true.extend(y_true)
         Y_pred.extend(y_pred)
-        scheduler.step(test_loss)
+        # scheduler.step(test_loss)
         logger.info("Testing step completed.")
 
         # Append results to CSV
