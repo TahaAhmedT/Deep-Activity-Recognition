@@ -168,3 +168,9 @@
 [2025-10-08 15:00:59] - [finetune_resnet50.py:178] - [INFO]: Testing step completed.
 [2025-10-08 15:00:59] - [finetune_resnet50.py:181] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-10-08 15:00:59] - [finetune_resnet50.py:185] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-11 01:47:31] - [plotting_results.py:67] - [INFO]: Loading data for visualization...
+[2025-10-11 01:47:31] - [plotting_results.py:69] - [INFO]: Data loaded successfully.
+[2025-10-11 01:47:31] - [plotting_results.py:71] - [INFO]: Preparing results dictionary...
+[2025-10-11 01:47:31] - [plotting_results.py:73] - [INFO]: Results dictionary prepared.
+[2025-10-11 01:47:31] - [plotting_results.py:75] - [INFO]: Generating plots...
+[2025-10-11 01:47:33] - [plotting_results.py:77] - [INFO]: All plots generated successfully and saved to 'assets/baselines_assets/baseline1'.
