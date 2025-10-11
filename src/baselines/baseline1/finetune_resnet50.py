@@ -59,7 +59,7 @@ def get_data_loaders(config, verbose=False):
     logger.info("Data loaders created.")
     return trainloader, testloader
 
-def get_model(verbose=False):
+def get_model(logger, verbose=False):
     """Initializes the ResNet50 model and truncates the last layer.
 
     Args:
@@ -76,7 +76,7 @@ def get_model(verbose=False):
     logger.info("Model initialized and truncated.")
     return model
 
-def get_optimizer(model, config):
+def get_optimizer(model, config, logger):
     """Creates the optimizer for training.
 
     Args:
@@ -96,7 +96,7 @@ def get_optimizer(model, config):
     logger.info(f"Initial Learning Rate: {lr}.")
     return optimizer, scheduler
 
-def set_all_seeds(seed_value: int) -> None:
+def set_all_seeds(seed_value: int, logger) -> None:
         """Set random seeds for reproducibility across Python, NumPy, and PyTorch.
 
         Args:
@@ -118,12 +118,12 @@ def main(verbose=True):
     Args:
         verbose (bool): If True, prints info logs.
     """
-    set_all_seeds(42)
+    set_all_seeds(42, logger=logger)
     CONFIG = load_config()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Using device: {device}")
     trainloader, testloader = get_data_loaders(CONFIG, verbose=verbose)
-    model = get_model(verbose=verbose)
+    model = get_model(logger=logger, verbose=verbose)
     criterion = nn.CrossEntropyLoss()
     optimizer, scheduler = get_optimizer(model, CONFIG)
     num_epochs = CONFIG["TRAINING_PARAMS"]["num_epochs"]
