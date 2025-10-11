@@ -1,66 +1,121 @@
 import os
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import confusion_matrix as sk_confusion_matrix, ConfusionMatrixDisplay
+
+
+def ensure_dir(path: str):
+    """Ensure directory exists."""
+    os.makedirs(path, exist_ok=True)
+
 
 def plot_results(results: dict, save_path: str):
-    """Plots various results such as accuracy, loss, and confusion matrix.
+    """
+    Plots various results such as accuracy, loss, and confusion matrix.
 
     Args:
         results (dict): Dictionary containing result data to plot.
         save_path (str): Directory path to save the plots.
     """
-    # Plot Line Plots
+    ensure_dir(save_path)
+
     for name, vals in results.items():
-        if name in ["Train_Accuracy", "Train_Loss", "Test_Accuracy", "Test_Loss", "Test_F1_score"]:
-            line_plot(results[name], [name], save_path, name, name, "epoch")
+        # Line plots for individual metrics
+        if name in ["Train_Accuracy", "Train_Loss", "Test_Accuracy", "Test_Loss", "Test_F1_Score"]:
+            line_plot(
+                data=vals,
+                labels=[name],
+                save_path=save_path,
+                figname=name,
+                title=name.replace("_", " "),
+                xlabel="Epoch",
+                ylabel=name.split("_")[-1]
+            )
+
+        # Combined plots
         elif name == "Train_Loss_and_Accuracy":
-            line_plot(results[name], ["train_loss", "train_accuracy"], save_path, name, name, "epoch")
+            line_plot(
+                data=vals,
+                labels=["Train Loss", "Train Accuracy"],
+                save_path=save_path,
+                figname=name,
+                title="Training Loss & Accuracy",
+                xlabel="Epoch"
+            )
+
         elif name == "Test_Loss_and_Accuracy":
-            line_plot(results[name], ["test_loss", "test_accuracy"], save_path, name, name, "epoch")
+            line_plot(
+                data=vals,
+                labels=["Test Loss", "Test Accuracy"],
+                save_path=save_path,
+                figname=name,
+                title="Testing Loss & Accuracy",
+                xlabel="Epoch"
+            )
+
         elif name == "Train_Test_Loss":
-            line_plot(results[name], ["train_loss", "test_loss"], save_path, name, name, "epoch")
+            line_plot(
+                data=vals,
+                labels=["Train Loss", "Test Loss"],
+                save_path=save_path,
+                figname=name,
+                title="Train vs Test Loss",
+                xlabel="Epoch"
+            )
+
         elif name == "Train_Test_Accuracy":
-            line_plot(results[name], ["train_accuracy", "test_accuracy"], save_path, name, name, "epoch")
+            line_plot(
+                data=vals,
+                labels=["Train Accuracy", "Test Accuracy"],
+                save_path=save_path,
+                figname=name,
+                title="Train vs Test Accuracy",
+                xlabel="Epoch"
+            )
+
         elif name == "Confusion_Matrix":
-            confusion_matrix(results[name], save_path, name)
+            y_true, y_pred = vals
+            plot_confusion_matrix(y_true, y_pred, save_path, figname=name)
 
 
-def line_plot(data: list, label: list[str], save_path: str, figname: str, title: None, xlabel: None, ylabel: None):
-    """Plots line graphs for the provided data and saves the figure.
-
-    Args:
-        data (list): List of data series to plot.
-        label (list[str]): List of labels for each data series.
-        save_path (str): Directory path to save the plot.
-        figname (str): Name for the saved plot file.
-        title (None): Title of the plot.
-        xlabel (None): Label for the x-axis.
-        ylabel (None): Label for the y-axis.
+def line_plot(data: list, labels: list[str], save_path: str, figname: str,
+              title: str = "", xlabel: str = "", ylabel: str = ""):
     """
-    for i in range(len(label)):
-        plt.plot(data[i], label=label[i])
-    plt.title(title)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
+    Plots line graphs for the provided data and saves the figure.
+    """
+    plt.figure(figsize=(8, 6))
+    epochs = range(1, len(data[0]) + 1)
+
+    for i, label in enumerate(labels):
+        plt.plot(epochs, data[i], label=label, linewidth=2)
+
+    plt.title(title, fontsize=14)
+    plt.xlabel(xlabel, fontsize=12)
+    plt.ylabel(ylabel, fontsize=12)
     plt.legend()
-    plt.savefig(os.path.join(save_path, f"{figname}_plot.png"))
+    plt.grid(True, linestyle='--', alpha=0.6)
+    plt.tight_layout()
+
+    plt.savefig(os.path.join(save_path, f"{figname}.png"))
+    plt.close()
 
 
-def confusion_matrix(data, save_path: str, figname: str):
-    """Plots and saves a confusion matrix.
-
-    Args:
-        data: Tuple or list containing true and predicted labels.
-        save_path (str): Directory path to save the confusion matrix plot.
-        figname (str): Name for the saved confusion matrix file.
+def plot_confusion_matrix(y_true, y_pred, save_path: str, figname: str):
     """
-    cm = confusion_matrix(data[0], data[1])
+    Plots and saves a confusion matrix.
+    """
+    cm = sk_confusion_matrix(y_true, y_pred)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm)
-    disp.plot().figure_.savefig(os.path.join(save_path, f"{figname}.png"))
+    fig, ax = plt.subplots(figsize=(6, 6))
+    disp.plot(ax=ax, cmap='Blues', colorbar=False)
+    plt.title("Confusion Matrix")
+    plt.tight_layout()
+    plt.savefig(os.path.join(save_path, f"{figname}.png"))
+    plt.close()
 
 
 def main():
-    print("Welcome From Main Function...")
+    print("plotting_utils is ready for use.")
+
 
 if __name__ == "__main__":
     main()
