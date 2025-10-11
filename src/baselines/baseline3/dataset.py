@@ -15,54 +15,56 @@ class B3Dataset(Dataset):
         self.annot_root = annot_root
         self.verbose = verbose
         self.tranform = transform
+        self.dataset = []
         self.logger = setup_logger(
             log_file=__file__,
-            log_dir="",
+            log_dir="logs/baselines_logs/baseline3_logs",
             log_to_console=self.verbose,
             use_tqdm=True
         )
+        self.get_images_paths_labels()
         self.logger.info("B3Dataset Module Initialized Successfully!")
     
 
     def get_images_paths_labels(self):
         self.logger.info("Collecting Images' paths and labels...")
 
-        self.dataset = []
         videos_dirs = os.listdir(self.videos_root)
         videos_dirs.sort()
 
         # Iterate on each video and for each video iterate on each clip
         for idx, video_dir in enumerate(videos_dirs):
-            video_dir_path = os.path.join(self.videos_root, video_dir)
+            if idx in self.target_videos:
+                video_dir_path = os.path.join(self.videos_root, video_dir)
 
-            if not os.path.isdir(video_dir_path):
-                continue
-
-            clips_dir = os.listdir(video_dir_path)
-            clips_dir.sort()
-
-            for clip_dir in clips_dir:
-                clip_dir_path = os.path.join(video_dir_path, clip_dir)
-
-                if not os.path.isdir(clip_dir_path):
+                if not os.path.isdir(video_dir_path):
                     continue
 
-                annot_file = os.path.join(self.annot_root, video_dir, clip_dir, f"{clip_dir}.txt")
+                clips_dir = os.listdir(video_dir_path)
+                clips_dir.sort()
 
-                frame_boxes = load_tracking_annot(annot_file)
+                for clip_dir in clips_dir:
+                    clip_dir_path = os.path.join(video_dir_path, clip_dir)
 
-                for frame_id, boxes_info in frame_boxes.items():
-                    try:
-                        img_path = os.path.join(clip_dir_path, f"{frame_id}.jpg")
-                        image = Image.open(img_path).convert("RGB")
+                    if not os.path.isdir(clip_dir_path):
+                        continue
 
-                        for box_info in boxes_info:
-                            x1, y1, x2, y2 = box_info.box
-                            cropped_image = image.crop((x1, y1, x2, y2))
-                            self.dataset.append((cropped_image, box_info.category))
+                    annot_file = os.path.join(self.annot_root, video_dir, clip_dir, f"{clip_dir}.txt")
 
-                    except Exception as e:
-                        print(f"An error occurred: {e}")
+                    frame_boxes = load_tracking_annot(annot_file)
+
+                    for frame_id, boxes_info in frame_boxes.items():
+                        try:
+                            img_path = os.path.join(clip_dir_path, f"{frame_id}.jpg")
+                            image = Image.open(img_path).convert("RGB")
+
+                            for box_info in boxes_info:
+                                x1, y1, x2, y2 = box_info.box
+                                cropped_image = image.crop((x1, y1, x2, y2))
+                                self.dataset.append((cropped_image, box_info.category))
+
+                        except Exception as e:
+                            print(f"An error occurred: {e}")
 
 
     def __len__(self):
@@ -80,5 +82,6 @@ class B3Dataset(Dataset):
     
 
 if __name__ == "__main__":
-    dataset = B3Dataset(videos_root="", target_videos=[], annot_root="")
+    dataset = B3Dataset(videos_root=CONFIG["DATA_PATHS"]["videos_root"], target_videos=[1], annot_root=CONFIG["DATA_PATHS"]["annot_root"])
+    print(len(dataset))
         
