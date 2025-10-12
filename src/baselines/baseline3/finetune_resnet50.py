@@ -106,7 +106,9 @@ def main(verbose=True):
             model=model,
             loss_fn=criterion,
             optimizer=optimizer,
-            device=device
+            device=device,
+            logs_path=os.path.join(CONFIG["LOGS_PATH"], "baseline3_logs"),
+            verbose=CONFIG["verbose"]
         )
         logger.info("Training Step Completed.")
 
@@ -128,7 +130,9 @@ def main(verbose=True):
             data_loader=testloader,
             model=model,
             loss_fn=criterion,
-            device=device
+            device=device,
+            logs_path=os.path.join(CONFIG["LOGS_PATH"], "baseline3_logs"),
+            verbose=CONFIG["verbose"]
         )
         Y_true.extend(y_true)
         Y_pred.extend(y_pred)
