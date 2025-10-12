@@ -83,7 +83,7 @@ def main(verbose=True):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Using device: {device}")
     trainloader, testloader = get_data_loaders(CONFIG)
-    model = get_model(logger=logger, verbose=CONFIG["verbose"])
+    model = get_model(config=CONFIG, logger=logger, verbose=CONFIG["verbose"])
     criterion = nn.CrossEntropyLoss()
     optimizer, _ = get_optimizer(model=model, config=CONFIG, logger=logger)
     num_epochs = CONFIG["TRAINING_PARAMS"]["num_epochs"]

@@ -59,7 +59,7 @@ def get_data_loaders(config, verbose=False):
     logger.info("Data loaders created.")
     return trainloader, testloader
 
-def get_model(logger, verbose=False):
+def get_model(config, logger, verbose=False):
     """Initializes the ResNet50 model and truncates the last layer.
 
     Args:
@@ -72,7 +72,7 @@ def get_model(logger, verbose=False):
     original_model = resnet50(weights=ResNet50_Weights.DEFAULT, progress=verbose)
     layers = list(original_model.children())[:-1]
     truncated_model = nn.Sequential(*layers)
-    model = ExtendedModel(truncated_model, 8)
+    model = ExtendedModel(truncated_model, config["NUM_CLASSES"])
     logger.info("Model initialized and truncated.")
     return model
 
@@ -123,7 +123,7 @@ def main(verbose=True):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Using device: {device}")
     trainloader, testloader = get_data_loaders(CONFIG, verbose=verbose)
-    model = get_model(logger=logger, verbose=verbose)
+    model = get_model(config=CONFIG, logger=logger, verbose=verbose)
     criterion = nn.CrossEntropyLoss()
     optimizer, scheduler = get_optimizer(model, CONFIG, logger)
     num_epochs = CONFIG["TRAINING_PARAMS"]["num_epochs"]
