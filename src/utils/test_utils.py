@@ -1,8 +1,11 @@
 from src.utils.logging_utils import setup_logger
+from src.utils.config_utils import load_config
 
 import torch
 from torcheval.metrics.functional import multiclass_f1_score
 from torchmetrics.classification import Accuracy
+
+CONFIG = load_config()
 
 def test_step(data_loader: torch.utils.data.DataLoader, 
               model: torch.nn.Module, 
@@ -35,7 +38,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     model.eval()
 
     # TorchMetrics Accuracy (multiclass)
-    metric_acc = Accuracy(task="multiclass", num_classes=8).to(device)
+    metric_acc = Accuracy(task="multiclass", num_classes=CONFIG["NUM_CLASSES"]).to(device)
     
     with torch.inference_mode():
         for batch_idx, (data, target) in enumerate(data_loader):
