@@ -24,15 +24,15 @@ CATEGORIES_DICT: {
     }
 
 ACTIONS_DIT: {
-  "Waiting": 0,
-  "Setting": 1,
-  "Digging": 2,
-  "Falling": 3,
-  "Spiking": 4,
-  "Blocking": 5,
-  "Jumping": 6,
-  "Moving": 7,
-  "Standing": 8
+  "waiting": 0,
+  "setting": 1,
+  "digging": 2,
+  "falling": 3,
+  "spiking": 4,
+  "blocking": 5,
+  "jumping": 6,
+  "moving": 7,
+  "standing": 8
 }
 
 LOGS_PATH: "logs/baselines_logs"
