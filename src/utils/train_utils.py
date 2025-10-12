@@ -1,7 +1,10 @@
 from src.utils.logging_utils import setup_logger
+from src.utils.config_utils import load_config
 
 import torch
 from torchmetrics.classification import Accuracy
+
+CONFIG = load_config()
 
 def train_step(model: torch.nn.Module, 
                data_loader: torch.utils.data.DataLoader, 
@@ -34,7 +37,7 @@ def train_step(model: torch.nn.Module,
     model.train()
 
     # TorchMetrics Accuracy (for multiclass classification)
-    metric_acc = Accuracy(task="multiclass", num_classes=8).to(device)
+    metric_acc = Accuracy(task="multiclass", num_classes=CONFIG["NUM_CLASSES"]).to(device)
     
     for batch_idx, (data, target) in enumerate(data_loader):
         data, target = data.to(device), target.to(device)
