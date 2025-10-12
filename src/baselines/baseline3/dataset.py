@@ -86,7 +86,8 @@ class B3Dataset(Dataset):
                             for box_info in boxes_info:
                                 x1, y1, x2, y2 = box_info.box
                                 cropped_image = image.crop((x1, y1, x2, y2))
-                                self.dataset.append((cropped_image, box_info.category))
+                                label = CONFIG["ACTIONS_DICT"][box_info.category]
+                                self.dataset.append((cropped_image, label))
 
                         except Exception as e:
                             print(f"An error occurred: {e}")
