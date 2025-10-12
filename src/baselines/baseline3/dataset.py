@@ -33,7 +33,7 @@ class B3Dataset(Dataset):
         self.target_videos = target_videos
         self.annot_root = annot_root
         self.verbose = verbose
-        self.tranform = transform
+        self.transform = transform
         self.dataset = []
         self.logger = setup_logger(
             log_file=__file__,
@@ -118,7 +118,7 @@ class B3Dataset(Dataset):
         img, label = self.dataset[index]
 
         if self.transform:
-            img = self.tranform(img)
+            img = self.transform(img)
         return img, label
     
 
