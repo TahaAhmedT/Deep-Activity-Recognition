@@ -113,7 +113,7 @@ class B3Dataset(Dataset):
         Raises:
             IndexError: If the index is out of range.
         """
-        if index > 0 or index >= len(self.dataset):
+        if index < 0 or index >= len(self.dataset):
             raise IndexError("Index out of range")
         img, label = self.dataset[index]
 
