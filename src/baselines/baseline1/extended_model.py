@@ -9,7 +9,7 @@ class ExtendedModel(nn.Module):
         verbose (bool): If True, prints info logs.
     """
 
-    def __init__(self, backbone, verbose=False):
+    def __init__(self, backbone, n_classes: int, verbose=False):
         """
         Args:
             backbone (nn.Module): Feature extractor model.
@@ -18,7 +18,7 @@ class ExtendedModel(nn.Module):
         super(ExtendedModel, self).__init__()
         self.backbone = backbone
         self.fc_layer = nn.Sequential(
-            nn.Linear(2048, 8)  # 8 classes in the dataset
+            nn.Linear(2048, n_classes)
         )
         self.verbose = verbose
         if self.verbose:

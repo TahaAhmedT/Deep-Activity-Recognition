@@ -72,7 +72,7 @@ def get_model(logger, verbose=False):
     original_model = resnet50(weights=ResNet50_Weights.DEFAULT, progress=verbose)
     layers = list(original_model.children())[:-1]
     truncated_model = nn.Sequential(*layers)
-    model = ExtendedModel(truncated_model)
+    model = ExtendedModel(truncated_model, 8)
     logger.info("Model initialized and truncated.")
     return model
 
@@ -125,7 +125,7 @@ def main(verbose=True):
     trainloader, testloader = get_data_loaders(CONFIG, verbose=verbose)
     model = get_model(logger=logger, verbose=verbose)
     criterion = nn.CrossEntropyLoss()
-    optimizer, scheduler = get_optimizer(model, CONFIG)
+    optimizer, scheduler = get_optimizer(model, CONFIG, logger)
     num_epochs = CONFIG["TRAINING_PARAMS"]["num_epochs"]
     logger.info(f"Starting Training and Testing with number of epochs = {num_epochs}")
 
