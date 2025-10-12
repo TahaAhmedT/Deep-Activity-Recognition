@@ -8,6 +8,7 @@ def train_step(model: torch.nn.Module,
                loss_fn: torch.nn.Module, 
                optimizer: torch.optim.Optimizer,
                device: torch.device,
+               logs_path,
                verbose: bool = True):
     """Runs a training step for one epoch.
 
@@ -24,7 +25,7 @@ def train_step(model: torch.nn.Module,
     """
     logger = setup_logger(
             log_file=__file__,
-            log_dir="logs/baselines_logs/baseline1_logs",
+            log_dir=logs_path,
             log_to_console=verbose,
             use_tqdm=True,
         )

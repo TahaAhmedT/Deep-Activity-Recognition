@@ -8,6 +8,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
               model: torch.nn.Module, 
               loss_fn: torch.nn.Module, 
               device: torch.device,
+              logs_path,
               verbose: bool = True):
     """Runs a test/validation step for one epoch.
 
@@ -23,7 +24,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     """
     logger = setup_logger(
             log_file=__file__,
-            log_dir="logs/baselines_logs/baseline1_logs",
+            log_dir=logs_path,
             log_to_console=verbose,
             use_tqdm=True,
         )
