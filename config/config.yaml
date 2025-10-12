@@ -23,7 +23,7 @@ CATEGORIES_DICT: {
         'r_winpoint': 7
     }
 
-ACTIONS_DIT: {
+ACTIONS_DICT: {
   "waiting": 0,
   "setting": 1,
   "digging": 2,
