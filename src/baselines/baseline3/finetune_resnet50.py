@@ -121,7 +121,7 @@ def main(verbose=True):
                 "loss": train_loss,
                 "acc": train_acc
             }
-            save_checkpoint(checkpoint, os.path.join(CONFIG["MODELS"], f"b3_models/checkpoints/epoch_{epoch+1}.pth"))
+            save_checkpoint(checkpoint, os.path.join(CONFIG["MODELS_PATH"], f"b3_models/checkpoints/epoch_{epoch+1}.pth"))
             logger.info(f"Model checkpoint saved at epoch {epoch+1}/{num_epochs}")
 
         # Testing step
