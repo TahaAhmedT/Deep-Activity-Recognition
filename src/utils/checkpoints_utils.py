@@ -19,3 +19,5 @@ def load_checkpoint(checkpoint, model: torch.nn.Module, optimizer: torch.optim.O
     """
     model.load_state_dict(checkpoint['state_dict'])
     optimizer.load_state_dict(checkpoint['optimizer'])
+
+    return model, optimizer
