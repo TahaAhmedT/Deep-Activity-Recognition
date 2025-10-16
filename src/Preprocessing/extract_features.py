@@ -70,7 +70,7 @@ def prepare_model(image_level = False):
     return model, preprocess
 
 
-def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, image_level=False):
+def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, image_level=False, image_classify=False):
     frame_boxes = load_tracking_annot(annot_file)
 
     with torch.no_grad():
@@ -100,9 +100,10 @@ def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, 
                     dnn_repr = model(preprocessed_images)    # Batch Processing
                     dnn_repr = dnn_repr.view(len(preprocessed_images), -1)  # 12 x 2048 for resnet 50
                     
-                    # Max pool all feature to get the image representation
-                    pooled_repr, _ = torch.max(dnn_repr, dim=0) # pooled_repr --> [2048]
-                    pooled_repr = pooled_repr.unsqueeze(0) # to keep batch dimension [1, 2048]
+                    if image_classify:
+                        # Max pool all feature to get the image representation
+                        pooled_repr, _ = torch.max(dnn_repr, dim=0) # pooled_repr --> [2048]
+                        pooled_repr = pooled_repr.unsqueeze(0) # to keep batch dimension [1, 2048]
 
                 # uncomment to save features
                 np.save(output_file, pooled_repr.numpy())
