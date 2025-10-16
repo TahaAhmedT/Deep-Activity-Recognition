@@ -1,11 +1,14 @@
 DATA_PATHS:
   videos_root: "/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_/videos"
   annot_root: "/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_tracking_annotation/volleyball_tracking_annotation"
+  features_root: ""
 
 TARGET_VIDEOS:
   train_ids: [1, 3, 6, 7, 10, 13, 15, 16, 18, 22, 23, 31,
                  32, 36, 38, 39, 40, 41, 42, 48, 50, 52, 53, 54]
   val_ids: [0, 2, 8, 12, 17, 19, 24, 26, 27, 28, 30, 33, 46, 49, 51]
+
+EXTRACTED_FEATURES_SIZE: 2048
 
 TRAINING_PARAMS:
   batch_size: 32
@@ -40,6 +43,6 @@ TRAINING_LOGS_PATH: "logs/training_logs"
 MODELS_PATH: "models"
 ASSETS_PATH: "assets/baselines_assets"
 
-NUM_CLASSES: 9
+NUM_CLASSES: 8
 
 verbose: 1
