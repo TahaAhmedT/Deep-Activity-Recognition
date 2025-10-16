@@ -6,6 +6,7 @@ It loads model checkpoints, applies preprocessing, and saves extracted features 
 from src.utils.config_utils import load_config
 from src.utils.checkpoints_utils import load_checkpoint
 from src.Preprocessing.extract_features import extract_features
+from src.Preprocessing.volleyball_annot_loader import load_video_annot
 from src.utils.logging_utils import setup_logger
 
 import os
@@ -105,7 +106,7 @@ def main():
                     os.makedirs(output_file)
                 
                 output_file = os.path.join(output_file, f"{clip_dir}.npy")
-                extract_features(clip_dir_path, annot_file, output_file, model, transform, image_level=False)
+                extract_features(clip_dir_path, annot_file, output_file, model, transform, image_level=False, image_classify=True)
 
 if __name__ == "__main__":
     main()
