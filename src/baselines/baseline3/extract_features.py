@@ -52,7 +52,7 @@ def prepare_model():
 
     # Load a checkpoint saved during training
     logger.info("Loading the Model's Checkpoint...")
-    checkpoint = torch.load(os.path.join(CONFIG["MODELS_PATH"], "b3_models/checkpoints"), weights_only=True)
+    checkpoint = torch.load(os.path.join(CONFIG["MODELS_PATH"], "b3_models/checkpoints/epoch_2.pth"), weights_only=True)
 
     # Load trained weights into the model
     model, _ = load_checkpoint(checkpoint=checkpoint, model=model)
@@ -74,7 +74,7 @@ def main():
     """
     model, transform = prepare_model()
 
-    output_root = ""
+    output_root = CONFIG["DATA_PATHS"]["features_root"]
     videos_root = CONFIG["DATA_PATHS"]["videos_root"]
     annot_root = CONFIG["DATA_PATHS"]["annot_root"]
 
