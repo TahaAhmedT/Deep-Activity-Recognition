@@ -43,6 +43,6 @@ TRAINING_LOGS_PATH: "logs/training_logs"
 MODELS_PATH: "models"
 ASSETS_PATH: "assets/baselines_assets"
 
-NUM_CLASSES: 8
+NUM_CLASSES: 9
 
 verbose: 1
