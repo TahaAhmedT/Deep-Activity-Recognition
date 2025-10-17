@@ -42,7 +42,7 @@ def prepare_model():
         ])
     
     # Check if a GPU is available if not, use a CPU
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     logger.info(f"Using Device:{device}")
 
     # Load ResNet-50 model with pretrained weights
@@ -54,7 +54,7 @@ def prepare_model():
     checkpoint = torch.load(checkpoint_path)
 
     # Load trained weights into the model
-    model, _ = load_checkpoint(checkpoint=checkpoint, model=model)
+    model = load_checkpoint(checkpoint=checkpoint, model=model)
     
     # Send model to the device
     model.to(device)
@@ -105,7 +105,8 @@ def main():
                     os.makedirs(output_file)
                 
                 output_file = os.path.join(output_file, f"{clip_dir}.npy")
-                extract_features(clip_dir_path, annot_file, output_file, model, transform, image_level=False, image_classify=True)
+                device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+                extract_features(clip_dir_path, annot_file, output_file, model, transform, device, image_level=False, image_classify=True)
 
 if __name__ == "__main__":
     main()
