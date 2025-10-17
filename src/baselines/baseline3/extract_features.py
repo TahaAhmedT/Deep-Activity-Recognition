@@ -8,6 +8,7 @@ from src.utils.checkpoints_utils import load_checkpoint
 from src.Preprocessing.extract_features import extract_features
 from src.Preprocessing.volleyball_annot_loader import load_video_annot
 from src.utils.logging_utils import setup_logger
+from src.baselines.baseline1.finetune_resnet50 import get_model
 
 import os
 import numpy as np
@@ -45,10 +46,7 @@ def prepare_model():
     logger.info(f"Using Device:{device}")
 
     # Load ResNet-50 model with pretrained weights
-    model = resnet50(weights=ResNet50_Weights.DEFAULT, progress=CONFIG["verbose"])
-
-    # Remove the final classification layer to use as a feature extractor
-    model = nn.Sequential(*(list(model.children())[:-1]))
+    model = get_model(config=CONFIG, logger=logger, verbose=CONFIG["verbose"])
 
     # Load a checkpoint saved during training
     logger.info("Loading the Model's Checkpoint...")
