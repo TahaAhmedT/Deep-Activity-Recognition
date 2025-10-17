@@ -9,7 +9,7 @@ def save_checkpoint(state: dict, filename: str):
     """
     torch.save(state, filename)
 
-def load_checkpoint(checkpoint, model: torch.nn.Module, optimizer: torch.optim.Optimizer = None):
+def load_checkpoint(checkpoint, model: torch.nn.Module):
     """Loads the model state from a checkpoint.
 
     Args:
@@ -18,6 +18,4 @@ def load_checkpoint(checkpoint, model: torch.nn.Module, optimizer: torch.optim.O
         optimizer (torch.optim.Optimizer, optional): Optimizer to load the state into. Defaults to None.
     """
     model.load_state_dict(checkpoint['state_dict'])
-    optimizer.load_state_dict(checkpoint['optimizer'])
-
-    return model, optimizer
+    return model
