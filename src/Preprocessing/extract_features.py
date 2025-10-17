@@ -97,7 +97,7 @@ def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, 
                         preprocessed_images.append(preprocess(cropped_image).unsqueeze(0))
 
                     preprocessed_images = torch.cat(preprocessed_images)
-                    dnn_repr = model(preprocessed_images)    # Batch Processing
+                    dnn_repr = model.backbone(preprocessed_images)    # Batch Processing
                     dnn_repr = dnn_repr.view(len(preprocessed_images), -1)  # 12 x 2048 for resnet 50
                     
                     if image_classify:
