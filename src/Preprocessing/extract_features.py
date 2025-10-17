@@ -70,7 +70,7 @@ def prepare_model(image_level = False):
     return model, preprocess
 
 
-def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, image_level=False, image_classify=False):
+def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, device, image_level=False, image_classify=False):
     frame_boxes = load_tracking_annot(annot_file)
 
     with torch.no_grad():
@@ -97,6 +97,7 @@ def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, 
                         preprocessed_images.append(preprocess(cropped_image).unsqueeze(0))
 
                     preprocessed_images = torch.cat(preprocessed_images)
+                    preprocessed_images = preprocessed_images.cuda()
                     dnn_repr = model.backbone(preprocessed_images)    # Batch Processing
                     dnn_repr = dnn_repr.view(len(preprocessed_images), -1)  # 12 x 2048 for resnet 50
                     
@@ -106,6 +107,7 @@ def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, 
                         pooled_repr = pooled_repr.unsqueeze(0) # to keep batch dimension [1, 2048]
 
                 # uncomment to save features
+                pooled_repr = pooled_repr.cpu()
                 np.save(output_file, pooled_repr.numpy())
             except Exception as e:
                 print(f"An error occurred: {e}")
@@ -172,4 +174,5 @@ if __name__ == '__main__':
                 os.makedirs(output_file)
 
             output_file = os.path.join(output_file, f'{clip_dir}.npy')
-            extract_features(clip_dir_path, annot_file, output_file, model, preprocess, image_level = image_level)
+            device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+            extract_features(clip_dir_path, annot_file, output_file, model, preprocess, device, image_level = image_level)
