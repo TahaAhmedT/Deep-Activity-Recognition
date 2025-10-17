@@ -52,7 +52,8 @@ def prepare_model():
 
     # Load a checkpoint saved during training
     logger.info("Loading the Model's Checkpoint...")
-    checkpoint = torch.load(os.path.join(CONFIG["MODELS_PATH"], "b3_models/checkpoints/epoch_2.pth"), weights_only=True)
+    checkpoint_path = os.path.join(CONFIG["MODELS_PATH"], "b3_models/checkpoints/epoch_2.pth")
+    checkpoint = torch.load(checkpoint_path)
 
     # Load trained weights into the model
     model, _ = load_checkpoint(checkpoint=checkpoint, model=model)
