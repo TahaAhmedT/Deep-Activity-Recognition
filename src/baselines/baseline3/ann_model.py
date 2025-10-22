@@ -58,7 +58,5 @@ class ANN(nn.Module):
         Returns:
             torch.Tensor: Output logits of shape (batch_size, n_classes).
         """
-        logger.info("Starting Forward Pass...")
         x = self.fc_layer(x)
-        logger.info(f"Output Shape after Forward Pass = {x.shape}")
         return x
