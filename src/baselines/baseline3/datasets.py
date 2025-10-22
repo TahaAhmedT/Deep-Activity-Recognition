@@ -184,29 +184,32 @@ class FeaturesDataset(Dataset):
         Raises:
             FileNotFoundError: If an expected .npy file or annotation file is missing.
         """
-        self.logger.info("Collecting Images' features and labels...")
-        videos_dirs = os.listdir(self.output_file)
-        videos_dirs.sort()
+        self.logger.info("Collecting Images' features and labels...") 
+        videos_dirs = os.listdir(self.output_file) 
+        videos_dirs.sort() 
 
-        # Iterate on each video, in each video, iterate on each clip
-        for idx, video_dir in enumerate(videos_dirs):
-            if idx in self.target_videos:
-                video_dir_path = os.path.join(self.output_file, video_dir)
-                video_annot = os.path.join(self.videos_root, video_dir, 'annotations.txt')
-                clip_category_dict = load_video_annot(video_annot)
+        for idx, video_dir in enumerate(videos_dirs): 
+            if idx in self.target_videos: 
+                video_dir_path = os.path.join(self.output_file, video_dir) 
+                video_annot = os.path.join(self.videos_root, video_dir, 'annotations.txt') 
+                clip_category_dict = load_video_annot(video_annot) 
 
-                if not os.path.isdir(video_dir_path):
-                    continue
+                if not os.path.isdir(video_dir_path): 
+                    continue 
 
-                clips_dir = os.listdir(video_dir_path)
-                clips_dir.sort()
+                # Iterate directly over .npy files in the video directory
+                clip_files = [f for f in os.listdir(video_dir_path) if f.endswith('.npy')]
+                clip_files.sort()
 
-                for clip_dir in clips_dir:
-                    clip_features_file = os.path.join(video_dir_path, f"{clip_dir}.npy")
+                for clip_file in clip_files:
+                    clip_id = os.path.splitext(clip_file)[0]  # remove ".npy"
+                    clip_features_file = os.path.join(video_dir_path, clip_file)
 
-                    clip_label = CONFIG["CATEGORIES_DICT"][clip_category_dict[clip_dir]]
-                    clip_features = np.load(clip_features_file) # Load all frames
-                    for frame_idx in range(clip_features.shape[0]):
+                    # get the label for this clip
+                    clip_label = CONFIG["CATEGORIES_DICT"][clip_category_dict[clip_id]]
+                    clip_features = np.load(clip_features_file)
+
+                    for frame_idx in range(clip_features.shape[0]): 
                         self.dataset.append((clip_features[frame_idx], clip_label))
     
     def __len__(self):
@@ -237,9 +240,9 @@ class FeaturesDataset(Dataset):
         
 if __name__ == "__main__":
     # Example usage: Initialize the dataset and print its length.
-    dataset = B3Dataset(
+    dataset = FeaturesDataset(
+        output_file=CONFIG["DATA_PATHS"]["features_root"],
         videos_root=CONFIG["DATA_PATHS"]["videos_root"],
-        target_videos=[1],
-        annot_root=CONFIG["DATA_PATHS"]["annot_root"]
+        target_videos=[1]
     )
     print(len(dataset))
