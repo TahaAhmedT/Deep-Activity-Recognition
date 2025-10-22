@@ -70,48 +70,46 @@ def prepare_model(image_level = False):
     return model, preprocess
 
 
-def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, device, image_level=False, image_classify=False):
+def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, device, image_level=False, image_classify=False): 
     frame_boxes = load_tracking_annot(annot_file)
+    all_features = []  # collect all frame-level features here
 
-    with torch.no_grad():
-        for frame_id, boxes_info in frame_boxes.items():
-            try:
-                img_path = os.path.join(clip_dir_path, f'{frame_id}.jpg')
-                image = Image.open(img_path).convert('RGB')
-
-                if image_level:
-                    preprocessed_image = preprocess(image).unsqueeze(0)
+    with torch.no_grad(): 
+        for frame_id, boxes_info in frame_boxes.items(): 
+            try: 
+                img_path = os.path.join(clip_dir_path, f'{frame_id}.jpg') 
+                image = Image.open(img_path).convert('RGB') 
+ 
+                if image_level: 
+                    preprocessed_image = preprocess(image).unsqueeze(0).to(device)
                     dnn_repr = model(preprocessed_image)
-                    dnn_repr = dnn_repr.view(1, -1)
-                else:
-                    # for each image player's box, extract cropped images, extract features
+                    pooled_repr = dnn_repr.view(1, -1)  # [1, feature_dim]
+                else: 
                     preprocessed_images = []
                     for box_info in boxes_info:
                         x1, y1, x2, y2 = box_info.box
                         cropped_image = image.crop((x1, y1, x2, y2))
-
-                        # if True:   # visualize a crop
-                        #     cv2.imshow('Cropped Image', np.array(cropped_image))
-                        #     cv2.waitKey(0)
-
                         preprocessed_images.append(preprocess(cropped_image).unsqueeze(0))
-
+ 
                     preprocessed_images = torch.cat(preprocessed_images)
                     preprocessed_images = preprocessed_images.cuda()
-                    dnn_repr = model.backbone(preprocessed_images)    # Batch Processing
-                    dnn_repr = dnn_repr.view(len(preprocessed_images), -1)  # 12 x 2048 for resnet 50
-                    
+                    dnn_repr = model.backbone(preprocessed_images)
+                    dnn_repr = dnn_repr.view(len(preprocessed_images), -1)
+
                     if image_classify:
-                        # Max pool all feature to get the image representation
-                        pooled_repr, _ = torch.max(dnn_repr, dim=0) # pooled_repr --> [2048]
-                        pooled_repr = pooled_repr.unsqueeze(0) # to keep batch dimension [1, 2048]
+                        pooled_repr, _ = torch.max(dnn_repr, dim=0)
+                        pooled_repr = pooled_repr.unsqueeze(0)
 
-                # uncomment to save features
-                pooled_repr = pooled_repr.cpu()
-                np.save(output_file, pooled_repr.numpy())
-            except Exception as e:
-                print(f"An error occurred: {e}")
-
+                # store frame representation
+                all_features.append(pooled_repr.cpu().numpy())
+            
+            except Exception as e: 
+                print(f"An error occurred on frame {frame_id}: {e}")
+    
+    # concatenate all frame features -> shape (num_frames, feature_dim)
+    if len(all_features) > 0:
+        all_features = np.concatenate(all_features, axis=0)
+        np.save(output_file, all_features)
 
 
 def temp():
