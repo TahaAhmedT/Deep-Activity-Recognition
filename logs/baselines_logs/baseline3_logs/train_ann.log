@@ -1,0 +1,102 @@
+[2025-10-22 23:35:10] - [finetune_resnet50.py:106] - [INFO]: Setting all seeds...
+[2025-10-22 23:35:10] - [train_ann.py:60] - [INFO]: Using Device: cuda
+[2025-10-22 23:35:10] - [train_ann.py:33] - [INFO]: Creating Data Loaders...
+[2025-10-22 23:35:11] - [train_ann.py:48] - [INFO]: Data Loaders Created.
+[2025-10-22 23:35:11] - [train_ann.py:52] - [INFO]: Initializing ANN Model...
+[2025-10-22 23:35:11] - [train_ann.py:54] - [INFO]: ANN Model Initialized.
+[2025-10-22 23:35:11] - [finetune_resnet50.py:90] - [INFO]: Creating optimizer...
+[2025-10-22 23:35:11] - [finetune_resnet50.py:94] - [INFO]: Optimizer created: AdamW Optimizer.
+[2025-10-22 23:35:11] - [finetune_resnet50.py:95] - [INFO]: Learning Rate Scheduler Created: ReduceLROnPlateau.
+[2025-10-22 23:35:11] - [finetune_resnet50.py:96] - [INFO]: Initial Learning Rate: 0.001.
+[2025-10-22 23:35:11] - [train_ann.py:67] - [INFO]: Starting Training and Testing with Number of Epochs = 10.
+[2025-10-22 23:35:11] - [train_ann.py:70] - [INFO]: Opening a CSV file to log training metrics.
+[2025-10-22 23:35:11] - [train_ann.py:79] - [INFO]: Epoch 1
+-----------------------
+[2025-10-22 23:35:11] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:13] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:13] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:14] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:14] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:14] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:14] - [train_ann.py:79] - [INFO]: Epoch 2
+-----------------------
+[2025-10-22 23:35:14] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:15] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:15] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:15] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 2/10.
+[2025-10-22 23:35:15] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:16] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:16] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:16] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:16] - [train_ann.py:79] - [INFO]: Epoch 3
+-----------------------
+[2025-10-22 23:35:16] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:17] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:17] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:18] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:18] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:18] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:18] - [train_ann.py:79] - [INFO]: Epoch 4
+-----------------------
+[2025-10-22 23:35:18] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:19] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:19] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:19] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 4/10.
+[2025-10-22 23:35:19] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:20] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:20] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:20] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:20] - [train_ann.py:79] - [INFO]: Epoch 5
+-----------------------
+[2025-10-22 23:35:20] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:21] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:21] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:22] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:22] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:22] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:22] - [train_ann.py:79] - [INFO]: Epoch 6
+-----------------------
+[2025-10-22 23:35:22] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:23] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:23] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:23] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 6/10.
+[2025-10-22 23:35:23] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:24] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:24] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:24] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:24] - [train_ann.py:79] - [INFO]: Epoch 7
+-----------------------
+[2025-10-22 23:35:24] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:25] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:25] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:25] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:25] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:25] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:25] - [train_ann.py:79] - [INFO]: Epoch 8
+-----------------------
+[2025-10-22 23:35:25] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:27] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:27] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:27] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 8/10.
+[2025-10-22 23:35:27] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:27] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:27] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:27] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:27] - [train_ann.py:79] - [INFO]: Epoch 9
+-----------------------
+[2025-10-22 23:35:27] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:29] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:29] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:29] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:29] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:29] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:29] - [train_ann.py:79] - [INFO]: Epoch 10
+-----------------------
+[2025-10-22 23:35:29] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:31] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:31] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:31] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 10/10.
+[2025-10-22 23:35:31] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:31] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:31] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:31] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!

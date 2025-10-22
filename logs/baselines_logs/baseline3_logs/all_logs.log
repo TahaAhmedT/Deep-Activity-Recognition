@@ -663,3 +663,173 @@
 [2025-10-22 23:09:19] - [extract_features.py:86] - [INFO]: Working on Video Number: 54
 [2025-10-22 23:09:57] - [extract_features.py:86] - [INFO]: Working on Video Number: 55
 [2025-10-22 23:09:57] - [extract_features.py:86] - [INFO]: Working on Video Number: 56
+[2025-10-22 23:35:10] - [finetune_resnet50.py:106] - [INFO]: Setting all seeds...
+[2025-10-22 23:35:10] - [train_ann.py:60] - [INFO]: Using Device: cuda
+[2025-10-22 23:35:10] - [train_ann.py:33] - [INFO]: Creating Data Loaders...
+[2025-10-22 23:35:10] - [datasets.py:167] - [INFO]: Initializing Features Dataset...
+[2025-10-22 23:35:10] - [datasets.py:187] - [INFO]: Collecting Images' features and labels...
+[2025-10-22 23:35:11] - [datasets.py:169] - [INFO]: Features Dataset Initialized with 19647 Samples!
+[2025-10-22 23:35:11] - [datasets.py:167] - [INFO]: Initializing Features Dataset...
+[2025-10-22 23:35:11] - [datasets.py:187] - [INFO]: Collecting Images' features and labels...
+[2025-10-22 23:35:11] - [datasets.py:169] - [INFO]: Features Dataset Initialized with 11394 Samples!
+[2025-10-22 23:35:11] - [train_ann.py:48] - [INFO]: Data Loaders Created.
+[2025-10-22 23:35:11] - [train_ann.py:52] - [INFO]: Initializing ANN Model...
+[2025-10-22 23:35:11] - [ann_model.py:43] - [INFO]: Initializing Our ANN Model...
+[2025-10-22 23:35:11] - [ann_model.py:49] - [INFO]: ANN Model Initialized with Input Size = 2048 and Output Size = 8.
+[2025-10-22 23:35:11] - [train_ann.py:54] - [INFO]: ANN Model Initialized.
+[2025-10-22 23:35:11] - [finetune_resnet50.py:90] - [INFO]: Creating optimizer...
+[2025-10-22 23:35:11] - [finetune_resnet50.py:94] - [INFO]: Optimizer created: AdamW Optimizer.
+[2025-10-22 23:35:11] - [finetune_resnet50.py:95] - [INFO]: Learning Rate Scheduler Created: ReduceLROnPlateau.
+[2025-10-22 23:35:11] - [finetune_resnet50.py:96] - [INFO]: Initial Learning Rate: 0.001.
+[2025-10-22 23:35:11] - [train_ann.py:67] - [INFO]: Starting Training and Testing with Number of Epochs = 10.
+[2025-10-22 23:35:11] - [train_ann.py:70] - [INFO]: Opening a CSV file to log training metrics.
+[2025-10-22 23:35:11] - [train_ann.py:79] - [INFO]: Epoch 1
+-----------------------
+[2025-10-22 23:35:11] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:13] - [train_utils.py:67] - [INFO]: Train Loss: 0.75920 | Train Accuracy: 72.70%
+[2025-10-22 23:35:13] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:13] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:13] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.539415717124939
+[2025-10-22 23:35:13] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 1.7493870258331299
+[2025-10-22 23:35:13] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.9341461658477783
+[2025-10-22 23:35:14] - [test_utils.py:69] - [INFO]: Test Loss: 0.78971 | Test Accuracy: 71.04% | Test F1-score: 0.7103738784790039
+
+[2025-10-22 23:35:14] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:14] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:14] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:14] - [train_ann.py:79] - [INFO]: Epoch 2
+-----------------------
+[2025-10-22 23:35:14] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:15] - [train_utils.py:67] - [INFO]: Train Loss: 0.40628 | Train Accuracy: 85.37%
+[2025-10-22 23:35:15] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:15] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:15] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 2/10.
+[2025-10-22 23:35:15] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:15] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.3806401789188385
+[2025-10-22 23:35:15] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 3.6384241580963135
+[2025-10-22 23:35:16] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 1.9530596733093262
+[2025-10-22 23:35:16] - [test_utils.py:69] - [INFO]: Test Loss: 0.99432 | Test Accuracy: 69.47% | Test F1-score: 0.6946638822555542
+
+[2025-10-22 23:35:16] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:16] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:16] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:16] - [train_ann.py:79] - [INFO]: Epoch 3
+-----------------------
+[2025-10-22 23:35:16] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:17] - [train_utils.py:67] - [INFO]: Train Loss: 0.32563 | Train Accuracy: 88.51%
+[2025-10-22 23:35:17] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:17] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:17] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.12907931208610535
+[2025-10-22 23:35:17] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 3.1474335193634033
+[2025-10-22 23:35:18] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 1.0945907831192017
+[2025-10-22 23:35:18] - [test_utils.py:69] - [INFO]: Test Loss: 0.91478 | Test Accuracy: 72.09% | Test F1-score: 0.7209057211875916
+
+[2025-10-22 23:35:18] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:18] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:18] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:18] - [train_ann.py:79] - [INFO]: Epoch 4
+-----------------------
+[2025-10-22 23:35:18] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:19] - [train_utils.py:67] - [INFO]: Train Loss: 0.27324 | Train Accuracy: 90.22%
+[2025-10-22 23:35:19] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:19] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:19] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 4/10.
+[2025-10-22 23:35:19] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:19] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.1935369074344635
+[2025-10-22 23:35:19] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 2.1764018535614014
+[2025-10-22 23:35:20] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.7230415344238281
+[2025-10-22 23:35:20] - [test_utils.py:69] - [INFO]: Test Loss: 0.82456 | Test Accuracy: 75.40% | Test F1-score: 0.7539933323860168
+
+[2025-10-22 23:35:20] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:20] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:20] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:20] - [train_ann.py:79] - [INFO]: Epoch 5
+-----------------------
+[2025-10-22 23:35:20] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:21] - [train_utils.py:67] - [INFO]: Train Loss: 0.21177 | Train Accuracy: 92.70%
+[2025-10-22 23:35:21] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:21] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:21] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.332063227891922
+[2025-10-22 23:35:21] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 3.0612528324127197
+[2025-10-22 23:35:22] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.8785442113876343
+[2025-10-22 23:35:22] - [test_utils.py:69] - [INFO]: Test Loss: 0.84213 | Test Accuracy: 75.57% | Test F1-score: 0.755660891532898
+
+[2025-10-22 23:35:22] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:22] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:22] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:22] - [train_ann.py:79] - [INFO]: Epoch 6
+-----------------------
+[2025-10-22 23:35:22] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:23] - [train_utils.py:67] - [INFO]: Train Loss: 0.18952 | Train Accuracy: 93.36%
+[2025-10-22 23:35:23] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:23] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:23] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 6/10.
+[2025-10-22 23:35:23] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:23] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.26349183917045593
+[2025-10-22 23:35:23] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 2.350572109222412
+[2025-10-22 23:35:24] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 1.5488152503967285
+[2025-10-22 23:35:24] - [test_utils.py:69] - [INFO]: Test Loss: 1.07199 | Test Accuracy: 73.28% | Test F1-score: 0.7328418493270874
+
+[2025-10-22 23:35:24] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:24] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:24] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:24] - [train_ann.py:79] - [INFO]: Epoch 7
+-----------------------
+[2025-10-22 23:35:24] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:25] - [train_utils.py:67] - [INFO]: Train Loss: 0.19602 | Train Accuracy: 93.00%
+[2025-10-22 23:35:25] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:25] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:25] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.056927986443042755
+[2025-10-22 23:35:25] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 1.7965466976165771
+[2025-10-22 23:35:25] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.8902129530906677
+[2025-10-22 23:35:25] - [test_utils.py:69] - [INFO]: Test Loss: 0.97238 | Test Accuracy: 75.39% | Test F1-score: 0.7539055347442627
+
+[2025-10-22 23:35:25] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:25] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:25] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:25] - [train_ann.py:79] - [INFO]: Epoch 8
+-----------------------
+[2025-10-22 23:35:25] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:27] - [train_utils.py:67] - [INFO]: Train Loss: 0.16974 | Train Accuracy: 94.00%
+[2025-10-22 23:35:27] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:27] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:27] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 8/10.
+[2025-10-22 23:35:27] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:27] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.10066081583499908
+[2025-10-22 23:35:27] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 1.38984215259552
+[2025-10-22 23:35:27] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.8177574872970581
+[2025-10-22 23:35:27] - [test_utils.py:69] - [INFO]: Test Loss: 1.08932 | Test Accuracy: 74.76% | Test F1-score: 0.7475864291191101
+
+[2025-10-22 23:35:27] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:27] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:27] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:27] - [train_ann.py:79] - [INFO]: Epoch 9
+-----------------------
+[2025-10-22 23:35:27] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:29] - [train_utils.py:67] - [INFO]: Train Loss: 0.14792 | Train Accuracy: 94.70%
+[2025-10-22 23:35:29] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:29] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:29] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.5231499671936035
+[2025-10-22 23:35:29] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 4.0347394943237305
+[2025-10-22 23:35:29] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 2.176204204559326
+[2025-10-22 23:35:29] - [test_utils.py:69] - [INFO]: Test Loss: 1.28813 | Test Accuracy: 72.13% | Test F1-score: 0.7213445901870728
+
+[2025-10-22 23:35:29] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:29] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:29] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!
+[2025-10-22 23:35:29] - [train_ann.py:79] - [INFO]: Epoch 10
+-----------------------
+[2025-10-22 23:35:29] - [train_ann.py:81] - [INFO]: Starting training step...
+[2025-10-22 23:35:31] - [train_utils.py:67] - [INFO]: Train Loss: 0.14613 | Train Accuracy: 94.98%
+[2025-10-22 23:35:31] - [train_ann.py:91] - [INFO]: Training step completed.
+[2025-10-22 23:35:31] - [train_ann.py:95] - [INFO]: Saving model checkpoint...
+[2025-10-22 23:35:31] - [train_ann.py:103] - [INFO]: Model checkpoint saved at epoch 10/10.
+[2025-10-22 23:35:31] - [train_ann.py:107] - [INFO]: Starting testing step...
+[2025-10-22 23:35:31] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.9456958770751953
+[2025-10-22 23:35:31] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 2.082278251647949
+[2025-10-22 23:35:31] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 1.933750867843628
+[2025-10-22 23:35:31] - [test_utils.py:69] - [INFO]: Test Loss: 1.29551 | Test Accuracy: 73.09% | Test F1-score: 0.7309109568595886
+
+[2025-10-22 23:35:31] - [train_ann.py:119] - [INFO]: Testing step completed.
+[2025-10-22 23:35:31] - [train_ann.py:122] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-10-22 23:35:31] - [train_ann.py:126] - [INFO]: Epoch's metrics appended successfully!

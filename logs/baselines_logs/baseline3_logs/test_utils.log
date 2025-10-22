@@ -438,3 +438,53 @@
 [2025-10-13 16:58:14] - [test_utils.py:60] - [INFO]: batch #4200/4252 Loss: 0.011365808546543121
 [2025-10-13 16:58:19] - [test_utils.py:69] - [INFO]: Test Loss: 1.15310 | Test Accuracy: 75.69% | Test F1-score: 0.7569094896316528
 
+[2025-10-22 23:35:13] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.539415717124939
+[2025-10-22 23:35:13] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 1.7493870258331299
+[2025-10-22 23:35:13] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.9341461658477783
+[2025-10-22 23:35:14] - [test_utils.py:69] - [INFO]: Test Loss: 0.78971 | Test Accuracy: 71.04% | Test F1-score: 0.7103738784790039
+
+[2025-10-22 23:35:15] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.3806401789188385
+[2025-10-22 23:35:15] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 3.6384241580963135
+[2025-10-22 23:35:16] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 1.9530596733093262
+[2025-10-22 23:35:16] - [test_utils.py:69] - [INFO]: Test Loss: 0.99432 | Test Accuracy: 69.47% | Test F1-score: 0.6946638822555542
+
+[2025-10-22 23:35:17] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.12907931208610535
+[2025-10-22 23:35:17] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 3.1474335193634033
+[2025-10-22 23:35:18] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 1.0945907831192017
+[2025-10-22 23:35:18] - [test_utils.py:69] - [INFO]: Test Loss: 0.91478 | Test Accuracy: 72.09% | Test F1-score: 0.7209057211875916
+
+[2025-10-22 23:35:19] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.1935369074344635
+[2025-10-22 23:35:19] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 2.1764018535614014
+[2025-10-22 23:35:20] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.7230415344238281
+[2025-10-22 23:35:20] - [test_utils.py:69] - [INFO]: Test Loss: 0.82456 | Test Accuracy: 75.40% | Test F1-score: 0.7539933323860168
+
+[2025-10-22 23:35:21] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.332063227891922
+[2025-10-22 23:35:21] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 3.0612528324127197
+[2025-10-22 23:35:22] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.8785442113876343
+[2025-10-22 23:35:22] - [test_utils.py:69] - [INFO]: Test Loss: 0.84213 | Test Accuracy: 75.57% | Test F1-score: 0.755660891532898
+
+[2025-10-22 23:35:23] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.26349183917045593
+[2025-10-22 23:35:23] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 2.350572109222412
+[2025-10-22 23:35:24] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 1.5488152503967285
+[2025-10-22 23:35:24] - [test_utils.py:69] - [INFO]: Test Loss: 1.07199 | Test Accuracy: 73.28% | Test F1-score: 0.7328418493270874
+
+[2025-10-22 23:35:25] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.056927986443042755
+[2025-10-22 23:35:25] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 1.7965466976165771
+[2025-10-22 23:35:25] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.8902129530906677
+[2025-10-22 23:35:25] - [test_utils.py:69] - [INFO]: Test Loss: 0.97238 | Test Accuracy: 75.39% | Test F1-score: 0.7539055347442627
+
+[2025-10-22 23:35:27] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.10066081583499908
+[2025-10-22 23:35:27] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 1.38984215259552
+[2025-10-22 23:35:27] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 0.8177574872970581
+[2025-10-22 23:35:27] - [test_utils.py:69] - [INFO]: Test Loss: 1.08932 | Test Accuracy: 74.76% | Test F1-score: 0.7475864291191101
+
+[2025-10-22 23:35:29] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.5231499671936035
+[2025-10-22 23:35:29] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 4.0347394943237305
+[2025-10-22 23:35:29] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 2.176204204559326
+[2025-10-22 23:35:29] - [test_utils.py:69] - [INFO]: Test Loss: 1.28813 | Test Accuracy: 72.13% | Test F1-score: 0.7213445901870728
+
+[2025-10-22 23:35:31] - [test_utils.py:60] - [INFO]: batch #100/357 Loss: 0.9456958770751953
+[2025-10-22 23:35:31] - [test_utils.py:60] - [INFO]: batch #200/357 Loss: 2.082278251647949
+[2025-10-22 23:35:31] - [test_utils.py:60] - [INFO]: batch #300/357 Loss: 1.933750867843628
+[2025-10-22 23:35:31] - [test_utils.py:69] - [INFO]: Test Loss: 1.29551 | Test Accuracy: 73.09% | Test F1-score: 0.7309109568595886
+
