@@ -38,6 +38,12 @@ ACTIONS_DICT: {
   "standing": 8
 }
 
+baseline1_logs: "logs/baselines_logs/baseline1_logs"
+baseline3_logs: "logs/baselines_logs/baseline3_logs"
+
+baseline1_assets: "assets/baselines_assets/baseline1"
+baseline3_assets: "assets/baselines_assets/baseline3"
+
 LOGS_PATH: "logs/baselines_logs"
 TRAINING_LOGS_PATH: "logs/training_logs"
 MODELS_PATH: "models"
