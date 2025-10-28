@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix as sk_confusion_matrix, ConfusionMatrixDisplay
 
@@ -111,6 +112,50 @@ def plot_confusion_matrix(y_true, y_pred, save_path: str, figname: str):
     plt.tight_layout()
     plt.savefig(os.path.join(save_path, f"{figname}.png"))
     plt.close()
+
+
+def load_data(metrics_path: str, ys_path: str):
+    """
+    Loads metrics and confusion matrix data from CSV files.
+    """
+    metrics_data = pd.read_csv(metrics_path)
+    cm_data = pd.read_csv(ys_path)
+    return metrics_data, cm_data
+
+
+def prepare_results_dict(metrics_data, cm_data):
+    """
+    Prepares a dictionary of results for plotting.
+    """
+    results = {
+        "Train_Loss": [metrics_data["train_loss"].tolist()],
+        "Train_Accuracy": [metrics_data["train_acc"].tolist()],
+        "Test_Loss": [metrics_data["test_loss"].tolist()],
+        "Test_Accuracy": [metrics_data["test_acc"].tolist()],
+        "Test_F1_Score": [metrics_data["test_f1"].tolist()],
+        "Train_Loss_and_Accuracy": [
+            metrics_data["train_loss"].tolist(),
+            metrics_data["train_acc"].tolist()
+        ],
+        "Test_Loss_and_Accuracy": [
+            metrics_data["test_loss"].tolist(),
+            metrics_data["test_acc"].tolist()
+        ],
+        "Train_Test_Loss": [
+            metrics_data["train_loss"].tolist(),
+            metrics_data["test_loss"].tolist()
+        ],
+        "Train_Test_Accuracy": [
+            metrics_data["train_acc"].tolist(),
+            metrics_data["test_acc"].tolist()
+        ],
+        "Confusion_Matrix": (
+            cm_data["y_true"].tolist(),
+            cm_data["y_pred"].tolist()
+        )
+    }
+
+    return results
 
 
 def main():
