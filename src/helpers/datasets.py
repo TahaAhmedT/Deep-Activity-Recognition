@@ -18,7 +18,6 @@ from PIL import Image
 import os
 import numpy as np
 
-CONFIG = load_config()
 
 class ImagesDataset(Dataset):
     """Dataset for loading images and their labels from the volleyball dataset.
@@ -48,9 +47,10 @@ class ImagesDataset(Dataset):
     def __init__(self,
                  videos_root: str,
                  target_videos: list[int],
-                 annot_root, log_dir,
+                 annot_root,
+                 log_dir,
                  image_level: bool,
-                 actions_dict: dict = None,
+                 actions_dict: dict,
                  transform=None,
                  verbose=False):
         
@@ -117,22 +117,18 @@ class ImagesDataset(Dataset):
                         continue
 
                     if self.image_level:
-                        clips_dir = os.listdir(video_dir_path)
-                        clips_dir.sort()
+                        clip_dir_path = os.path.join(video_dir_path, clip_dir)
 
-                        for clip_dir in clips_dir:
-                            clip_dir_path = os.path.join(video_dir_path, clip_dir)
+                        if not os.path.isdir(clip_dir_path):
+                            continue
+                        
+                        imgs_list = os.listdir(clip_dir_path)
+                        mid_idx = len(imgs_list) // 2
 
-                            if not os.path.isdir(clip_dir_path):
-                                continue
-                            
-                            imgs_list = os.listdir(clip_dir_path)
-                            mid_idx = len(imgs_list) // 2
-
-                            for img in imgs_list[mid_idx-5: mid_idx+5]:
-                                img_path = os.path.join(clip_dir_path, img)
-                                label = CONFIG["CATEGORIES_DICT"][clip_category_dict[clip_dir]]
-                                self.dataset.append((img_path, label))
+                        for img in imgs_list[mid_idx-4: mid_idx+5]:
+                            img_path = os.path.join(clip_dir_path, img)
+                            label = CONFIG["CATEGORIES_DICT"][clip_category_dict[clip_dir]]
+                            self.dataset.append((img_path, label))
 
                         self.logger.info(f"Collected {len(self.dataset)} image-label pairs.")
                     
@@ -306,9 +302,12 @@ class FeaturesDataset(Dataset):
         
 if __name__ == "__main__":
     # Example usage: Initialize the dataset and print its length.
-    dataset = FeaturesDataset(
-        output_file=CONFIG["DATA_PATHS"]["features_root"],
-        videos_root=CONFIG["DATA_PATHS"]["videos_root"],
-        target_videos=[1]
-    )
+    CONFIG = load_config()
+    dataset = ImagesDataset(videos_root=CONFIG["DATA_PATHS"]["videos_root"],
+                            target_videos=[0],
+                            annot_root=CONFIG["DATA_PATHS"]["annot_root"],
+                            log_dir="logs/baselines_logs/baseline1_logs",
+                            image_level=True,
+                            actions_dict=CONFIG["CATEGORIES_DICT"]
+                            )
     print(len(dataset))
