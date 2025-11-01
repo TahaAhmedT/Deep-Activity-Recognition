@@ -303,11 +303,18 @@ class FeaturesDataset(Dataset):
 if __name__ == "__main__":
     # Example usage: Initialize the dataset and print its length.
     CONFIG = load_config()
-    dataset = ImagesDataset(videos_root=CONFIG["DATA_PATHS"]["videos_root"],
-                            target_videos=[0],
-                            annot_root=CONFIG["DATA_PATHS"]["annot_root"],
-                            log_dir="logs/baselines_logs/baseline1_logs",
-                            image_level=True,
-                            actions_dict=CONFIG["CATEGORIES_DICT"]
-                            )
+    # dataset = ImagesDataset(videos_root=CONFIG["DATA_PATHS"]["videos_root"],
+    #                         target_videos=[0],
+    #                         annot_root=CONFIG["DATA_PATHS"]["annot_root"],
+    #                         log_dir="logs/baselines_logs/baseline1_logs",
+    #                         image_level=True,
+    #                         actions_dict=CONFIG["CATEGORIES_DICT"]
+    #                         )
+    dataset = FeaturesDataset(
+        output_file=CONFIG["DATA_PATHS"]["features_root"],
+        videos_root=CONFIG["DATA_PATHS"]["videos_root"],
+        target_videos=[0],
+        log_dir="logs/baselines_logs/baseline1_logs",
+        verbose=True
+    )
     print(len(dataset))
