@@ -163,7 +163,6 @@ def finetune(log_dir: str,
              image_level: bool,
              num_classes: int,
              actions_dict: dict,
-             baseline_logs: str,
              metrics_logs: str,
              preds_logs: str,
              save_path: str,
@@ -219,7 +218,7 @@ def finetune(log_dir: str,
             loss_fn=criterion,
             optimizer=optimizer,
             device=device,
-            logs_path=baseline_logs,
+            logs_path=log_dir,
             verbose=verbose
         )
         logger.info("Training step completed.")
@@ -244,7 +243,7 @@ def finetune(log_dir: str,
             model=model,
             loss_fn=criterion,
             device=device,
-            logs_path=baseline_logs,
+            logs_path=log_dir,
             verbose=verbose
         )
         Y_true.extend(y_true)
