@@ -1,5 +1,4 @@
-from src.baselines.baseline1.dataset import B1Dataset
-from src.baselines.baseline3.datasets import B3Dataset
+from src.helpers.datasets import ImagesDataset
 from src.baselines.baseline1.extended_model import ExtendedModel
 from src.utils.train_utils import train_step
 from src.utils.test_utils import test_step
@@ -27,6 +26,8 @@ def get_data_loaders(logger,
                      train_ids: list[int],
                      val_ids: list[int],
                      image_level: bool,
+                     log_dir: str,
+                     actions_dict: dict,
                      verbose: bool = False):
     """Creates train and test data loaders.
 
@@ -46,36 +47,48 @@ def get_data_loaders(logger,
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
 
-        train_dataset = B1Dataset(
-            videos_root=videos_root,
-            target_videos=train_ids,
-            transform=transform
-        )
-        test_dataset = B1Dataset(
-            videos_root=videos_root,
-            target_videos=val_ids,
-            transform=transform
-        )
+        train_dataset = ImagesDataset(videos_root=videos_root,
+                            target_videos=train_ids,
+                            annot_root=annot_root,
+                            log_dir=log_dir,
+                            image_level=image_level,
+                            actions_dict=actions_dict,
+                            transform=transform,
+                            verbose=verbose
+                            )
+        test_dataset = ImagesDataset(videos_root=videos_root,
+                            target_videos=val_ids,
+                            annot_root=annot_root,
+                            log_dir=log_dir,
+                            image_level=image_level,
+                            actions_dict=actions_dict,
+                            transform=transform,
+                            verbose=verbose
+                            )
     else:
         transform = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
         ])
-        train_dataset = B3Dataset(
-            videos_root=videos_root,
-            target_videos=train_ids,
-            annot_root=annot_root,
-            transform=transform,
-            verbose=verbose
-        )
-        test_dataset = B3Dataset(
-            videos_root=videos_root,
-            target_videos=val_ids,
-            annot_root=annot_root,
-            transform=transform,
-            verbose=verbose
-        )
+        train_dataset = ImagesDataset(videos_root=videos_root,
+                            target_videos=train_ids,
+                            annot_root=annot_root,
+                            log_dir=log_dir,
+                            image_level=image_level,
+                            actions_dict=actions_dict,
+                            transform=transform,
+                            verbose=verbose
+                            )
+        test_dataset = ImagesDataset(videos_root=videos_root,
+                            target_videos=val_ids,
+                            annot_root=annot_root,
+                            log_dir=log_dir,
+                            image_level=image_level,
+                            actions_dict=actions_dict,
+                            transform=transform,
+                            verbose=verbose
+                            )
 
     trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     testloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
@@ -149,6 +162,7 @@ def finetune(log_dir: str,
              val_ids: list[int],
              image_level: bool,
              num_classes: int,
+             actions_dict: dict,
              baseline_logs: str,
              metrics_logs: str,
              preds_logs: str,
@@ -168,7 +182,18 @@ def finetune(log_dir: str,
     set_all_seeds(logger, 42)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Using device: {device}")
-    trainloader, testloader = get_data_loaders(logger, batch_size, videos_root, annot_root, train_ids, val_ids, image_level, verbose)
+    trainloader, testloader = get_data_loaders(
+                                                logger,
+                                                batch_size,
+                                                videos_root,
+                                                annot_root,
+                                                train_ids,
+                                                val_ids,
+                                                image_level,
+                                                log_dir,
+                                                actions_dict,
+                                                verbose
+                                            )
     model = get_model(logger, num_classes, verbose)
     criterion = nn.CrossEntropyLoss()
     optimizer= get_optimizer(logger, model, lr)
