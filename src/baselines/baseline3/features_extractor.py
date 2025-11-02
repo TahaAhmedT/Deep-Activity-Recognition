@@ -9,6 +9,7 @@ from src.Preprocessing.extract_features import extract_features
 from src.Preprocessing.volleyball_annot_loader import load_video_annot
 from src.utils.logging_utils import setup_logger
 from src.helpers.finetune_helper import get_model
+from src.helpers.extract_features_helper import extract
 
 import os
 import numpy as np
@@ -21,7 +22,7 @@ CONFIG = load_config()
 
 logger = setup_logger(
             log_file=__file__,
-            log_dir=os.path.join(CONFIG["LOGS_PATH"], "baseline3_logs"),
+            log_dir=CONFIG["baseline3_logs"],
             log_to_console=CONFIG['verbose'],
             use_tqdm=True
         )
@@ -67,46 +68,25 @@ def prepare_model():
 
 def main():
     """
-    Main function to extract features from volleyball video clips.
-
-    Iterates through videos and clips, loads annotations, and saves extracted features as .npy files.
+    Main function to extract features from volleyball video clips using extract_features_helper function.
     """
     model, transform = prepare_model()
 
-    output_root = CONFIG["DATA_PATHS"]["features_root"]
-    videos_root = CONFIG["DATA_PATHS"]["videos_root"]
-    annot_root = CONFIG["DATA_PATHS"]["annot_root"]
+    logger.info("Starting Features Extraction...")
+    extract(log_dir=CONFIG["baseline3_logs"],
+    videos_root=CONFIG["DATA_PATHS"]["videos_root"],
+    train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
+    val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
+    annot_root=CONFIG["DATA_PATHS"]["annot_root"],
+    output_root=CONFIG["DATA_PATHS"]["features_root"],
+    model=model,
+    transform=transform,
+    image_level=False,
+    image_classify=True,
+    verbose=CONFIG["verbose"])
 
-    videos_dirs = os.listdir(videos_root)
-    videos_dirs.sort()
+    logger.info("Features Extraction Finished Successfully!")
 
-    # Iterate on each video and for each video iterate on each clip
-    for idx, video_dir in enumerate(videos_dirs):
-        if idx in CONFIG["TARGET_VIDEOS"]["train_ids"] or CONFIG["TARGET_VIDEOS"]["val_ids"]:
-            logger.info(f"Working on Video Number: {idx}")
-            video_dir_path = os.path.join(videos_root, video_dir)
-
-            if not os.path.isdir(video_dir_path):
-                continue
-
-            clips_dir = os.listdir(video_dir_path)
-            clips_dir.sort()
-
-            for clip_dir in clips_dir:
-                clip_dir_path = os.path.join(video_dir_path, clip_dir)
-
-                if not os.path.isdir(clip_dir_path):
-                    continue
-
-                annot_file = os.path.join(annot_root, video_dir, clip_dir, f"{clip_dir}.txt")
-                output_file = os.path.join(output_root, video_dir)
-
-                if not os.path.isdir(output_file):
-                    os.makedirs(output_file)
-                
-                output_file = os.path.join(output_file, f"{clip_dir}.npy")
-                device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-                extract_features(clip_dir_path, annot_file, output_file, model, transform, device, image_level=False, image_classify=True)
-
+    
 if __name__ == "__main__":
     main()
