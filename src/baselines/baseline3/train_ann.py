@@ -5,18 +5,12 @@ from src.helpers.datasets import FeaturesDataset
 from src.utils.train_utils import train_step
 from src.utils.test_utils import test_step
 from src.utils.checkpoints_utils import save_checkpoint
-from src.baselines.baseline1.finetune_resnet50 import set_all_seeds, get_optimizer
+from src.helpers.finetune_helper import set_all_seeds, get_optimizer
 
 import pandas as pd
-import numpy as np
-import random
 import os
 import torch
 import torch.nn as nn
-import torch.optim as optim
-from torch.optim.lr_scheduler import ReduceLROnPlateau
-from torchvision import transforms
-from torchvision.models import resnet50, ResNet50_Weights
 from torch.utils.data import DataLoader
 import csv
 
