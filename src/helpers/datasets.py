@@ -202,7 +202,7 @@ class FeaturesDataset(Dataset):
         logger (logging.Logger): Logger instance for progress and debug messages.
     """
 
-    def __init__(self, output_file, videos_root, target_videos, categories_dict, log_dir, sequence, verbose):
+    def __init__(self, output_file, videos_root, target_videos, categories_dict, log_dir, sequence=False, verbose=False):
         """Initializes the FeaturesDataset.
 
         Args:
