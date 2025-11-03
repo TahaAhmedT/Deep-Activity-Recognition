@@ -1,5 +1,6 @@
-from src.helpers.datasets import ImagesDataset
+from src.helpers.datasets import ImagesDataset, FeaturesDataset
 from src.baselines.baseline1.extended_model import ExtendedModel
+from src.baselines.baseline3.ann_model import ANN
 from src.utils.train_utils import train_step
 from src.utils.test_utils import test_step
 from src.utils.checkpoints_utils import save_checkpoint
@@ -25,9 +26,11 @@ def get_data_loaders(logger,
                      annot_root: str,
                      train_ids: list[int],
                      val_ids: list[int],
-                     image_level: bool,
+                     features: bool,
                      log_dir: str,
                      actions_dict: dict,
+                     output_file: str = None,
+                     image_level: bool = None,
                      verbose: bool = False):
     """Creates train and test data loaders.
 
@@ -39,63 +42,79 @@ def get_data_loaders(logger,
         tuple: (trainloader, testloader)
     """
     logger.info("Creating data loaders...")
-    if image_level:
-        transform = transforms.Compose([
-            transforms.Resize((256, 256)),
-            transforms.CenterCrop((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-        ])
-
-        train_dataset = ImagesDataset(videos_root=videos_root,
-                            target_videos=train_ids,
-                            annot_root=annot_root,
-                            log_dir=log_dir,
-                            image_level=image_level,
-                            actions_dict=actions_dict,
-                            transform=transform,
-                            verbose=verbose
-                            )
-        test_dataset = ImagesDataset(videos_root=videos_root,
-                            target_videos=val_ids,
-                            annot_root=annot_root,
-                            log_dir=log_dir,
-                            image_level=image_level,
-                            actions_dict=actions_dict,
-                            transform=transform,
-                            verbose=verbose
-                            )
+    if features:
+        train_dataset = FeaturesDataset(
+            output_file=output_file,
+            videos_root=videos_root,
+            target_videos=train_ids,
+            log_dir=log_dir,
+            verbose=verbose
+        )
+        test_dataset = FeaturesDataset(
+            output_file=output_file,
+            videos_root=videos_root,
+            target_videos=val_ids,
+            log_dir=log_dir,
+            verbose=verbose
+        )
     else:
-        transform = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-        ])
-        train_dataset = ImagesDataset(videos_root=videos_root,
-                            target_videos=train_ids,
-                            annot_root=annot_root,
-                            log_dir=log_dir,
-                            image_level=image_level,
-                            actions_dict=actions_dict,
-                            transform=transform,
-                            verbose=verbose
-                            )
-        test_dataset = ImagesDataset(videos_root=videos_root,
-                            target_videos=val_ids,
-                            annot_root=annot_root,
-                            log_dir=log_dir,
-                            image_level=image_level,
-                            actions_dict=actions_dict,
-                            transform=transform,
-                            verbose=verbose
-                            )
+        if image_level:
+            transform = transforms.Compose([
+                transforms.Resize((256, 256)),
+                transforms.CenterCrop((224, 224)),
+                transforms.ToTensor(),
+                transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+            ])
+
+            train_dataset = ImagesDataset(videos_root=videos_root,
+                                target_videos=train_ids,
+                                annot_root=annot_root,
+                                log_dir=log_dir,
+                                image_level=image_level,
+                                actions_dict=actions_dict,
+                                transform=transform,
+                                verbose=verbose
+                                )
+            test_dataset = ImagesDataset(videos_root=videos_root,
+                                target_videos=val_ids,
+                                annot_root=annot_root,
+                                log_dir=log_dir,
+                                image_level=image_level,
+                                actions_dict=actions_dict,
+                                transform=transform,
+                                verbose=verbose
+                                )
+        else:
+            transform = transforms.Compose([
+                transforms.Resize((224, 224)),
+                transforms.ToTensor(),
+                transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+            ])
+            train_dataset = ImagesDataset(videos_root=videos_root,
+                                target_videos=train_ids,
+                                annot_root=annot_root,
+                                log_dir=log_dir,
+                                image_level=image_level,
+                                actions_dict=actions_dict,
+                                transform=transform,
+                                verbose=verbose
+                                )
+            test_dataset = ImagesDataset(videos_root=videos_root,
+                                target_videos=val_ids,
+                                annot_root=annot_root,
+                                log_dir=log_dir,
+                                image_level=image_level,
+                                actions_dict=actions_dict,
+                                transform=transform,
+                                verbose=verbose
+                                )
 
     trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     testloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     logger.info("Data loaders created.")
     return trainloader, testloader
 
-def get_model(logger, num_classes: int, verbose=False):
+def get_resnet_model(logger, num_classes: int, verbose=False):
     """Initializes the ResNet50 model and truncates the last layer.
 
     Args:
@@ -110,6 +129,13 @@ def get_model(logger, num_classes: int, verbose=False):
     truncated_model = nn.Sequential(*layers)
     model = ExtendedModel(truncated_model, num_classes)
     logger.info("Model initialized and truncated.")
+    return model
+
+
+def get_ann_model(logger, input_size, num_classes):
+    logger.info("Initializing ANN Model...")
+    model = ANN(input_size=input_size, n_classes=num_classes)
+    logger.info("ANN Model Initialized.")
     return model
 
 def get_optimizer(logger, model, lr):
@@ -160,12 +186,16 @@ def finetune(log_dir: str,
              annot_root: str,
              train_ids: list[int],
              val_ids: list[int],
-             image_level: bool,
+             features: bool,
+             model_name: str,
              num_classes: int,
              actions_dict: dict,
              metrics_logs: str,
              preds_logs: str,
              save_path: str,
+             image_level: bool = None,
+             output_file: str = None,
+             ann_input_size: int = None,
              verbose: bool = False):
     """Main function to run training and testing loop.
 
@@ -188,12 +218,18 @@ def finetune(log_dir: str,
                                                 annot_root,
                                                 train_ids,
                                                 val_ids,
-                                                image_level,
+                                                features,
                                                 log_dir,
                                                 actions_dict,
+                                                output_file,
+                                                image_level,
                                                 verbose
                                             )
-    model = get_model(logger, num_classes, verbose)
+    if model_name == "resnet":
+        model = get_resnet_model(logger, num_classes, verbose)
+    elif model_name == "ann":
+        model = get_ann_model(logger, ann_input_size, num_classes)
+    
     criterion = nn.CrossEntropyLoss()
     optimizer= get_optimizer(logger, model, lr)
 
