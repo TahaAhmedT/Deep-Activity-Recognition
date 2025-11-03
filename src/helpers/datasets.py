@@ -202,7 +202,7 @@ class FeaturesDataset(Dataset):
         logger (logging.Logger): Logger instance for progress and debug messages.
     """
 
-    def __init__(self, output_file, videos_root, target_videos, log_dir, verbose):
+    def __init__(self, output_file, videos_root, target_videos, categories_dict, log_dir, verbose):
         """Initializes the FeaturesDataset.
 
         Args:
@@ -217,6 +217,7 @@ class FeaturesDataset(Dataset):
         self.output_file = output_file
         self.videos_root = videos_root
         self.target_videos = target_videos
+        self.categories_dict = categories_dict
         self.log_dir = log_dir
         self.verbose = verbose
         self.dataset = []
@@ -268,7 +269,7 @@ class FeaturesDataset(Dataset):
                     clip_features_file = os.path.join(video_dir_path, clip_file)
 
                     # get the label for this clip
-                    clip_label = CONFIG["CATEGORIES_DICT"][clip_category_dict[clip_id]]
+                    clip_label = self.categories_dict[clip_category_dict[clip_id]]
                     clip_features = np.load(clip_features_file)
 
                     for frame_idx in range(clip_features.shape[0]): 
