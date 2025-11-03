@@ -1,0 +1,64 @@
+[2025-11-03 00:31:37] - [features_extractor.py:42] - [INFO]: Using Device:cuda:0
+[2025-11-03 00:31:37] - [finetune_helper.py:107] - [INFO]: Initializing ResNet50 model...
+[2025-11-03 00:31:37] - [finetune_helper.py:112] - [INFO]: Model initialized and truncated.
+[2025-11-03 00:31:37] - [features_extractor.py:48] - [INFO]: Loading the Model's Checkpoint...
+[2025-11-03 00:31:38] - [features_extractor.py:60] - [INFO]: The Model is Ready and Sent to cuda:0 Device, and Set to Eval Mode.
+[2025-11-03 00:31:38] - [features_extractor.py:70] - [INFO]: Starting Features Extraction...
+[2025-11-03 00:31:38] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 0
+[2025-11-03 00:32:12] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 1
+[2025-11-03 00:32:48] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 2
+[2025-11-03 00:33:11] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 3
+[2025-11-03 00:33:34] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 4
+[2025-11-03 00:33:55] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 5
+[2025-11-03 00:34:19] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 6
+[2025-11-03 00:34:43] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 7
+[2025-11-03 00:35:06] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 8
+[2025-11-03 00:35:28] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 9
+[2025-11-03 00:35:50] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 10
+[2025-11-03 00:36:12] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 11
+[2025-11-03 00:36:30] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 12
+[2025-11-03 00:36:58] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 13
+[2025-11-03 00:37:22] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 14
+[2025-11-03 00:37:42] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 15
+[2025-11-03 00:38:03] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 16
+[2025-11-03 00:38:24] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 17
+[2025-11-03 00:38:43] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 18
+[2025-11-03 00:39:06] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 19
+[2025-11-03 00:39:25] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 20
+[2025-11-03 00:39:46] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 21
+[2025-11-03 00:40:08] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 22
+[2025-11-03 00:40:29] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 23
+[2025-11-03 00:41:06] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 24
+[2025-11-03 00:41:28] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 25
+[2025-11-03 00:41:49] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 26
+[2025-11-03 00:42:09] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 27
+[2025-11-03 00:42:30] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 28
+[2025-11-03 00:42:43] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 29
+[2025-11-03 00:43:03] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 30
+[2025-11-03 00:43:22] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 31
+[2025-11-03 00:43:41] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 32
+[2025-11-03 00:44:21] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 33
+[2025-11-03 00:44:34] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 34
+[2025-11-03 00:45:01] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 35
+[2025-11-03 00:45:28] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 36
+[2025-11-03 00:45:46] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 37
+[2025-11-03 00:46:06] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 38
+[2025-11-03 00:46:24] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 39
+[2025-11-03 00:46:53] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 40
+[2025-11-03 00:47:13] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 41
+[2025-11-03 00:47:27] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 42
+[2025-11-03 00:47:43] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 43
+[2025-11-03 00:47:59] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 44
+[2025-11-03 00:48:15] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 45
+[2025-11-03 00:48:39] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 46
+[2025-11-03 00:48:53] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 47
+[2025-11-03 00:49:11] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 48
+[2025-11-03 00:49:28] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 49
+[2025-11-03 00:49:38] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 50
+[2025-11-03 00:50:04] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 51
+[2025-11-03 00:50:27] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 52
+[2025-11-03 00:50:52] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 53
+[2025-11-03 00:51:19] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 54
+[2025-11-03 00:51:42] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 55
+[2025-11-03 00:51:42] - [extract_features_helper.py:31] - [INFO]: Working on Video Number: 56
+[2025-11-03 00:51:42] - [features_extractor.py:83] - [INFO]: Features Extraction Finished Successfully!
