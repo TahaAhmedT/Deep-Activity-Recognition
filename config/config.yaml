@@ -2,7 +2,7 @@ DATA_PATHS:
   videos_root: "/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_/videos"
   annot_root: "/teamspace/studios/this_studio/Deep-Activity-Recognition/data/volleyball/volleyball_tracking_annotation/volleyball_tracking_annotation"
   players_features_root: "/teamspace/studios/this_studio/Deep-Activity-Recognition/output/pooled_players_features"
-  frame_features_root: "/teamspace/studios/this_studio/Deep-Activity-Recognition/output/image_level_features"
+  frame_features_root: "/teamspace/studios/this_studio/Deep-Activity-Recognition/output/frame_level_features"
 
 TARGET_VIDEOS:
   train_ids: [1, 3, 6, 7, 10, 13, 15, 16, 18, 22, 23, 31,
@@ -41,6 +41,7 @@ ACTIONS_DICT: {
 
 baseline1_logs: "logs/baselines_logs/baseline1_logs"
 baseline3_logs: "logs/baselines_logs/baseline3_logs"
+baseline4_logs: "logs/baselines_logs/baseline4_logs"
 
 baseline1_assets: "assets/baselines_assets/baseline1"
 baseline3_assets: "assets/baselines_assets/baseline3"
