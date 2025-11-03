@@ -202,7 +202,7 @@ class FeaturesDataset(Dataset):
         logger (logging.Logger): Logger instance for progress and debug messages.
     """
 
-    def __init__(self, output_file, videos_root, target_videos, categories_dict, log_dir, verbose):
+    def __init__(self, output_file, videos_root, target_videos, categories_dict, log_dir, sequence, verbose):
         """Initializes the FeaturesDataset.
 
         Args:
@@ -219,6 +219,7 @@ class FeaturesDataset(Dataset):
         self.target_videos = target_videos
         self.categories_dict = categories_dict
         self.log_dir = log_dir
+        self.sequence = sequence
         self.verbose = verbose
         self.dataset = []
         self.logger = setup_logger(
@@ -272,8 +273,14 @@ class FeaturesDataset(Dataset):
                     clip_label = self.categories_dict[clip_category_dict[clip_id]]
                     clip_features = np.load(clip_features_file)
 
-                    for frame_idx in range(clip_features.shape[0]): 
-                        self.dataset.append((clip_features[frame_idx], clip_label))
+                    if self.sequence:
+                        seq_features = []
+                        for frame_idx in range(clip_features.shape[0]):
+                            seq_features.append(clip_features[frame_idx])
+                        self.dataset.append((seq_features, clip_label))
+                    else: 
+                        for frame_idx in range(clip_features.shape[0]): 
+                            self.dataset.append((clip_features[frame_idx], clip_label))
     
     def __len__(self):
         """Returns the number of samples in the dataset.
