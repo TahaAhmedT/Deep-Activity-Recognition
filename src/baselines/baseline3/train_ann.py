@@ -1,7 +1,7 @@
 from src.utils.logging_utils import setup_logger
 from src.utils.config_utils import load_config
 from src.baselines.baseline3.ann_model import ANN
-from src.baselines.baseline3.datasets import FeaturesDataset
+from src.helpers.datasets import FeaturesDataset
 from src.utils.train_utils import train_step
 from src.utils.test_utils import test_step
 from src.utils.checkpoints_utils import save_checkpoint
@@ -50,7 +50,7 @@ def get_data_loader():
 
 def get_model():
     logger.info("Initializing ANN Model...")
-    model = ANN(input_size=CONFIG["EXTRACTED_FEATURES_SIZE"], n_classes=CONFIG["NUM_CLASSES"])
+    model = ANN(input_size=CONFIG["EXTRACTED_FEATURES_SIZE"], n_classes=CONFIG["NUM_LABELS"])
     logger.info("ANN Model Initialized.")
     return model
 
