@@ -14,30 +14,35 @@ def main():
         )
     
     logger.info("Starting Fine-tuning ResNet50 on Image Dataset (Player Level)...")
-    finetune(log_dir=CONFIG["baseline3_logs"],
-    lr=CONFIG["TRAINING_PARAMS"]["lr"],
-    num_epochs=CONFIG["TRAINING_PARAMS"]["num_epochs"],
-    batch_size=CONFIG["TRAINING_PARAMS"]["batch_size"],
-    videos_root=CONFIG["DATA_PATHS"]["videos_root"],
-    annot_root=CONFIG["DATA_PATHS"]["annot_root"],
-    train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
-    val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
-    image_level=False,
-    num_classes=CONFIG["NUM_CLASSES"],
-    actions_dict=CONFIG["ACTIONS_DICT"],
-    metrics_logs="logs/training_logs/b3_training.csv",
-    preds_logs="logs/training_logs/b3_test_predictions.csv",
-    save_path="models/b3_models/checkpoints",
-    verbose=CONFIG["verbose"])
+    finetune(
+        log_dir=CONFIG["baseline3_logs"],
+        lr=CONFIG["TRAINING_PARAMS"]["lr"],
+        num_epochs=CONFIG["TRAINING_PARAMS"]["num_epochs"],
+        batch_size=CONFIG["TRAINING_PARAMS"]["batch_size"],
+        videos_root=CONFIG["DATA_PATHS"]["videos_root"],
+        annot_root=CONFIG["DATA_PATHS"]["annot_root"],
+        train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
+        val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
+        model_name="resnet",
+        num_classes=CONFIG["NUM_ACTIONS"],
+        actions_dict=CONFIG["ACTIONS_DICT"],
+        metrics_logs="logs/training_logs/b3_training.csv",
+        preds_logs="logs/training_logs/b3_test_predictions.csv",
+        save_path="models/b3_models/checkpoints",
+        image_level=False,
+        verbose=CONFIG["verbose"]
+        )
 
     logger.info("Fine-tuning ResNet50 Finished Successfully!")
 
     logger.info("Visualizing Results...")
-    visualize(metrics_path="logs/training_logs/b3_training.csv",
-    ys_path="logs/training_logs/b3_test_predictions.csv",
-    save_path="assets/baselines_assets/baseline3",
-    log_dir=CONFIG["baseline3_logs"],
-    verbose=CONFIG["verbose"])
+    visualize(
+        metrics_path="logs/training_logs/b3_training.csv",
+        ys_path="logs/training_logs/b3_test_predictions.csv",
+        save_path="assets/baselines_assets/baseline3",
+        log_dir=CONFIG["baseline3_logs"],
+        verbose=CONFIG["verbose"]
+        )
 
     logger.info("Visualization Finished Successfully!")
 
