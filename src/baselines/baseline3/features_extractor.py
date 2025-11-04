@@ -5,11 +5,12 @@ This script extracts deep features from volleyball player images using a fine-tu
 from src.utils.config_utils import load_config
 from src.utils.checkpoints_utils import load_checkpoint
 from src.utils.logging_utils import setup_logger
-from src.helpers.finetune_helper import get_model
+from src.helpers.finetune_helper import get_resnet_model
 from src.helpers.extract_features_helper import extract
 
 import os
 import torch
+import torch.nn as nn
 import torchvision.transforms as transforms
 
 
@@ -42,7 +43,7 @@ def prepare_model():
     logger.info(f"Using Device:{device}")
 
     # Load ResNet-50 model with pretrained weights
-    model = get_model(logger=logger, num_classes=CONFIG["NUM_CLASSES"], verbose=CONFIG["verbose"])
+    model = get_resnet_model(logger=logger, num_classes=CONFIG["NUM_CLASSES"], verbose=CONFIG["verbose"])
 
     # Load a checkpoint saved during training
     logger.info("Loading the Model's Checkpoint...")
@@ -51,6 +52,9 @@ def prepare_model():
 
     # Load trained weights into the model
     model = load_checkpoint(checkpoint=checkpoint, model=model)
+    
+    # Remove the classification head (i.e., the fully connected layers)
+    model = nn.Sequential(*(list(model.children())[:-1]))
     
     # Send model to the device
     model.to(device)
