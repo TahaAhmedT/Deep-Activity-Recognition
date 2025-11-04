@@ -1,6 +1,7 @@
 from src.utils.logging_utils import setup_logger
 from src.utils.config_utils import load_config
 
+import numpy as np
 import torch
 from torchmetrics.classification import Accuracy
 
@@ -41,6 +42,9 @@ def train_step(model: torch.nn.Module,
     
     for batch_idx, (data, target) in enumerate(data_loader):
         if isinstance(data, list):
+            # Frist convert to numpy array
+            data, target = np.array(data), np.array(target)
+            # Then convert to torch tensor
             data, target = torch.from_numpy(data), torch.from_numpy(target)
         data, target = data.to(device), target.to(device)
 

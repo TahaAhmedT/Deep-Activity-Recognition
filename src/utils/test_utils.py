@@ -1,6 +1,7 @@
 from src.utils.logging_utils import setup_logger
 from src.utils.config_utils import load_config
 
+import numpy as np
 import torch
 from torcheval.metrics.functional import multiclass_f1_score
 from torchmetrics.classification import Accuracy
@@ -44,6 +45,9 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     with torch.inference_mode():
         for batch_idx, (data, target) in enumerate(data_loader):
             if isinstance(data, list):
+                # Frist convert to numpy array
+                data, target = np.array(data), np.array(target)
+                # Then convert to torch tensor
                 data, target = torch.from_numpy(data), torch.from_numpy(target)
             data, target = data.to(device), target.to(device)
 
