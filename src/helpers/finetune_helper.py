@@ -48,6 +48,7 @@ def get_data_loaders(logger,
             output_file=output_file,
             videos_root=videos_root,
             target_videos=train_ids,
+            categories_dict=actions_dict,
             log_dir=log_dir,
             verbose=verbose
         )
@@ -55,6 +56,7 @@ def get_data_loaders(logger,
             output_file=output_file,
             videos_root=videos_root,
             target_videos=val_ids,
+            categories_dict=actions_dict,
             log_dir=log_dir,
             verbose=verbose
         )
@@ -262,6 +264,7 @@ def finetune(log_dir: str,
             optimizer=optimizer,
             device=device,
             logs_path=log_dir,
+            num_classes=num_classes,
             verbose=verbose
         )
         logger.info("Training step completed.")
@@ -287,6 +290,7 @@ def finetune(log_dir: str,
             loss_fn=criterion,
             device=device,
             logs_path=log_dir,
+            num_classes=num_classes,
             verbose=verbose
         )
         Y_true.extend(y_true)
