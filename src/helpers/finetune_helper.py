@@ -32,6 +32,7 @@ def get_data_loaders(logger,
                      actions_dict: dict,
                      output_file: str = None,
                      image_level: bool = None,
+                     sequence: bool = None,
                      verbose: bool = False):
     """Creates train and test data loaders.
 
@@ -50,6 +51,7 @@ def get_data_loaders(logger,
             target_videos=train_ids,
             categories_dict=actions_dict,
             log_dir=log_dir,
+            sequence=sequence,
             verbose=verbose
         )
         test_dataset = FeaturesDataset(
@@ -58,6 +60,7 @@ def get_data_loaders(logger,
             target_videos=val_ids,
             categories_dict=actions_dict,
             log_dir=log_dir,
+            sequence=sequence,
             verbose=verbose
         )
     else:
@@ -203,6 +206,7 @@ def finetune(log_dir: str,
              input_size: int = None,
              hidden_size: int = None,
              num_layers: int = None,
+             sequence: bool = None,
              verbose: bool = False):
     """Main function to run training and testing loop.
 
@@ -230,6 +234,7 @@ def finetune(log_dir: str,
                                                 actions_dict,
                                                 output_file,
                                                 image_level,
+                                                sequence,
                                                 verbose
                                             )
     if model_name == "resnet":
