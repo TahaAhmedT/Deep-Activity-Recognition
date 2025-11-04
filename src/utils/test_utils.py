@@ -12,6 +12,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
               loss_fn: torch.nn.Module, 
               device: torch.device,
               logs_path,
+              num_classes,
               verbose: bool = True):
     """Runs a test/validation step for one epoch.
 
@@ -38,7 +39,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     model.eval()
 
     # TorchMetrics Accuracy (multiclass)
-    metric_acc = Accuracy(task="multiclass", num_classes=CONFIG["NUM_CLASSES"]).to(device)
+    metric_acc = Accuracy(task="multiclass", num_classes=num_classes).to(device)
     
     with torch.inference_mode():
         for batch_idx, (data, target) in enumerate(data_loader):
@@ -62,7 +63,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     # Compute final metrics
     y_true = torch.tensor(y_true)
     y_pred = torch.tensor(y_pred)
-    epoch_f1_score = multiclass_f1_score(y_pred, y_true, num_classes=8)
+    epoch_f1_score = multiclass_f1_score(y_pred, y_true, num_classes=num_classes)
     epoch_loss = test_loss / len(data_loader)
     epoch_acc = metric_acc.compute().item() * 100  # %
     

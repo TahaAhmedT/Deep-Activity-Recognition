@@ -4,7 +4,6 @@ from src.utils.config_utils import load_config
 import torch
 from torchmetrics.classification import Accuracy
 
-CONFIG = load_config()
 
 def train_step(model: torch.nn.Module, 
                data_loader: torch.utils.data.DataLoader, 
@@ -12,6 +11,7 @@ def train_step(model: torch.nn.Module,
                optimizer: torch.optim.Optimizer,
                device: torch.device,
                logs_path,
+               num_classes,
                verbose: bool = True):
     """Runs a training step for one epoch.
 
@@ -37,7 +37,7 @@ def train_step(model: torch.nn.Module,
     model.train()
 
     # TorchMetrics Accuracy (for multiclass classification)
-    metric_acc = Accuracy(task="multiclass", num_classes=CONFIG["NUM_CLASSES"]).to(device)
+    metric_acc = Accuracy(task="multiclass", num_classes=num_classes).to(device)
     
     for batch_idx, (data, target) in enumerate(data_loader):
         data, target = data.to(device), target.to(device)
