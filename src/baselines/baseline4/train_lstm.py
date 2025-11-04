@@ -47,5 +47,7 @@ def main():
         )
 
     logger.info("Visualization Finished Successfully!")
-    
 
+
+if __name__ == "__main__":
+    main()
