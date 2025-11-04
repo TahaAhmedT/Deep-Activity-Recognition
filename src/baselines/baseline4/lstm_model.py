@@ -82,7 +82,7 @@ class Group_Activity_Temporal_Classifier(nn.Module):
         Returns:
             torch.Tensor: Output logits of shape (batch_size, num_classes).
         """
-        # x: (batch, seq_len, input_size)
+        x = x.permute(1, 0, 2)  # x: (batch, seq_len, input_size)
         xx, (h, c) = self.lstm(x)  # xx: (batch, seq_len, hidden_size)
 
         # Concatenate original input and LSTM representations along feature dimension
