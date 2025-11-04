@@ -40,6 +40,8 @@ def train_step(model: torch.nn.Module,
     metric_acc = Accuracy(task="multiclass", num_classes=num_classes).to(device)
     
     for batch_idx, (data, target) in enumerate(data_loader):
+        if isinstance(data, list):
+            data, target = torch.from_numpy(data), torch.from_numpy(target)
         data, target = data.to(device), target.to(device)
 
         # 1. Forward pass

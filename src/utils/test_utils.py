@@ -43,6 +43,8 @@ def test_step(data_loader: torch.utils.data.DataLoader,
     
     with torch.inference_mode():
         for batch_idx, (data, target) in enumerate(data_loader):
+            if isinstance(data, list):
+                data, target = torch.from_numpy(data), torch.from_numpy(target)
             data, target = data.to(device), target.to(device)
 
             # 1. Forward pass
