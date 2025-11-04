@@ -1,6 +1,7 @@
 from src.helpers.datasets import ImagesDataset, FeaturesDataset
 from src.baselines.baseline1.extended_model import ExtendedModel
 from src.baselines.baseline3.ann_model import ANN
+from src.baselines.baseline4.lstm_model import Group_Activity_Temporal_Classifier
 from src.utils.train_utils import train_step
 from src.utils.test_utils import test_step
 from src.utils.checkpoints_utils import save_checkpoint
@@ -132,10 +133,12 @@ def get_resnet_model(logger, num_classes: int, verbose=False):
     return model
 
 
-def get_ann_model(logger, input_size, num_classes):
-    logger.info("Initializing ANN Model...")
+def get_ann_model(input_size, num_classes):
     model = ANN(input_size=input_size, n_classes=num_classes)
-    logger.info("ANN Model Initialized.")
+    return model
+
+def get_lstm_model(num_classes, input_size, hidden_size, num_layers):
+    model = Group_Activity_Temporal_Classifier(num_classes=num_classes, input_size=input_size, hidden_size=hidden_size, num_layers=num_layers)
     return model
 
 def get_optimizer(logger, model, lr):
@@ -195,7 +198,9 @@ def finetune(log_dir: str,
              save_path: str,
              image_level: bool = None,
              output_file: str = None,
-             ann_input_size: int = None,
+             input_size: int = None,
+             hidden_size: int = None,
+             num_layers: int = None,
              verbose: bool = False):
     """Main function to run training and testing loop.
 
@@ -228,7 +233,9 @@ def finetune(log_dir: str,
     if model_name == "resnet":
         model = get_resnet_model(logger, num_classes, verbose)
     elif model_name == "ann":
-        model = get_ann_model(logger, ann_input_size, num_classes)
+        model = get_ann_model(input_size, num_classes)
+    elif model_name == "lstm":
+        model = get_lstm_model(num_classes, input_size, hidden_size, num_layers)
     
     criterion = nn.CrossEntropyLoss()
     optimizer= get_optimizer(logger, model, lr)
