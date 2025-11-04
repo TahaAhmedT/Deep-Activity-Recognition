@@ -33,6 +33,7 @@ def main():
             input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
             hidden_size=CONFIG["HIDDEN_SIZE"],
             num_layers=CONFIG["NUM_LAYERS"],
+            sequence=True,
             verbose=CONFIG["verbose"]
         )
 
