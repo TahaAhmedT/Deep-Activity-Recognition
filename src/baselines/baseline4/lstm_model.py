@@ -60,7 +60,7 @@ class Group_Activity_Temporal_Classifier(nn.Module):
                         )
         
         self.fc = nn.Sequential(
-            nn.Linear(input_size+hidden_size, 512),
+            nn.Linear(hidden_size, 512),
             nn.BatchNorm1d(512),
             nn.ReLU(),
             nn.Dropout(0.5),
@@ -86,10 +86,10 @@ class Group_Activity_Temporal_Classifier(nn.Module):
         xx, (h, c) = self.lstm(x)  # xx: (batch, seq_len, hidden_size)
 
         # Concatenate original input and LSTM representations along feature dimension
-        x = torch.cat([x, xx], dim=2)  # (batch, seq_len, input_size + hidden_size)
+        # x = torch.cat([x, xx], dim=2)  # (batch, seq_len, input_size + hidden_size)
 
         # Use the last time-step representation for classification
-        x = x[:, -1, :]  # (batch, input_size + hidden_size)
-        x = self.fc(x)
+        xx = xx[:, -1, :]  # (batch, hidden_size)
+        x = self.fc(xx)
 
         return x
