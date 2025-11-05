@@ -14,6 +14,8 @@ from src.helpers.finetune_helper import finetune
 from src.helpers.visualize_helper import visualize
 
 
+import os
+
 def main():
     """Main entry point to train the Group Activity Temporal Classifier.
 
@@ -34,7 +36,7 @@ def main():
         )
     
     logger.info("Starting Training Group Activity Temporal Classifier on Features' Dataset (Frame Level)...")
-    finetune(log_dir=CONFIG["baseline4_logs"],
+    finetune(log_dir=os.path.join(CONFIG["baseline4_logs"], "exp2"),
             lr=CONFIG["TRAINING_PARAMS"]["lr"],
             num_epochs=CONFIG["TRAINING_PARAMS"]["num_epochs"],
             batch_size=CONFIG["TRAINING_PARAMS"]["batch_size"],
@@ -46,9 +48,9 @@ def main():
             model_name="lstm",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
-            metrics_logs="logs/training_logs/b4_training.csv",
-            preds_logs="logs/training_logs/b4_test_predictions.csv",
-            save_path="models/b4_models/checkpoints",
+            metrics_logs="logs/training_logs/baseline4/exp2/b4_training.csv",
+            preds_logs="logs/training_logs/baseline4/exp2/b4_test_predictions.csv",
+            save_path="models/b4_models/checkpoints/exp2",
             output_file=CONFIG["DATA_PATHS"]["frame_features_root"],
             input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
             hidden_size=CONFIG["HIDDEN_SIZE"],
@@ -60,10 +62,10 @@ def main():
     logger.info("Training Group Activity Temporal Classifier Finished Successfully!")
 
     logger.info("Visualizing Results...")
-    visualize(metrics_path="logs/training_logs/b4_training.csv",
-            ys_path="logs/training_logs/b4_test_predictions.csv",
-            save_path="assets/baselines_assets/baseline4",
-            log_dir=CONFIG["baseline4_logs"],
+    visualize(metrics_path="logs/training_logs/baseline4/exp2/b4_training.csv",
+            ys_path="logs/training_logs/baseline4/exp2/b4_test_predictions.csv",
+            save_path="assets/baselines_assets/baseline4/exp2",
+            log_dir=os.path.join(CONFIG["baseline4_logs"], "exp2"),
             verbose=CONFIG["verbose"]
         )
 
