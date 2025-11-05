@@ -1,9 +1,31 @@
+"""
+Entry point script to train an ANN classifier on pooled player features for baseline3.
+
+This module:
+- Loads project configuration and sets up logging.
+- Calls the finetune helper to train an ANN model on pre-extracted player-level features
+  (pooled features for 12 players).
+- Calls the visualize helper to generate plots for training metrics and confusion matrix.
+
+The script is intended to be executed as a standalone program.
+"""
 from src.utils.logging_utils import setup_logger
 from src.utils.config_utils import load_config
 from src.helpers.finetune_helper import finetune
 from src.helpers.visualize_helper import visualize
 
+
 def main():
+    """Main entry point to train the ANN classifier on extracted player features.
+
+    Steps performed:
+        1. Load configuration via load_config().
+        2. Initialize a logger using setup_logger().
+        3. Call finetune(...) with features=True and ANN-specific parameters to train the model.
+        4. Invoke visualize(...) to save training plots and prediction artifacts.
+
+    The function persists models, logs and visualizations to disk as configured and does not return a value.
+    """
     CONFIG = load_config()
     logger = setup_logger(
             log_file=__file__,
@@ -48,4 +70,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

@@ -1,3 +1,13 @@
+"""
+Entry point script to train the LSTM-based temporal classifier for baseline4.
+
+This module:
+- Loads project configuration and sets up logging.
+- Calls the finetune helper to train a sequence (LSTM) model on frame-level features.
+- Calls the visualize helper to generate plots for training metrics and confusion matrix.
+
+The script is intended to be executed as a standalone program.
+"""
 from src.utils.config_utils import load_config
 from src.utils.logging_utils import setup_logger
 from src.helpers.finetune_helper import finetune
@@ -5,6 +15,16 @@ from src.helpers.visualize_helper import visualize
 
 
 def main():
+    """Main entry point to train the Group Activity Temporal Classifier.
+
+    This function performs the following steps:
+        1. Load configuration via load_config().
+        2. Initialize a logger using setup_logger().
+        3. Call finetune(...) with sequence=True and LSTM-specific parameters to train the model.
+        4. Call visualize(...) to save training plots and prediction artifacts.
+
+    The function persists models, logs and visualizations to disk as configured and does not return a value.
+    """
     CONFIG = load_config()
     logger = setup_logger(
             log_file=__file__,

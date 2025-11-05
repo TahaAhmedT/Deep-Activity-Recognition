@@ -1,3 +1,13 @@
+"""
+Entry point script to fine-tune a ResNet-50 model at frame (image) level for baseline1.
+
+This module:
+- Loads project configuration and sets up logging.
+- Calls the finetune helper to train a ResNet-50 model on image-level data (central frames per clip).
+- After training, calls the visualize helper to produce plots for training metrics and confusion matrix.
+
+The script is intended to be executed as a standalone program.
+"""
 from src.utils.config_utils import load_config
 from src.utils.logging_utils import setup_logger
 from src.helpers.finetune_helper import finetune
@@ -5,6 +15,17 @@ from src.helpers.visualize_helper import visualize
 
 
 def main():
+    """Main entry point to fine-tune ResNet-50 for image-level classification.
+
+    This function performs the following steps:
+        1. Loads configuration via load_config().
+        2. Sets up a logger using setup_logger().
+        3. Calls finetune(...) with parameters read from the configuration to train the model.
+        4. Calls visualize(...) to generate plots and save visualization artifacts.
+
+    The function does not return a value; all outputs (models, logs, plots) are persisted to disk
+    as specified in the configuration.
+    """
     CONFIG = load_config()
     logger = setup_logger(
             log_file=__file__,
