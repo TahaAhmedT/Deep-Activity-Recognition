@@ -16,7 +16,7 @@ HIDDEN_SIZE: 512
 TRAINING_PARAMS:
   batch_size: 32
   lr: 0.0001
-  num_epochs: 10
+  num_epochs: 40
 
 CATEGORIES_DICT: {
         'l-pass': 0,
