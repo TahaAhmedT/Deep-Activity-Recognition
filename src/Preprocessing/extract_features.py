@@ -93,7 +93,7 @@ def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, 
  
                     preprocessed_images = torch.cat(preprocessed_images)
                     preprocessed_images = preprocessed_images.cuda()
-                    dnn_repr = model.backbone(preprocessed_images)
+                    dnn_repr = model(preprocessed_images)
                     dnn_repr = dnn_repr.view(len(preprocessed_images), -1)
 
                     if image_classify: # pool all palyers to get Image-level representation
