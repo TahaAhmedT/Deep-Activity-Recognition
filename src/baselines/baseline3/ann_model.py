@@ -12,7 +12,7 @@ from torch import nn
 CONFIG = load_config()
 logger = setup_logger(
             log_file=__file__,
-            log_dir=os.path.join(CONFIG["LOGS_PATH"], "baseline3_logs"),
+            log_dir=os.path.join(CONFIG["baseline3_logs"]),
             log_to_console=CONFIG['verbose'],
             use_tqdm=True,
         )
