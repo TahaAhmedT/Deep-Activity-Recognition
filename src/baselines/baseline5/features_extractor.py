@@ -15,6 +15,8 @@ from src.utils.config_utils import load_config
 from src.utils.logging_utils import setup_logger
 from src.helpers.extract_features_helper import extract
 
+import os
+
 
 def main():
     """Main entry point for player-level feature extraction.
@@ -32,20 +34,20 @@ def main():
     CONFIG = load_config()
     logger = setup_logger(
           log_file=__file__,
-          log_dir=CONFIG["baseline5_logs"],
+          log_dir=os.path.join(CONFIG["baseline5_logs"], "exp1"),
           log_to_console=CONFIG["verbose"],
           use_tqdm=True
     )
     logger.info("Starting Features Extraction (player-level)...")
     extract(
-        log_dir=CONFIG["baseline5_logs"],
+        log_dir=os.path.join(CONFIG["baseline5_logs"], "exp1"),
         videos_root=CONFIG["DATA_PATHS"]["videos_root"],
         train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
         val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
         annot_root=CONFIG["DATA_PATHS"]["annot_root"],
         output_root=CONFIG["DATA_PATHS"]["player_features_root"],
         num_classes=CONFIG["NUM_ACTIONS"],
-        checkpoint_path="",
+        checkpoint_path="models/b3_models/checkpoints/epoch_2.pth",
         image_level=False,
         image_classify=False,
         verbose=CONFIG["verbose"]
