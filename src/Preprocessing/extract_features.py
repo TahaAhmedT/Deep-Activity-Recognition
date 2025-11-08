@@ -83,7 +83,7 @@ def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, 
                 if image_level: 
                     preprocessed_image = preprocess(image).unsqueeze(0).to(device)
                     dnn_repr = model(preprocessed_image)
-                    pooled_repr = dnn_repr.view(1, -1)  # [1, feature_dim]
+                    dnn_repr = dnn_repr.view(1, -1)  # [1, feature_dim]
                 else: 
                     preprocessed_images = []
                     for box_info in boxes_info:
@@ -96,12 +96,12 @@ def extract_features(clip_dir_path, annot_file, output_file, model, preprocess, 
                     dnn_repr = model.backbone(preprocessed_images)
                     dnn_repr = dnn_repr.view(len(preprocessed_images), -1)
 
-                    if image_classify:
-                        pooled_repr, _ = torch.max(dnn_repr, dim=0)
-                        pooled_repr = pooled_repr.unsqueeze(0)
+                    if image_classify: # pool all palyers to get Image-level representation
+                        dnn_repr, _ = torch.max(dnn_repr, dim=0)
+                        dnn_repr = dnn_repr.unsqueeze(0)
 
                 # store frame representation
-                all_features.append(pooled_repr.cpu().numpy())
+                all_features.append(dnn_repr.cpu().numpy())
             
             except Exception as e: 
                 print(f"An error occurred on frame {frame_id}: {e}")
