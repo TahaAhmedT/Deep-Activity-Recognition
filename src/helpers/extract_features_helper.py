@@ -64,7 +64,7 @@ def prepare_model(logger, image_level: bool, num_classes: int, checkpoint_path: 
 
 
 
-def extract(log_dir: str, videos_root: str, train_ids: list[int], val_ids: list[int], annot_root: str, output_root: str, model, transform, num_classes: int, checkpoint_path: str, image_level: bool, image_classify: bool, verbose: bool):
+def extract(log_dir: str, videos_root: str, train_ids: list[int], val_ids: list[int], annot_root: str, output_root: str, num_classes: int, checkpoint_path: str, image_level: bool, image_classify: bool, verbose: bool):
     """
     function to extract features from volleyball video clips.
 
