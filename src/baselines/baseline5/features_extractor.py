@@ -1,9 +1,34 @@
+"""
+Script to extract per-player features from volleyball clips using a fine-tuned ResNet-50.
+
+This module:
+- Loads project configuration and sets up logging
+- Calls the extract helper to:
+  1. Load a trained ResNet-50 model
+  2. Process each clip frame-by-frame
+  3. Extract features for each player using tracking annotations
+  4. Save the extracted features as .npy files
+
+The extracted features will be used to train the temporal classifier in baseline5.
+"""
 from src.utils.config_utils import load_config
 from src.utils.logging_utils import setup_logger
 from src.helpers.extract_features_helper import extract
 
 
 def main():
+    """Main entry point for player-level feature extraction.
+
+    This function:
+        1. Loads configuration via load_config()
+        2. Sets up logging with setup_logger()
+        3. Calls extract() to process clips and save player features
+        
+    The extracted features are saved to the directory specified in the config
+    under player_features_root. Features are organized by video and clip ID.
+
+    The function does not return a value; outputs are saved directly to disk.
+    """
     CONFIG = load_config()
     logger = setup_logger(
           log_file=__file__,
