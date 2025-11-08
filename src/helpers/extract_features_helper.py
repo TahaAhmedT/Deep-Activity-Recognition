@@ -4,12 +4,67 @@ It loads model checkpoints, applies preprocessing, and saves extracted features 
 """
 from src.Preprocessing.extract_features import extract_features
 from src.utils.logging_utils import setup_logger
+from src.helpers.finetune_helper import get_resnet_model
+from src.utils.checkpoints_utils import load_checkpoint
 
 import os
 import torch
+import torch.nn as nn
+import torchvision.transforms as transforms
 
 
-def extract(log_dir: str, videos_root: str, train_ids: list[int], val_ids: list[int], annot_root: str, output_root: str, model, transform, image_level: bool, image_classify: bool, verbose: bool):
+def prepare_model(logger, image_level: bool, num_classes: int, checkpoint_path: str, verbose=True):
+    """
+    Prepares the ResNet-50 model for feature extraction.
+
+    Loads the model, applies preprocessing transforms, loads trained weights, and sets the model to evaluation mode.
+
+    Returns:
+        tuple: (model, transform) where model is the feature extractor and transform is the preprocessing pipeline.
+    """
+    if image_level:
+        transform = transforms.Compose([
+                transforms.Resize((256, 256)),
+                transforms.CenterCrop((224, 224)),
+                transforms.ToTensor(),
+                transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+            ])
+    else:
+        transform = transforms.Compose([
+            transforms.Resize((224, 224)),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+        ])
+    
+    # Check if a GPU is available if not, use a CPU
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    logger.info(f"Using Device:{device}")
+
+    # Load ResNet-50 model with pretrained weights
+    model = get_resnet_model(logger=logger, num_classes=num_classes, verbose=verbose)
+
+    # Load a checkpoint saved during training
+    logger.info("Loading the Model's Checkpoint...")
+    checkpoint = torch.load(checkpoint_path)
+
+    # Load trained weights into the model
+    model = load_checkpoint(checkpoint=checkpoint, model=model)
+    
+    # Remove the classification head (i.e., the fully connected layers)
+    model = nn.Sequential(*(list(model.children())[:-1]))
+
+    # Send model to the device
+    model.to(device)
+
+    # Set the model to evaluation mode
+    model.eval()
+    logger.info(f"The Model is Ready and Sent to {device} Device, and Set to Eval Mode.")
+
+    return model, transform
+
+
+
+def extract(log_dir: str, videos_root: str, train_ids: list[int], val_ids: list[int], annot_root: str, output_root: str, model, transform, num_classes: int, checkpoint_path: str, image_level: bool, image_classify: bool, verbose: bool):
     """
     function to extract features from volleyball video clips.
 
@@ -21,6 +76,14 @@ def extract(log_dir: str, videos_root: str, train_ids: list[int], val_ids: list[
             log_to_console=verbose,
             use_tqdm=True
         )
+    
+    model, transform = prepare_model(
+                            logger=logger,
+                            image_level=image_level,
+                            num_classes=num_classes,
+                            checkpoint_path=checkpoint_path,
+                            verbose=verbose
+                        )
 
     videos_dirs = os.listdir(videos_root)
     videos_dirs.sort()
