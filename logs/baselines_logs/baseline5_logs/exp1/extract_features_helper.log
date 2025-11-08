@@ -1,4 +1,3 @@
-[2025-11-08 23:03:34] - [features_extractor.py:41] - [INFO]: Starting Features Extraction (player-level)...
 [2025-11-08 23:03:34] - [extract_features_helper.py:41] - [INFO]: Using Device:cuda:0
 [2025-11-08 23:03:34] - [finetune_helper.py:132] - [INFO]: Initializing ResNet50 model...
 [2025-11-08 23:03:34] - [finetune_helper.py:137] - [INFO]: Model initialized and truncated.
@@ -61,4 +60,3 @@
 [2025-11-08 23:37:05] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 54
 [2025-11-08 23:37:45] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 55
 [2025-11-08 23:37:45] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 56
-[2025-11-08 23:37:45] - [features_extractor.py:55] - [INFO]: Features Extraction Finished Successfully!
