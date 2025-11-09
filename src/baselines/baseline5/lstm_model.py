@@ -91,7 +91,6 @@ class Pooled_Players_Activity_Temporal_Classifier(nn.Module):
             5. Apply classification head
         """
         # x: (batch, seq, num_players, features_dim)
-        print(x.shape)
         batch, seq_len, num_players, features_dim = x.shape
         x = x.view(batch * num_players, seq_len, features_dim) 
 
