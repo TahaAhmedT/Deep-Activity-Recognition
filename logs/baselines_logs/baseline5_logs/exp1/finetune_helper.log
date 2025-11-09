@@ -1,80 +1,7 @@
-[2025-11-08 23:03:34] - [features_extractor.py:41] - [INFO]: Starting Features Extraction (player-level)...
-[2025-11-08 23:03:34] - [extract_features_helper.py:41] - [INFO]: Using Device:cuda:0
-[2025-11-08 23:03:34] - [finetune_helper.py:132] - [INFO]: Initializing ResNet50 model...
-[2025-11-08 23:03:34] - [finetune_helper.py:137] - [INFO]: Model initialized and truncated.
-[2025-11-08 23:03:34] - [extract_features_helper.py:47] - [INFO]: Loading the Model's Checkpoint...
-[2025-11-08 23:03:35] - [extract_features_helper.py:61] - [INFO]: The Model is Ready and Sent to cuda:0 Device, and Set to Eval Mode.
-[2025-11-08 23:03:35] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 0
-[2025-11-08 23:05:16] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 1
-[2025-11-08 23:06:54] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 2
-[2025-11-08 23:07:34] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 3
-[2025-11-08 23:08:11] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 4
-[2025-11-08 23:08:51] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 5
-[2025-11-08 23:09:29] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 6
-[2025-11-08 23:10:10] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 7
-[2025-11-08 23:10:49] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 8
-[2025-11-08 23:11:27] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 9
-[2025-11-08 23:12:03] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 10
-[2025-11-08 23:12:40] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 11
-[2025-11-08 23:13:09] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 12
-[2025-11-08 23:13:44] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 13
-[2025-11-08 23:14:23] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 14
-[2025-11-08 23:14:56] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 15
-[2025-11-08 23:15:30] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 16
-[2025-11-08 23:16:05] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 17
-[2025-11-08 23:16:38] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 18
-[2025-11-08 23:17:15] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 19
-[2025-11-08 23:17:48] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 20
-[2025-11-08 23:18:24] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 21
-[2025-11-08 23:19:01] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 22
-[2025-11-08 23:19:36] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 23
-[2025-11-08 23:20:40] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 24
-[2025-11-08 23:21:18] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 25
-[2025-11-08 23:21:55] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 26
-[2025-11-08 23:22:31] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 27
-[2025-11-08 23:23:06] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 28
-[2025-11-08 23:23:31] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 29
-[2025-11-08 23:24:05] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 30
-[2025-11-08 23:24:40] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 31
-[2025-11-08 23:25:03] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 32
-[2025-11-08 23:25:53] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 33
-[2025-11-08 23:26:10] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 34
-[2025-11-08 23:26:55] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 35
-[2025-11-08 23:27:28] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 36
-[2025-11-08 23:27:51] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 37
-[2025-11-08 23:28:23] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 38
-[2025-11-08 23:28:53] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 39
-[2025-11-08 23:29:30] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 40
-[2025-11-08 23:29:54] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 41
-[2025-11-08 23:30:19] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 42
-[2025-11-08 23:30:48] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 43
-[2025-11-08 23:31:16] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 44
-[2025-11-08 23:31:44] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 45
-[2025-11-08 23:32:27] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 46
-[2025-11-08 23:32:55] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 47
-[2025-11-08 23:33:24] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 48
-[2025-11-08 23:33:56] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 49
-[2025-11-08 23:34:14] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 50
-[2025-11-08 23:34:57] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 51
-[2025-11-08 23:35:38] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 52
-[2025-11-08 23:36:20] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 53
-[2025-11-08 23:37:05] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 54
-[2025-11-08 23:37:45] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 55
-[2025-11-08 23:37:45] - [extract_features_helper.py:94] - [INFO]: Working on Video Number: 56
-[2025-11-08 23:37:45] - [features_extractor.py:55] - [INFO]: Features Extraction Finished Successfully!
-[2025-11-09 23:49:40] - [train_lstm.py:42] - [INFO]: Starting Training Group Activity Temporal Classifier on Features' Dataset (12-pooled players)...
 [2025-11-09 23:49:40] - [finetune_helper.py:195] - [INFO]: Setting all seeds...
 [2025-11-09 23:49:40] - [finetune_helper.py:240] - [INFO]: Using device: cuda
 [2025-11-09 23:49:40] - [finetune_helper.py:48] - [INFO]: Creating data loaders...
-[2025-11-09 23:49:40] - [datasets.py:232] - [INFO]: Initializing Features Dataset...
-[2025-11-09 23:49:40] - [datasets.py:252] - [INFO]: Collecting Images' features and labels...
-[2025-11-09 23:49:42] - [datasets.py:234] - [INFO]: Features Dataset Initialized with 2183 Samples!
-[2025-11-09 23:49:42] - [datasets.py:232] - [INFO]: Initializing Features Dataset...
-[2025-11-09 23:49:42] - [datasets.py:252] - [INFO]: Collecting Images' features and labels...
-[2025-11-09 23:49:44] - [datasets.py:234] - [INFO]: Features Dataset Initialized with 1266 Samples!
 [2025-11-09 23:49:44] - [finetune_helper.py:124] - [INFO]: Data loaders created.
-[2025-11-09 23:49:44] - [lstm_model.py:55] - [INFO]: Initializing Pooled Players Activity Temporal Classifier...
-[2025-11-09 23:49:44] - [lstm_model.py:73] - [INFO]: Model Initialized Successfully!
 [2025-11-09 23:49:44] - [finetune_helper.py:175] - [INFO]: Creating optimizer...
 [2025-11-09 23:49:44] - [finetune_helper.py:177] - [INFO]: Optimizer created: AdamW Optimizer.
 [2025-11-09 23:49:44] - [finetune_helper.py:178] - [INFO]: Initial Learning Rate: 0.0001.
@@ -83,489 +10,360 @@
 [2025-11-09 23:49:44] - [finetune_helper.py:280] - [INFO]: Epoch 1
 -----------------------
 [2025-11-09 23:49:44] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:49:47] - [train_utils.py:72] - [INFO]: Train Loss: 1.88953 | Train Accuracy: 27.99%
 [2025-11-09 23:49:47] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:49:47] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:49:48] - [test_utils.py:75] - [INFO]: Test Loss: 1.72076 | Test Accuracy: 50.08% | Test F1-score: 0.5007898807525635
-
 [2025-11-09 23:49:48] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:49:48] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:49:48] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:49:48] - [finetune_helper.py:280] - [INFO]: Epoch 2
 -----------------------
 [2025-11-09 23:49:48] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:49:50] - [train_utils.py:72] - [INFO]: Train Loss: 1.44675 | Train Accuracy: 53.46%
 [2025-11-09 23:49:50] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:49:50] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:49:51] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 2/40.
 [2025-11-09 23:49:51] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:49:52] - [test_utils.py:75] - [INFO]: Test Loss: 1.19510 | Test Accuracy: 69.04% | Test F1-score: 0.690363347530365
-
 [2025-11-09 23:49:52] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:49:52] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:49:52] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:49:52] - [finetune_helper.py:280] - [INFO]: Epoch 3
 -----------------------
 [2025-11-09 23:49:52] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:49:54] - [train_utils.py:72] - [INFO]: Train Loss: 1.07672 | Train Accuracy: 68.85%
 [2025-11-09 23:49:54] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:49:54] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:49:55] - [test_utils.py:75] - [INFO]: Test Loss: 0.88692 | Test Accuracy: 73.06% | Test F1-score: 0.7306476831436157
-
 [2025-11-09 23:49:55] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:49:55] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:49:55] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:49:55] - [finetune_helper.py:280] - [INFO]: Epoch 4
 -----------------------
 [2025-11-09 23:49:55] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:49:57] - [train_utils.py:72] - [INFO]: Train Loss: 0.76789 | Train Accuracy: 78.56%
 [2025-11-09 23:49:57] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:49:57] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:49:57] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 4/40.
 [2025-11-09 23:49:57] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:49:58] - [test_utils.py:75] - [INFO]: Test Loss: 0.72231 | Test Accuracy: 76.70% | Test F1-score: 0.7669826149940491
-
 [2025-11-09 23:49:58] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:49:58] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:49:58] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:49:58] - [finetune_helper.py:280] - [INFO]: Epoch 5
 -----------------------
 [2025-11-09 23:49:58] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:00] - [train_utils.py:72] - [INFO]: Train Loss: 0.58180 | Train Accuracy: 82.87%
 [2025-11-09 23:50:00] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:00] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:01] - [test_utils.py:75] - [INFO]: Test Loss: 0.62949 | Test Accuracy: 77.33% | Test F1-score: 0.7733017802238464
-
 [2025-11-09 23:50:01] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:01] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:01] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:01] - [finetune_helper.py:280] - [INFO]: Epoch 6
 -----------------------
 [2025-11-09 23:50:01] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:04] - [train_utils.py:72] - [INFO]: Train Loss: 0.46011 | Train Accuracy: 86.39%
 [2025-11-09 23:50:04] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:04] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:50:04] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 6/40.
 [2025-11-09 23:50:04] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:05] - [test_utils.py:75] - [INFO]: Test Loss: 0.56171 | Test Accuracy: 79.78% | Test F1-score: 0.7977883219718933
-
 [2025-11-09 23:50:05] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:05] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:05] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:05] - [finetune_helper.py:280] - [INFO]: Epoch 7
 -----------------------
 [2025-11-09 23:50:05] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:07] - [train_utils.py:72] - [INFO]: Train Loss: 0.37468 | Train Accuracy: 88.04%
 [2025-11-09 23:50:07] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:07] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:08] - [test_utils.py:75] - [INFO]: Test Loss: 0.58049 | Test Accuracy: 78.99% | Test F1-score: 0.789889395236969
-
 [2025-11-09 23:50:08] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:08] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:08] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:08] - [finetune_helper.py:280] - [INFO]: Epoch 8
 -----------------------
 [2025-11-09 23:50:08] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:10] - [train_utils.py:72] - [INFO]: Train Loss: 0.29805 | Train Accuracy: 90.56%
 [2025-11-09 23:50:10] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:10] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:50:10] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 8/40.
 [2025-11-09 23:50:10] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:11] - [test_utils.py:75] - [INFO]: Test Loss: 0.58508 | Test Accuracy: 77.49% | Test F1-score: 0.7748815417289734
-
 [2025-11-09 23:50:11] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:11] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:11] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:11] - [finetune_helper.py:280] - [INFO]: Epoch 9
 -----------------------
 [2025-11-09 23:50:11] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:13] - [train_utils.py:72] - [INFO]: Train Loss: 0.25680 | Train Accuracy: 91.94%
 [2025-11-09 23:50:13] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:13] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:14] - [test_utils.py:75] - [INFO]: Test Loss: 0.67041 | Test Accuracy: 74.88% | Test F1-score: 0.7488152384757996
-
 [2025-11-09 23:50:14] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:14] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:14] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:14] - [finetune_helper.py:280] - [INFO]: Epoch 10
 -----------------------
 [2025-11-09 23:50:14] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:17] - [train_utils.py:72] - [INFO]: Train Loss: 0.20077 | Train Accuracy: 94.04%
 [2025-11-09 23:50:17] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:17] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:50:17] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 10/40.
 [2025-11-09 23:50:17] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:18] - [test_utils.py:75] - [INFO]: Test Loss: 0.50206 | Test Accuracy: 81.60% | Test F1-score: 0.8159557580947876
-
 [2025-11-09 23:50:18] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:18] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:18] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:18] - [finetune_helper.py:280] - [INFO]: Epoch 11
 -----------------------
 [2025-11-09 23:50:18] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:20] - [train_utils.py:72] - [INFO]: Train Loss: 0.16035 | Train Accuracy: 96.06%
 [2025-11-09 23:50:20] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:20] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:21] - [test_utils.py:75] - [INFO]: Test Loss: 0.53395 | Test Accuracy: 80.49% | Test F1-score: 0.8048973083496094
-
 [2025-11-09 23:50:21] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:21] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:21] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:21] - [finetune_helper.py:280] - [INFO]: Epoch 12
 -----------------------
 [2025-11-09 23:50:21] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:23] - [train_utils.py:72] - [INFO]: Train Loss: 0.13593 | Train Accuracy: 96.89%
 [2025-11-09 23:50:23] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:23] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:50:23] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 12/40.
 [2025-11-09 23:50:23] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:24] - [test_utils.py:75] - [INFO]: Test Loss: 0.55034 | Test Accuracy: 81.75% | Test F1-score: 0.8175355195999146
-
 [2025-11-09 23:50:24] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:24] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:24] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:24] - [finetune_helper.py:280] - [INFO]: Epoch 13
 -----------------------
 [2025-11-09 23:50:24] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:27] - [train_utils.py:72] - [INFO]: Train Loss: 0.11164 | Train Accuracy: 97.89%
 [2025-11-09 23:50:27] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:27] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:28] - [test_utils.py:75] - [INFO]: Test Loss: 0.62472 | Test Accuracy: 79.46% | Test F1-score: 0.7946287989616394
-
 [2025-11-09 23:50:28] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:28] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:28] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:28] - [finetune_helper.py:280] - [INFO]: Epoch 14
 -----------------------
 [2025-11-09 23:50:28] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:30] - [train_utils.py:72] - [INFO]: Train Loss: 0.08597 | Train Accuracy: 98.63%
 [2025-11-09 23:50:30] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:30] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:50:30] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 14/40.
 [2025-11-09 23:50:30] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:31] - [test_utils.py:75] - [INFO]: Test Loss: 0.55094 | Test Accuracy: 81.75% | Test F1-score: 0.8175355195999146
-
 [2025-11-09 23:50:31] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:31] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:31] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:31] - [finetune_helper.py:280] - [INFO]: Epoch 15
 -----------------------
 [2025-11-09 23:50:31] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:33] - [train_utils.py:72] - [INFO]: Train Loss: 0.07200 | Train Accuracy: 99.18%
 [2025-11-09 23:50:33] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:33] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:34] - [test_utils.py:75] - [INFO]: Test Loss: 0.53492 | Test Accuracy: 82.62% | Test F1-score: 0.8262243270874023
-
 [2025-11-09 23:50:34] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:34] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:34] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:34] - [finetune_helper.py:280] - [INFO]: Epoch 16
 -----------------------
 [2025-11-09 23:50:34] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:37] - [train_utils.py:72] - [INFO]: Train Loss: 0.05821 | Train Accuracy: 99.40%
 [2025-11-09 23:50:37] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:37] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:50:37] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 16/40.
 [2025-11-09 23:50:37] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:38] - [test_utils.py:75] - [INFO]: Test Loss: 0.54378 | Test Accuracy: 82.70% | Test F1-score: 0.8270142078399658
-
 [2025-11-09 23:50:38] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:38] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:38] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:38] - [finetune_helper.py:280] - [INFO]: Epoch 17
 -----------------------
 [2025-11-09 23:50:38] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:40] - [train_utils.py:72] - [INFO]: Train Loss: 0.05273 | Train Accuracy: 99.50%
 [2025-11-09 23:50:40] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:40] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:41] - [test_utils.py:75] - [INFO]: Test Loss: 0.59527 | Test Accuracy: 81.60% | Test F1-score: 0.8159557580947876
-
 [2025-11-09 23:50:41] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:41] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:41] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:41] - [finetune_helper.py:280] - [INFO]: Epoch 18
 -----------------------
 [2025-11-09 23:50:41] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:43] - [train_utils.py:72] - [INFO]: Train Loss: 0.05544 | Train Accuracy: 98.85%
 [2025-11-09 23:50:43] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:43] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:50:43] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 18/40.
 [2025-11-09 23:50:43] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:44] - [test_utils.py:75] - [INFO]: Test Loss: 0.55552 | Test Accuracy: 81.52% | Test F1-score: 0.8151658773422241
-
 [2025-11-09 23:50:44] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:44] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:44] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:44] - [finetune_helper.py:280] - [INFO]: Epoch 19
 -----------------------
 [2025-11-09 23:50:44] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:47] - [train_utils.py:72] - [INFO]: Train Loss: 0.04571 | Train Accuracy: 99.50%
 [2025-11-09 23:50:47] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:47] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:48] - [test_utils.py:75] - [INFO]: Test Loss: 0.68077 | Test Accuracy: 78.04% | Test F1-score: 0.7804107666015625
-
 [2025-11-09 23:50:48] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:48] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:48] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:48] - [finetune_helper.py:280] - [INFO]: Epoch 20
 -----------------------
 [2025-11-09 23:50:48] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:50] - [train_utils.py:72] - [INFO]: Train Loss: 0.03477 | Train Accuracy: 99.68%
 [2025-11-09 23:50:50] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:50] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:50:50] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 20/40.
 [2025-11-09 23:50:50] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:51] - [test_utils.py:75] - [INFO]: Test Loss: 0.65274 | Test Accuracy: 79.23% | Test F1-score: 0.7922590970993042
-
 [2025-11-09 23:50:51] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:51] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:51] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:51] - [finetune_helper.py:280] - [INFO]: Epoch 21
 -----------------------
 [2025-11-09 23:50:51] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:53] - [train_utils.py:72] - [INFO]: Train Loss: 0.03129 | Train Accuracy: 99.68%
 [2025-11-09 23:50:53] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:53] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:54] - [test_utils.py:75] - [INFO]: Test Loss: 0.57534 | Test Accuracy: 81.67% | Test F1-score: 0.8167456388473511
-
 [2025-11-09 23:50:54] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:54] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:54] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:54] - [finetune_helper.py:280] - [INFO]: Epoch 22
 -----------------------
 [2025-11-09 23:50:54] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:50:57] - [train_utils.py:72] - [INFO]: Train Loss: 0.02940 | Train Accuracy: 99.45%
 [2025-11-09 23:50:57] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:50:57] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:50:57] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 22/40.
 [2025-11-09 23:50:57] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:50:58] - [test_utils.py:75] - [INFO]: Test Loss: 0.58608 | Test Accuracy: 81.52% | Test F1-score: 0.8151658773422241
-
 [2025-11-09 23:50:58] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:50:58] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:50:58] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:50:58] - [finetune_helper.py:280] - [INFO]: Epoch 23
 -----------------------
 [2025-11-09 23:50:58] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:00] - [train_utils.py:72] - [INFO]: Train Loss: 0.02588 | Train Accuracy: 99.68%
 [2025-11-09 23:51:00] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:00] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:01] - [test_utils.py:75] - [INFO]: Test Loss: 0.56117 | Test Accuracy: 81.75% | Test F1-score: 0.8175355195999146
-
 [2025-11-09 23:51:01] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:01] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:01] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:01] - [finetune_helper.py:280] - [INFO]: Epoch 24
 -----------------------
 [2025-11-09 23:51:01] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:03] - [train_utils.py:72] - [INFO]: Train Loss: 0.04432 | Train Accuracy: 99.27%
 [2025-11-09 23:51:03] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:03] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:51:03] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 24/40.
 [2025-11-09 23:51:03] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:04] - [test_utils.py:75] - [INFO]: Test Loss: 0.58237 | Test Accuracy: 82.54% | Test F1-score: 0.8254344463348389
-
 [2025-11-09 23:51:04] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:04] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:04] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:04] - [finetune_helper.py:280] - [INFO]: Epoch 25
 -----------------------
 [2025-11-09 23:51:04] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:07] - [train_utils.py:72] - [INFO]: Train Loss: 0.02113 | Train Accuracy: 99.82%
 [2025-11-09 23:51:07] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:07] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:08] - [test_utils.py:75] - [INFO]: Test Loss: 0.77915 | Test Accuracy: 78.20% | Test F1-score: 0.7819905281066895
-
 [2025-11-09 23:51:08] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:08] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:08] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:08] - [finetune_helper.py:280] - [INFO]: Epoch 26
 -----------------------
 [2025-11-09 23:51:08] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:10] - [train_utils.py:72] - [INFO]: Train Loss: 0.02519 | Train Accuracy: 99.59%
 [2025-11-09 23:51:10] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:10] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:51:10] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 26/40.
 [2025-11-09 23:51:10] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:11] - [test_utils.py:75] - [INFO]: Test Loss: 0.67334 | Test Accuracy: 81.04% | Test F1-score: 0.8104265332221985
-
 [2025-11-09 23:51:11] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:11] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:11] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:11] - [finetune_helper.py:280] - [INFO]: Epoch 27
 -----------------------
 [2025-11-09 23:51:11] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:13] - [train_utils.py:72] - [INFO]: Train Loss: 0.01895 | Train Accuracy: 99.77%
 [2025-11-09 23:51:13] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:13] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:14] - [test_utils.py:75] - [INFO]: Test Loss: 0.69002 | Test Accuracy: 80.88% | Test F1-score: 0.8088467717170715
-
 [2025-11-09 23:51:14] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:14] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:15] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:15] - [finetune_helper.py:280] - [INFO]: Epoch 28
 -----------------------
 [2025-11-09 23:51:15] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:17] - [train_utils.py:72] - [INFO]: Train Loss: 0.01425 | Train Accuracy: 99.91%
 [2025-11-09 23:51:17] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:17] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:51:17] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 28/40.
 [2025-11-09 23:51:17] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:18] - [test_utils.py:75] - [INFO]: Test Loss: 0.62581 | Test Accuracy: 81.12% | Test F1-score: 0.811216413974762
-
 [2025-11-09 23:51:18] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:18] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:18] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:18] - [finetune_helper.py:280] - [INFO]: Epoch 29
 -----------------------
 [2025-11-09 23:51:18] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:20] - [train_utils.py:72] - [INFO]: Train Loss: 0.01450 | Train Accuracy: 99.82%
 [2025-11-09 23:51:20] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:20] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:21] - [test_utils.py:75] - [INFO]: Test Loss: 0.62065 | Test Accuracy: 82.23% | Test F1-score: 0.8222748637199402
-
 [2025-11-09 23:51:21] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:21] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:21] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:21] - [finetune_helper.py:280] - [INFO]: Epoch 30
 -----------------------
 [2025-11-09 23:51:21] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:23] - [train_utils.py:72] - [INFO]: Train Loss: 0.01087 | Train Accuracy: 99.91%
 [2025-11-09 23:51:23] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:23] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:51:23] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 30/40.
 [2025-11-09 23:51:23] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:24] - [test_utils.py:75] - [INFO]: Test Loss: 0.71123 | Test Accuracy: 80.57% | Test F1-score: 0.8056871891021729
-
 [2025-11-09 23:51:24] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:24] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:24] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:24] - [finetune_helper.py:280] - [INFO]: Epoch 31
 -----------------------
 [2025-11-09 23:51:24] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:27] - [train_utils.py:72] - [INFO]: Train Loss: 0.01222 | Train Accuracy: 99.86%
 [2025-11-09 23:51:27] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:27] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:28] - [test_utils.py:75] - [INFO]: Test Loss: 0.68153 | Test Accuracy: 80.41% | Test F1-score: 0.8041074275970459
-
 [2025-11-09 23:51:28] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:28] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:28] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:28] - [finetune_helper.py:280] - [INFO]: Epoch 32
 -----------------------
 [2025-11-09 23:51:28] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:30] - [train_utils.py:72] - [INFO]: Train Loss: 0.00655 | Train Accuracy: 100.00%
 [2025-11-09 23:51:30] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:30] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:51:30] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 32/40.
 [2025-11-09 23:51:30] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:31] - [test_utils.py:75] - [INFO]: Test Loss: 0.61803 | Test Accuracy: 83.18% | Test F1-score: 0.8317534923553467
-
 [2025-11-09 23:51:31] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:31] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:31] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:31] - [finetune_helper.py:280] - [INFO]: Epoch 33
 -----------------------
 [2025-11-09 23:51:31] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:33] - [train_utils.py:72] - [INFO]: Train Loss: 0.00824 | Train Accuracy: 99.91%
 [2025-11-09 23:51:33] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:33] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:34] - [test_utils.py:75] - [INFO]: Test Loss: 0.62926 | Test Accuracy: 82.07% | Test F1-score: 0.8206951022148132
-
 [2025-11-09 23:51:34] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:34] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:34] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:34] - [finetune_helper.py:280] - [INFO]: Epoch 34
 -----------------------
 [2025-11-09 23:51:34] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:37] - [train_utils.py:72] - [INFO]: Train Loss: 0.00688 | Train Accuracy: 99.95%
 [2025-11-09 23:51:37] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:37] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:51:37] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 34/40.
 [2025-11-09 23:51:37] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:38] - [test_utils.py:75] - [INFO]: Test Loss: 0.60472 | Test Accuracy: 83.10% | Test F1-score: 0.830963671207428
-
 [2025-11-09 23:51:38] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:38] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:38] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:38] - [finetune_helper.py:280] - [INFO]: Epoch 35
 -----------------------
 [2025-11-09 23:51:38] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:40] - [train_utils.py:72] - [INFO]: Train Loss: 0.01442 | Train Accuracy: 99.91%
 [2025-11-09 23:51:40] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:40] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:41] - [test_utils.py:75] - [INFO]: Test Loss: 0.61540 | Test Accuracy: 82.39% | Test F1-score: 0.8238547444343567
-
 [2025-11-09 23:51:41] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:41] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:41] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:41] - [finetune_helper.py:280] - [INFO]: Epoch 36
 -----------------------
 [2025-11-09 23:51:41] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:44] - [train_utils.py:72] - [INFO]: Train Loss: 0.02060 | Train Accuracy: 99.68%
 [2025-11-09 23:51:44] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:44] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:51:44] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 36/40.
 [2025-11-09 23:51:44] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:45] - [test_utils.py:75] - [INFO]: Test Loss: 0.87205 | Test Accuracy: 78.36% | Test F1-score: 0.7835702896118164
-
 [2025-11-09 23:51:45] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:45] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:45] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:45] - [finetune_helper.py:280] - [INFO]: Epoch 37
 -----------------------
 [2025-11-09 23:51:45] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:47] - [train_utils.py:72] - [INFO]: Train Loss: 0.00930 | Train Accuracy: 99.91%
 [2025-11-09 23:51:47] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:47] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:48] - [test_utils.py:75] - [INFO]: Test Loss: 0.73090 | Test Accuracy: 81.04% | Test F1-score: 0.8104265332221985
-
 [2025-11-09 23:51:48] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:48] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:48] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:48] - [finetune_helper.py:280] - [INFO]: Epoch 38
 -----------------------
 [2025-11-09 23:51:48] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:50] - [train_utils.py:72] - [INFO]: Train Loss: 0.00940 | Train Accuracy: 99.95%
 [2025-11-09 23:51:50] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:50] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:51:50] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 38/40.
 [2025-11-09 23:51:50] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:51] - [test_utils.py:75] - [INFO]: Test Loss: 0.75442 | Test Accuracy: 80.57% | Test F1-score: 0.8056871891021729
-
 [2025-11-09 23:51:51] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:51] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:51] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:51] - [finetune_helper.py:280] - [INFO]: Epoch 39
 -----------------------
 [2025-11-09 23:51:51] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:54] - [train_utils.py:72] - [INFO]: Train Loss: 0.01119 | Train Accuracy: 99.73%
 [2025-11-09 23:51:54] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:54] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:55] - [test_utils.py:75] - [INFO]: Test Loss: 0.72276 | Test Accuracy: 80.41% | Test F1-score: 0.8041074275970459
-
 [2025-11-09 23:51:55] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:55] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:55] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
 [2025-11-09 23:51:55] - [finetune_helper.py:280] - [INFO]: Epoch 40
 -----------------------
 [2025-11-09 23:51:55] - [finetune_helper.py:282] - [INFO]: Starting training step...
-[2025-11-09 23:51:57] - [train_utils.py:72] - [INFO]: Train Loss: 0.00737 | Train Accuracy: 99.91%
 [2025-11-09 23:51:57] - [finetune_helper.py:293] - [INFO]: Training step completed.
 [2025-11-09 23:51:57] - [finetune_helper.py:297] - [INFO]: Saving model checkpoint...
 [2025-11-09 23:51:57] - [finetune_helper.py:305] - [INFO]: Model checkpoint saved at epoch 40/40.
 [2025-11-09 23:51:57] - [finetune_helper.py:309] - [INFO]: Starting testing step...
-[2025-11-09 23:51:58] - [test_utils.py:75] - [INFO]: Test Loss: 0.72395 | Test Accuracy: 81.04% | Test F1-score: 0.8104265332221985
-
 [2025-11-09 23:51:58] - [finetune_helper.py:322] - [INFO]: Testing step completed.
 [2025-11-09 23:51:58] - [finetune_helper.py:325] - [INFO]: Appending the epoch's metrics to CSV.
 [2025-11-09 23:51:58] - [finetune_helper.py:329] - [INFO]: Epoch's metrics appended successfully!
-[2025-11-09 23:51:58] - [train_lstm.py:67] - [INFO]: Training Group Activity Temporal Classifier Finished Successfully!
-[2025-11-09 23:51:58] - [train_lstm.py:69] - [INFO]: Visualizing Results...
-[2025-11-09 23:51:58] - [visualize_helper.py:17] - [INFO]: Loading data for visualization...
-[2025-11-09 23:51:58] - [visualize_helper.py:19] - [INFO]: Data loaded successfully.
-[2025-11-09 23:51:58] - [visualize_helper.py:21] - [INFO]: Preparing results dictionary...
-[2025-11-09 23:51:58] - [visualize_helper.py:23] - [INFO]: Results dictionary prepared.
-[2025-11-09 23:51:58] - [visualize_helper.py:25] - [INFO]: Generating plots...
-[2025-11-09 23:52:01] - [visualize_helper.py:27] - [INFO]: All plots generated successfully and saved to 'assets/baselines_assets/baseline5/exp1'.
-[2025-11-09 23:52:01] - [train_lstm.py:77] - [INFO]: Visualization Finished Successfully!
