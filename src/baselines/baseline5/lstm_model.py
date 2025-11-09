@@ -47,7 +47,7 @@ class Pooled_Players_Activity_Temporal_Classifier(nn.Module):
         super(Pooled_Players_Activity_Temporal_Classifier, self).__init__()
 
         self.logger = setup_logger(
-            log_dir=__file__,
+            log_file=__file__,
             log_dir=log_dir,
             log_to_console=verbose,
             use_tqdm=True
@@ -91,6 +91,7 @@ class Pooled_Players_Activity_Temporal_Classifier(nn.Module):
             5. Apply classification head
         """
         # x: (batch, seq, num_players, features_dim)
+        print(x.shape)
         batch, seq_len, num_players, features_dim = x.shape
         x = x.view(batch * num_players, seq_len, features_dim) 
 
