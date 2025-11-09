@@ -47,8 +47,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
             if isinstance(data, list):
                 # Frist convert to numpy array
                 data, target = np.array(data), np.array(target)
-                # Then convert to torch tensor
-                data, target = torch.from_numpy(data).float(), torch.from_numpy(target).float() # to ensure data type is float32 not 64
+            data, target = torch.tensor(data, dtype=torch.float32), torch.tensor(target, dtype=torch.long) # to ensure data type is float32 not 64
             data, target = data.to(device), target.to(device)
 
             # 1. Forward pass
