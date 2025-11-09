@@ -49,7 +49,7 @@ def main():
             train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
             val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
             features=True,
-            model_name="lstm",
+            model_name="lstm2",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
             metrics_logs="logs/training_logs/baseline5/exp1/b5_training.csv",
