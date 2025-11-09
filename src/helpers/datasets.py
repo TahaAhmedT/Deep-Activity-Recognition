@@ -202,7 +202,7 @@ class FeaturesDataset(Dataset):
         logger (logging.Logger): Logger instance for progress and debug messages.
     """
 
-    def __init__(self, output_file, videos_root, target_videos, categories_dict, log_dir, image_level: bool, sequence=False, verbose=False):
+    def __init__(self, output_file, videos_root, target_videos, categories_dict, log_dir, crop: bool, sequence=False, verbose=False):
         """Initializes the FeaturesDataset.
 
         Args:
@@ -219,7 +219,7 @@ class FeaturesDataset(Dataset):
         self.target_videos = target_videos
         self.categories_dict = categories_dict
         self.log_dir = log_dir
-        self.image_level = image_level
+        self.crop = crop
         self.sequence = sequence
         self.verbose = verbose
         self.dataset = []
@@ -274,19 +274,25 @@ class FeaturesDataset(Dataset):
                     clip_label = self.categories_dict[clip_category_dict[clip_id]]
                     clip_features = np.load(clip_features_file)
 
-                    if self.sequence and not self.image_level:
+                    if self.sequence and not self.crop:
                         seq_features = []
                         for frame_idx in range(clip_features.shape[0]):
                             seq_features.append(clip_features[frame_idx])
                         self.dataset.append((seq_features, clip_label))
-                    elif self.sequence and self.image_level:
+                    elif self.sequence and self.crop:
                         seq_features = []
                         frame_features = []
+                        num_players = clip_features.shape[0] // 9
                         for crop_idx in range(clip_features.shape[0]):
                             frame_features.append(clip_features[crop_idx])
-                            if (crop_idx+1) % 9 == 0:
+                            if (crop_idx+1) % num_players == 0:
                                 seq_features.append(frame_features)
                                 frame_features = []
+                        seq_features = np.array(seq_features) # shape [num_frames, num_players, 2048]
+                        num_frames, num_players, _ = seq_features.shape
+                        if num_players < 12:
+                            pad  = np.zeros((num_frames, 12 - num_players, 2048))
+                            seq_features = np.concatenate([seq_features, pad], axis=1)
                         self.dataset.append((seq_features, clip_label))
                     else: 
                         for frame_idx in range(clip_features.shape[0]): 
