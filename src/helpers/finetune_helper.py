@@ -33,6 +33,7 @@ def get_data_loaders(logger,
                      actions_dict: dict,
                      output_file: str = None,
                      image_level: bool = None,
+                     crop: bool = None,
                      sequence: bool = None,
                      verbose: bool = False):
     """Creates train and test data loaders.
@@ -52,7 +53,7 @@ def get_data_loaders(logger,
             target_videos=train_ids,
             categories_dict=actions_dict,
             log_dir=log_dir,
-            image_level=image_level,
+            crop=crop,
             sequence=sequence,
             verbose=verbose
         )
@@ -62,7 +63,7 @@ def get_data_loaders(logger,
             target_videos=val_ids,
             categories_dict=actions_dict,
             log_dir=log_dir,
-            image_level=image_level,
+            crop=crop,
             sequence=sequence,
             verbose=verbose
         )
@@ -216,6 +217,7 @@ def finetune(log_dir: str,
              preds_logs: str,
              save_path: str,
              image_level: bool = None,
+             crop: bool = None,
              output_file: str = None,
              input_size: int = None,
              hidden_size: int = None,
