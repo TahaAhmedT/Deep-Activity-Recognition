@@ -51,6 +51,7 @@ def get_data_loaders(logger,
             target_videos=train_ids,
             categories_dict=actions_dict,
             log_dir=log_dir,
+            image_level=image_level,
             sequence=sequence,
             verbose=verbose
         )
@@ -60,6 +61,7 @@ def get_data_loaders(logger,
             target_videos=val_ids,
             categories_dict=actions_dict,
             log_dir=log_dir,
+            image_level=image_level,
             sequence=sequence,
             verbose=verbose
         )
