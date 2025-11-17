@@ -34,7 +34,7 @@ def main():
     CONFIG = load_config()
     logger = setup_logger(
             log_file=__file__,
-            log_dir=CONFIG["baseline6_logs"],
+            log_dir=os.path.join(CONFIG["baseline6_logs"], "exp1"),
             log_to_console=CONFIG["verbose"],
             use_tqdm=True,
         )
