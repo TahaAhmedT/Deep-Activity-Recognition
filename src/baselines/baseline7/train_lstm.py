@@ -56,7 +56,7 @@ def main():
             output_file=CONFIG["DATA_PATHS"]["player_features_root"],
             input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
             hidden_size1=CONFIG["HIDDEN_SIZE1"],
-            hidden_size2=CONFIG["HIDEN_SIZE2"],
+            hidden_size2=CONFIG["HIDDEN_SIZE2"],
             num_layers=CONFIG["NUM_LAYERS"],
             sequence=True,
             verbose=CONFIG["verbose"]
