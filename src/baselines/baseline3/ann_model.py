@@ -3,19 +3,10 @@ This module defines a simple feed-forward artificial neural network (ANN) used i
 The ANN accepts extracted features as input and outputs class logits for volleyball activity recognition.
 It is intended to be used as a lightweight classifier on top of pretrained feature extractors.
 """
-from src.utils.config_utils import load_config
 from src.utils.logging_utils import setup_logger
 
-import os
 from torch import nn
 
-CONFIG = load_config()
-logger = setup_logger(
-            log_file=__file__,
-            log_dir=os.path.join(CONFIG["baseline3_logs"]),
-            log_to_console=CONFIG['verbose'],
-            use_tqdm=True,
-        )
 
 class ANN(nn.Module):
     """Feed-forward Artificial Neural Network for classification.
@@ -29,7 +20,7 @@ class ANN(nn.Module):
         fc_layer (nn.Sequential): Fully connected layers producing output logits.
     """
 
-    def __init__(self, input_size, n_classes):
+    def __init__(self, input_size, n_classes, log_dir, verbose):
         """Initializes the ANN model.
 
         Args:
@@ -40,13 +31,19 @@ class ANN(nn.Module):
             Linear(input_size -> 1000) -> Linear(1000 -> n_classes)
         """
         super().__init__()
-        logger.info("Initializing Our ANN Model...")
+        self.logger = setup_logger(
+            log_file=__file__,
+            log_dir=log_dir,
+            log_to_console=verbose,
+            use_tqdm=True,
+        )
+        self.logger.info("Initializing Our ANN Model...")
         self.input_size = input_size
         self.fc_layer = nn.Sequential(
             nn.Linear(input_size, 1000),
             nn.Linear(1000, n_classes)
         )
-        logger.info(f"ANN Model Initialized with Input Size = {self.input_size} and Output Size = {n_classes}.")
+        self.logger.info(f"ANN Model Initialized with Input Size = {self.input_size} and Output Size = {n_classes}.")
     
 
     def forward(self, x):
