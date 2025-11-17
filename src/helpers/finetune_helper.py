@@ -142,8 +142,8 @@ def get_resnet_model(logger, num_classes: int, verbose=False):
     return model
 
 
-def get_ann_model(input_size, num_classes):
-    model = ANN(input_size=input_size, n_classes=num_classes)
+def get_ann_model(input_size, num_classes, log_dir, verbose):
+    model = ANN(input_size, num_classes, log_dir, verbose)
     return model
 
 def get_lstm1_model(num_classes, input_size, hidden_size, num_layers, log_dir, verbose):
@@ -250,13 +250,14 @@ def finetune(log_dir: str,
                                                 actions_dict,
                                                 output_file,
                                                 image_level,
+                                                crop,
                                                 sequence,
                                                 verbose
                                             )
     if model_name == "resnet":
         model = get_resnet_model(logger, num_classes, verbose)
     elif model_name == "ann":
-        model = get_ann_model(input_size, num_classes)
+        model = get_ann_model(input_size, num_classes, log_dir, verbose)
     elif model_name == "lstm1":
         model = get_lstm1_model(num_classes, input_size, hidden_size, num_layers, log_dir, verbose)
     elif model_name == "lstm2":
