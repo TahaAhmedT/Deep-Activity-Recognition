@@ -146,8 +146,8 @@ def get_ann_model(input_size, num_classes):
     model = ANN(input_size=input_size, n_classes=num_classes)
     return model
 
-def get_lstm1_model(num_classes, input_size, hidden_size, num_layers):
-    model = Group_Activity_Temporal_Classifier(num_classes=num_classes, input_size=input_size, hidden_size=hidden_size, num_layers=num_layers)
+def get_lstm1_model(num_classes, input_size, hidden_size, num_layers, log_dir, verbose):
+    model = Group_Activity_Temporal_Classifier(num_classes, input_size, hidden_size, num_layers, log_dir, verbose)
     return model
 
 def get_lstm2_model(num_classes, input_size, hidden_size, num_layers, log_dir, verbose):
@@ -258,7 +258,7 @@ def finetune(log_dir: str,
     elif model_name == "ann":
         model = get_ann_model(input_size, num_classes)
     elif model_name == "lstm1":
-        model = get_lstm1_model(num_classes, input_size, hidden_size, num_layers)
+        model = get_lstm1_model(num_classes, input_size, hidden_size, num_layers, log_dir, verbose)
     elif model_name == "lstm2":
         model = get_lstm2_model(num_classes, input_size, hidden_size, num_layers, log_dir, verbose)
     
@@ -293,17 +293,28 @@ def finetune(log_dir: str,
         logger.info("Training step completed.")
 
         # Saving Checkpoint
-        if (epoch + 1) % 2 == 0:
-            logger.info("Saving model checkpoint...")
-            checkpoint = {
-                'state_dict': model.state_dict(),
-                'optimizer': optimizer.state_dict(),
-                'loss': train_loss,
-                'acc': train_acc
-            }
-            save_checkpoint(checkpoint, os.path.join(save_path, f"epoch_{epoch}.pth"))
-            logger.info(f"Model checkpoint saved at epoch {epoch+1}/{num_epochs}.")
-
+        if num_epochs <= 10:
+            if (epoch + 1) % 2 == 0:
+                logger.info("Saving model checkpoint...")
+                checkpoint = {
+                    'state_dict': model.state_dict(),
+                    'optimizer': optimizer.state_dict(),
+                    'loss': train_loss,
+                    'acc': train_acc
+                }
+                save_checkpoint(checkpoint, os.path.join(save_path, f"epoch_{epoch}.pth"))
+                logger.info(f"Model checkpoint saved at epoch {epoch+1}/{num_epochs}.")
+        else:
+            if (epoch + 1) % 5 == 0:
+                logger.info("Saving model checkpoint...")
+                checkpoint = {
+                    'state_dict': model.state_dict(),
+                    'optimizer': optimizer.state_dict(),
+                    'loss': train_loss,
+                    'acc': train_acc
+                }
+                save_checkpoint(checkpoint, os.path.join(save_path, f"epoch_{epoch}.pth"))
+                logger.info(f"Model checkpoint saved at epoch {epoch+1}/{num_epochs}.")
         
         # Testing step
         logger.info("Starting testing step...")
