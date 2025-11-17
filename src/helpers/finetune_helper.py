@@ -3,6 +3,7 @@ from src.baselines.baseline1.extended_model import ExtendedModel
 from src.baselines.baseline3.ann_model import ANN
 from src.baselines.baseline4.lstm_model import Group_Activity_Temporal_Classifier
 from src.baselines.baseline5.lstm_model import Pooled_Players_Activity_Temporal_Classifier
+from src.baselines.baseline7.lstm_model import Two_Stage_Activity_Temporal_Classifier
 from src.utils.train_utils import train_step
 from src.utils.test_utils import test_step
 from src.utils.checkpoints_utils import save_checkpoint
@@ -161,6 +162,18 @@ def get_lstm2_model(num_classes, input_size, hidden_size, num_layers, log_dir, v
     )
     return model
 
+def get_lstm3_model(num_classes, input_size, hidden_size1, hidden_size2, num_layers, log_dir, verbose):
+    model = Two_Stage_Activity_Temporal_Classifier(
+        num_classes=num_classes,
+        input_size=input_size,
+        hidden_size1=hidden_size1,
+        hidden_size2=hidden_size2,
+        num_layers=num_layers,
+        log_dir=log_dir,
+        verbose=verbose
+    )
+    return model
+
 def get_optimizer(logger, model, lr):
     """Creates the optimizer for training.
 
@@ -220,7 +233,8 @@ def finetune(log_dir: str,
              crop: bool = None,
              output_file: str = None,
              input_size: int = None,
-             hidden_size: int = None,
+             hidden_size1: int = None,
+             hidden_size2: int = None,
              num_layers: int = None,
              sequence: bool = None,
              verbose: bool = False):
@@ -259,9 +273,11 @@ def finetune(log_dir: str,
     elif model_name == "ann":
         model = get_ann_model(input_size, num_classes, log_dir, verbose)
     elif model_name == "lstm1":
-        model = get_lstm1_model(num_classes, input_size, hidden_size, num_layers, log_dir, verbose)
+        model = get_lstm1_model(num_classes, input_size, hidden_size2, num_layers, log_dir, verbose)
     elif model_name == "lstm2":
-        model = get_lstm2_model(num_classes, input_size, hidden_size, num_layers, log_dir, verbose)
+        model = get_lstm2_model(num_classes, input_size, hidden_size2, num_layers, log_dir, verbose)
+    elif model_name == "lstm3":
+        model = get_lstm3_model(num_classes, input_size, hidden_size1, hidden_size2, num_layers, log_dir, verbose)
     
     criterion = nn.CrossEntropyLoss()
     optimizer= get_optimizer(logger, model, lr)
