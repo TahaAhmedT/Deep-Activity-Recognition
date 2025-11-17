@@ -50,7 +50,7 @@ class Two_Stage_Activity_Temporal_Classifier(nn.Module):
             verbose (bool): If True, enable console logging.
 
         """
-        super(self).__init__()
+        super().__init__()
         
         self.logger = setup_logger(
             log_file=__file__,
