@@ -46,6 +46,7 @@ baseline1_logs: "logs/baselines_logs/baseline1_logs"
 baseline3_logs: "logs/baselines_logs/baseline3_logs"
 baseline4_logs: "logs/baselines_logs/baseline4_logs"
 baseline5_logs: "logs/baselines_logs/baseline5_logs"
+baseline6_logs: "logs/baselines_logs/baseline6_logs"
 
 baseline1_assets: "assets/baselines_assets/baseline1"
 baseline3_assets: "assets/baselines_assets/baseline3"
