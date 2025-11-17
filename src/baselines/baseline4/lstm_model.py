@@ -11,20 +11,8 @@ Expected input shape:
     (batch_size, seq_len, feature_dim)
 """
 from src.utils.logging_utils import setup_logger
-from src.utils.config_utils import load_config
 
-import torch
 import torch.nn as nn
-
-
-CONFIG = load_config()
-logger = setup_logger(
-            log_file=__file__,
-            log_dir=CONFIG["baseline4_logs"],
-            log_to_console=CONFIG["verbose"],
-            use_tqdm=True,
-        )
-
 
 class Group_Activity_Temporal_Classifier(nn.Module):
     """LSTM-based temporal classifier for group activity recognition.
@@ -40,7 +28,7 @@ class Group_Activity_Temporal_Classifier(nn.Module):
             concatenated features to class logits.
     """
 
-    def __init__(self, num_classes, input_size, hidden_size, num_layers):
+    def __init__(self, num_classes, input_size, hidden_size, num_layers, log_dir, verbose):
         """Initializes the temporal classifier.
 
         Args:
@@ -51,6 +39,12 @@ class Group_Activity_Temporal_Classifier(nn.Module):
         """
         super(Group_Activity_Temporal_Classifier, self).__init__()
 
+        logger = setup_logger(
+            log_file=__file__,
+            log_dir=log_dir,
+            log_to_console=verbose,
+            use_tqdm=True,
+        )
         logger.info("Initializing Group Activity Temporal Classifier...")
         self.lstm = nn.LSTM(
                             input_size=input_size,
