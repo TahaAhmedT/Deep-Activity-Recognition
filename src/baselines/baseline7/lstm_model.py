@@ -66,6 +66,8 @@ class Two_Stage_Activity_Temporal_Classifier(nn.Module):
             batch_first=True
         )
 
+        self.adaptive_max_pool = nn.AdaptiveMaxPool1d(1)
+
         self.frame_lstm = nn.LSTM(
             input_size=hidden_size1,
             hidden_size=hidden_size2,
@@ -74,14 +76,11 @@ class Two_Stage_Activity_Temporal_Classifier(nn.Module):
         )
 
         self.fc = nn.Sequential(
-            nn.Linear(hidden_size2, 256),
-            nn.BatchNorm1d(256),
+            nn.Linear(hidden_size2, hidden_size2),
+            nn.BatchNorm1d(hidden_size2),
             nn.ReLU(),
             nn.Dropout(0.5),
-            nn.Linear(256, 128),
-            nn.ReLU(),
-            nn.Dropout(0.5),
-            nn.Linear(128, num_classes)
+            nn.Linear(hidden_size2, num_classes)
         )
         self.logger.info("Model Initialized Successfully!")
 
@@ -105,24 +104,23 @@ class Two_Stage_Activity_Temporal_Classifier(nn.Module):
 
         player_out, _ = self.player_lstm(x) # player_out: (batch * num_players, seq_len, hidden_size1)
 
-        # take last time step -> summary of each player's movement
-        player_out = player_out[:, -1, :] # (batch * num_players, hidden_size1)
-
-        # reshape players back to frames
-        player_out = player_out.view(batch, num_players, -1) # (batch, num_players, hidden_size1)
+        player_out = player_out.view(batch, num_players, seq_len, -1)
 
         # ----------------------------------------------------
         # 2. Max-pool players -> frame representation
         # ----------------------------------------------------
-        frame_features = torch.max(player_out, dim=1)[0] # (batch, hidden_size1)
+        player_out = player_out.permute(0, 2, 3, 1) # (batch, seq_len, hidden_size1, num_players)
+        player_out = player_out.contiguous()
+        player_out = player_out.view(batch * seq_len, -1, num_players)
+
+        player_out = self.adaptive_max_pool(player_out) # (batch*seq_len, hidden_size1, 1)
+        player_out = player_out.squeeze() # (batch*seq_len, hidden_size1)
+        player_out = player_out.view(batch, seq_len, -1)
 
         # ----------------------------------------------------
         # 3. Second LSTM: sequence over frames (clip-level temporal modeling)
         # ----------------------------------------------------
-        # frame_lstm expects a sequence -> repeat frame_features across seq_len
-        frame_features = frame_features.unsqueeze(1).repeat(1, seq_len, 1) # (batch, seq_len, hidden_size1)
-
-        clip_out, _ = self.frame_lstm(frame_features) # (batch, seq_len, hidden_size2)
+        clip_out, _ = self.frame_lstm(player_out) # (batch, seq_len, hidden_size2)
 
         # last frame output -> clip representation
         clip_rep = clip_out[:, -1, :] # (batch, hidden_size2)
