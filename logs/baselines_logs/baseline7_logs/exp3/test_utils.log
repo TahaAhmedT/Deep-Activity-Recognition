@@ -1,0 +1,80 @@
+[2025-11-20 00:28:10] - [test_utils.py:75] - [INFO]: Test Loss: 1.36881 | Test Accuracy: 71.56% | Test F1-score: 0.7156398892402649
+
+[2025-11-20 00:28:14] - [test_utils.py:75] - [INFO]: Test Loss: 0.65113 | Test Accuracy: 77.88% | Test F1-score: 0.7788309454917908
+
+[2025-11-20 00:28:18] - [test_utils.py:75] - [INFO]: Test Loss: 1.01100 | Test Accuracy: 64.77% | Test F1-score: 0.647709310054779
+
+[2025-11-20 00:28:22] - [test_utils.py:75] - [INFO]: Test Loss: 0.60395 | Test Accuracy: 77.33% | Test F1-score: 0.7733017802238464
+
+[2025-11-20 00:28:26] - [test_utils.py:75] - [INFO]: Test Loss: 0.70928 | Test Accuracy: 76.15% | Test F1-score: 0.76145339012146
+
+[2025-11-20 00:28:30] - [test_utils.py:75] - [INFO]: Test Loss: 0.54707 | Test Accuracy: 81.20% | Test F1-score: 0.8120062947273254
+
+[2025-11-20 00:28:33] - [test_utils.py:75] - [INFO]: Test Loss: 0.66739 | Test Accuracy: 77.41% | Test F1-score: 0.7740916609764099
+
+[2025-11-20 00:28:37] - [test_utils.py:75] - [INFO]: Test Loss: 0.63046 | Test Accuracy: 79.38% | Test F1-score: 0.7938388586044312
+
+[2025-11-20 00:28:41] - [test_utils.py:75] - [INFO]: Test Loss: 0.71628 | Test Accuracy: 76.94% | Test F1-score: 0.7693523168563843
+
+[2025-11-20 00:28:45] - [test_utils.py:75] - [INFO]: Test Loss: 0.65127 | Test Accuracy: 79.78% | Test F1-score: 0.7977883219718933
+
+[2025-11-20 00:28:49] - [test_utils.py:75] - [INFO]: Test Loss: 0.51136 | Test Accuracy: 83.33% | Test F1-score: 0.8333333134651184
+
+[2025-11-20 00:28:52] - [test_utils.py:75] - [INFO]: Test Loss: 0.50154 | Test Accuracy: 83.89% | Test F1-score: 0.8388625383377075
+
+[2025-11-20 00:28:56] - [test_utils.py:75] - [INFO]: Test Loss: 0.50164 | Test Accuracy: 84.20% | Test F1-score: 0.8420221209526062
+
+[2025-11-20 00:29:00] - [test_utils.py:75] - [INFO]: Test Loss: 0.49300 | Test Accuracy: 84.52% | Test F1-score: 0.8451817035675049
+
+[2025-11-20 00:29:04] - [test_utils.py:75] - [INFO]: Test Loss: 0.49543 | Test Accuracy: 84.52% | Test F1-score: 0.8451817035675049
+
+[2025-11-20 00:29:07] - [test_utils.py:75] - [INFO]: Test Loss: 0.49298 | Test Accuracy: 84.91% | Test F1-score: 0.8491311073303223
+
+[2025-11-20 00:29:11] - [test_utils.py:75] - [INFO]: Test Loss: 0.49752 | Test Accuracy: 84.28% | Test F1-score: 0.8428120613098145
+
+[2025-11-20 00:29:15] - [test_utils.py:75] - [INFO]: Test Loss: 0.49303 | Test Accuracy: 84.28% | Test F1-score: 0.8428120613098145
+
+[2025-11-20 00:29:18] - [test_utils.py:75] - [INFO]: Test Loss: 0.49832 | Test Accuracy: 84.28% | Test F1-score: 0.8428120613098145
+
+[2025-11-20 00:29:22] - [test_utils.py:75] - [INFO]: Test Loss: 0.49938 | Test Accuracy: 84.28% | Test F1-score: 0.8428120613098145
+
+[2025-11-20 00:29:26] - [test_utils.py:75] - [INFO]: Test Loss: 0.49765 | Test Accuracy: 84.44% | Test F1-score: 0.8443917632102966
+
+[2025-11-20 00:29:30] - [test_utils.py:75] - [INFO]: Test Loss: 0.49673 | Test Accuracy: 84.28% | Test F1-score: 0.8428120613098145
+
+[2025-11-20 00:29:34] - [test_utils.py:75] - [INFO]: Test Loss: 0.49860 | Test Accuracy: 84.28% | Test F1-score: 0.8428120613098145
+
+[2025-11-20 00:29:38] - [test_utils.py:75] - [INFO]: Test Loss: 0.49749 | Test Accuracy: 84.28% | Test F1-score: 0.8428120613098145
+
+[2025-11-20 00:29:42] - [test_utils.py:75] - [INFO]: Test Loss: 0.49776 | Test Accuracy: 84.44% | Test F1-score: 0.8443917632102966
+
+[2025-11-20 00:29:45] - [test_utils.py:75] - [INFO]: Test Loss: 0.50536 | Test Accuracy: 84.28% | Test F1-score: 0.8428120613098145
+
+[2025-11-20 00:29:49] - [test_utils.py:75] - [INFO]: Test Loss: 0.50075 | Test Accuracy: 84.36% | Test F1-score: 0.8436018824577332
+
+[2025-11-20 00:29:53] - [test_utils.py:75] - [INFO]: Test Loss: 0.49967 | Test Accuracy: 84.60% | Test F1-score: 0.8459715843200684
+
+[2025-11-20 00:29:57] - [test_utils.py:75] - [INFO]: Test Loss: 0.50727 | Test Accuracy: 83.73% | Test F1-score: 0.8372827768325806
+
+[2025-11-20 00:30:01] - [test_utils.py:75] - [INFO]: Test Loss: 0.49983 | Test Accuracy: 84.20% | Test F1-score: 0.8420221209526062
+
+[2025-11-20 00:30:05] - [test_utils.py:75] - [INFO]: Test Loss: 0.49341 | Test Accuracy: 84.60% | Test F1-score: 0.8459715843200684
+
+[2025-11-20 00:30:08] - [test_utils.py:75] - [INFO]: Test Loss: 0.50806 | Test Accuracy: 84.12% | Test F1-score: 0.8412322402000427
+
+[2025-11-20 00:30:12] - [test_utils.py:75] - [INFO]: Test Loss: 0.50731 | Test Accuracy: 83.73% | Test F1-score: 0.8372827768325806
+
+[2025-11-20 00:30:16] - [test_utils.py:75] - [INFO]: Test Loss: 0.49566 | Test Accuracy: 84.12% | Test F1-score: 0.8412322402000427
+
+[2025-11-20 00:30:20] - [test_utils.py:75] - [INFO]: Test Loss: 0.50402 | Test Accuracy: 84.20% | Test F1-score: 0.8420221209526062
+
+[2025-11-20 00:30:24] - [test_utils.py:75] - [INFO]: Test Loss: 0.50899 | Test Accuracy: 84.12% | Test F1-score: 0.8412322402000427
+
+[2025-11-20 00:30:28] - [test_utils.py:75] - [INFO]: Test Loss: 0.49846 | Test Accuracy: 84.12% | Test F1-score: 0.8412322402000427
+
+[2025-11-20 00:30:31] - [test_utils.py:75] - [INFO]: Test Loss: 0.49964 | Test Accuracy: 83.73% | Test F1-score: 0.8372827768325806
+
+[2025-11-20 00:30:35] - [test_utils.py:75] - [INFO]: Test Loss: 0.51522 | Test Accuracy: 83.81% | Test F1-score: 0.838072657585144
+
+[2025-11-20 00:30:39] - [test_utils.py:75] - [INFO]: Test Loss: 0.49809 | Test Accuracy: 84.76% | Test F1-score: 0.8475512862205505
+
