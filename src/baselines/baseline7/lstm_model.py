@@ -80,11 +80,7 @@ class Two_Stage_Activity_Temporal_Classifier(nn.Module):
             nn.BatchNorm1d(hidden_size2),
             nn.ReLU(),
             nn.Dropout(0.5),
-            nn.Linear(hidden_size2, 256),
-            nn.BatchNorm1d(256),
-            nn.ReLU(),
-            nn.Dropout(0.5),
-            nn.Linear(256, num_classes)
+            nn.Linear(hidden_size2, num_classes)
         )
         self.logger.info("Model Initialized Successfully!")
 

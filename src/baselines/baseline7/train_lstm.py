@@ -31,13 +31,13 @@ def main():
     CONFIG = load_config()
     logger = setup_logger(
             log_file=__file__,
-            log_dir=os.path.join(CONFIG["baseline7_logs"], "exp2"),
+            log_dir=os.path.join(CONFIG["baseline7_logs"], "exp3"),
             log_to_console=CONFIG["verbose"],
             use_tqdm=True,
         )
     
     logger.info("Starting Training Two Stage Group Activity Temporal Classifier on Features' Dataset (Player-level then frame-level)...")
-    finetune(log_dir=os.path.join(CONFIG["baseline7_logs"], "exp2"),
+    finetune(log_dir=os.path.join(CONFIG["baseline7_logs"], "exp3"),
             lr=CONFIG["TRAINING_PARAMS"]["lr"],
             num_epochs=CONFIG["TRAINING_PARAMS"]["num_epochs"],
             batch_size=CONFIG["TRAINING_PARAMS"]["batch_size"],
@@ -49,9 +49,9 @@ def main():
             model_name="lstm3",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
-            metrics_logs="logs/training_logs/baseline7/exp2/b7_training.csv",
-            preds_logs="logs/training_logs/baseline7/exp2/b7_test_predictions.csv",
-            save_path="models/b7_models/exp2",
+            metrics_logs="logs/training_logs/baseline7/exp3/b7_training.csv",
+            preds_logs="logs/training_logs/baseline7/exp3/b7_test_predictions.csv",
+            save_path="models/b7_models/exp3",
             crop=True,
             output_file=CONFIG["DATA_PATHS"]["player_features_root"],
             input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
@@ -65,10 +65,10 @@ def main():
     logger.info("Training Two Stage Group Activity Temporal Classifier Finished Successfully!")
 
     logger.info("Visualizing Results...")
-    visualize(metrics_path="logs/training_logs/baseline7/exp2/b7_training.csv",
-            ys_path="logs/training_logs/baseline7/exp2/b7_test_predictions.csv",
-            save_path="assets/baselines_assets/baseline7/exp2",
-            log_dir=os.path.join(CONFIG["baseline7_logs"], "exp2"),
+    visualize(metrics_path="logs/training_logs/baseline7/exp3/b7_training.csv",
+            ys_path="logs/training_logs/baseline7/exp3/b7_test_predictions.csv",
+            save_path="assets/baselines_assets/baseline7/exp3",
+            log_dir=os.path.join(CONFIG["baseline7_logs"], "exp3"),
             verbose=CONFIG["verbose"]
         )
 
