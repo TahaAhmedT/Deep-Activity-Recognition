@@ -194,7 +194,7 @@ def get_optimizer(logger, model, lr):
 
 def get_scheduler(logger, optimizer):
     logger.info("Creating Scheduler...")
-    scheduler = ReduceLROnPlateau(optimizer, "min")
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=3)
     logger.info("Scheduler Created Successfully!")
     return scheduler
 
@@ -229,6 +229,7 @@ def finetune(log_dir: str,
              metrics_logs: str,
              preds_logs: str,
              save_path: str,
+             use_scheduler: bool = True,
              image_level: bool = None,
              crop: bool = None,
              output_file: str = None,
@@ -281,6 +282,7 @@ def finetune(log_dir: str,
     
     criterion = nn.CrossEntropyLoss()
     optimizer= get_optimizer(logger, model, lr)
+    scheduler = get_scheduler(logger, optimizer) if use_scheduler else None
 
     logger.info(f"Starting Training and Testing with number of epochs = {num_epochs}")
 
@@ -344,6 +346,9 @@ def finetune(log_dir: str,
             num_classes=num_classes,
             verbose=verbose
         )
+        if use_scheduler:
+            scheduler.step(test_loss)
+        
         Y_true.extend(y_true)
         Y_pred.extend(y_pred)
         # scheduler.step(test_loss)
