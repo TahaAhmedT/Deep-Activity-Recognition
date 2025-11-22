@@ -120,7 +120,7 @@ class Two_Stage_Pooled_Teams_Activity_Temporal_Classifier(nn.Module):
         # ----------------------------------------------------
         # 3. Second LSTM: sequence over frames (clip-level temporal modeling)
         # ----------------------------------------------------
-        clip_out, _ = self.frame_lstm(player_out) # (batch, seq_len, hidden_size2)
+        clip_out, _ = self.frame_lstm(clip_out) # (batch, seq_len, hidden_size2)
 
         # last frame output -> clip representation
         clip_rep = clip_out[:, -1, :] # (batch, hidden_size2)
