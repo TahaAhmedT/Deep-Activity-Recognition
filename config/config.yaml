@@ -16,9 +16,10 @@ HIDDEN_SIZE1: 1024
 HIDDEN_SIZE2: 512
 
 TRAINING_PARAMS:
-  batch_size: 32
+  batch_size: 4
   lr: 0.0001
   num_epochs: 40
+  use_scheduler: True
 
 CATEGORIES_DICT: {
         'l-pass': 0,
@@ -49,6 +50,7 @@ baseline4_logs: "logs/baselines_logs/baseline4_logs"
 baseline5_logs: "logs/baselines_logs/baseline5_logs"
 baseline6_logs: "logs/baselines_logs/baseline6_logs"
 baseline7_logs: "logs/baselines_logs/baseline7_logs"
+baseline8_logs: "logs/baselines_logs/baseline8_logs"
 
 baseline1_assets: "assets/baselines_assets/baseline1"
 baseline3_assets: "assets/baselines_assets/baseline3"
