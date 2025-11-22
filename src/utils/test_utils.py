@@ -62,8 +62,8 @@ def test_step(data_loader: torch.utils.data.DataLoader,
 
             # 3. Update accuracy
             metric_acc.update(test_pred, target)
-            if (batch_idx + 1) % 100 == 0:
-                logger.info(f"batch #{batch_idx+1}/{len(data_loader)} Loss: {loss}")
+            # if (batch_idx + 1) % 100 == 0:
+            #     logger.info(f"batch #{batch_idx+1}/{len(data_loader)} Loss: {loss}")
 
     # Compute final metrics
     y_true = torch.tensor(y_true)
