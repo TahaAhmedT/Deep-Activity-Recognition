@@ -50,7 +50,7 @@ def main():
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
             metrics_logs="logs/training_logs/baseline8/exp1/b8_training.csv",
-            preds_logs="logs/training_logs/baseline8/exp3/b8_test_predictions.csv",
+            preds_logs="logs/training_logs/baseline8/exp1/b8_test_predictions.csv",
             save_path="models/b8_models/exp1",
             crop=True,
             output_file=CONFIG["DATA_PATHS"]["player_features_root"],
