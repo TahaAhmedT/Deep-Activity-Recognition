@@ -9,9 +9,8 @@ This module provides:
 
 These dataset classes are intended to be used with torch.utils.data.DataLoader.
 """
-from src.utils.logging_utils import setup_logger
-from src.utils.config_utils import load_config
-from src.Preprocessing.volleyball_annot_loader import load_tracking_annot, load_video_annot
+from ..utils import setup_logger, load_config
+from ..Preprocessing import load_tracking_annot, load_video_annot
 
 from torch.utils.data import Dataset
 from PIL import Image

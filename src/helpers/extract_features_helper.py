@@ -2,10 +2,9 @@
 This script extracts deep features from volleyball player images using a fine-tuned ResNet-50 model.
 It loads model checkpoints, applies preprocessing, and saves extracted features for each video clip.
 """
-from src.Preprocessing.extract_features import extract_features
-from src.utils.logging_utils import setup_logger
-from src.helpers.finetune_helper import get_resnet_model
-from src.utils.checkpoints_utils import load_checkpoint
+from ..Preprocessing import extract_features
+from ..utils import setup_logger, load_checkpoint
+from ..helpers import get_resnet_model
 
 import os
 import torch

@@ -9,10 +9,8 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from src.utils.logging_utils import setup_logger
-from src.utils.config_utils import load_config
-from src.helpers.finetune_helper import finetune
-from src.helpers.visualize_helper import visualize
+from ...utils import setup_logger, load_config
+from ...helpers import finetune, visualize
 
 
 def main():

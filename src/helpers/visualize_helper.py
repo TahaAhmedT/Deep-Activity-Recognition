@@ -1,6 +1,4 @@
-from src.utils.plotting_utils import plot_results
-from src.utils.logging_utils import setup_logger
-from src.utils.plotting_utils import load_data, prepare_results_dict
+from ..utils import plot_results, load_data, prepare_results_dict, setup_logger
 
 
 def visualize(metrics_path, ys_path, save_path, log_dir, verbose):

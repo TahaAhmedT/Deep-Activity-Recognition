@@ -8,10 +8,8 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from src.utils.config_utils import load_config
-from src.utils.logging_utils import setup_logger
-from src.helpers.finetune_helper import finetune
-from src.helpers.visualize_helper import visualize
+from ...utils import load_config, setup_logger
+from ...helpers import finetune, visualize
 
 
 import os

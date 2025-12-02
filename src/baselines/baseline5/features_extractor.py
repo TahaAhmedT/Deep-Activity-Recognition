@@ -11,9 +11,8 @@ This module:
 
 The extracted features will be used to train the temporal classifier in baseline5.
 """
-from src.utils.config_utils import load_config
-from src.utils.logging_utils import setup_logger
-from src.helpers.extract_features_helper import extract
+from ...utils import load_config, setup_logger
+from ...helpers import extract
 
 import os
 

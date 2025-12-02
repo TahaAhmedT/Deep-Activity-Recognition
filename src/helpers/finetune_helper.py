@@ -1,14 +1,6 @@
-from src.helpers.datasets import ImagesDataset, FeaturesDataset
-from src.baselines.baseline1.extended_model import ExtendedModel
-from src.baselines.baseline3.ann_model import ANN
-from src.baselines.baseline4.lstm_model import Group_Activity_Temporal_Classifier
-from src.baselines.baseline5.lstm_model import Pooled_Players_Activity_Temporal_Classifier
-from src.baselines.baseline7.lstm_model import Two_Stage_Activity_Temporal_Classifier
-from src.baselines.baseline8.lstm_model import Two_Stage_Pooled_Teams_Activity_Temporal_Classifier
-from src.utils.train_utils import train_step
-from src.utils.test_utils import test_step
-from src.utils.checkpoints_utils import save_checkpoint
-from src.utils.logging_utils import setup_logger
+from .datasets import ImagesDataset, FeaturesDataset
+from ..models import *
+from ..utils import train_step, test_step, save_checkpoint, setup_logger
 
 import pandas as pd
 import numpy as np
@@ -139,13 +131,13 @@ def get_resnet_model(logger, num_classes: int, verbose=False):
     original_model = resnet50(weights=ResNet50_Weights.DEFAULT, progress=verbose)
     layers = list(original_model.children())[:-1]
     truncated_model = nn.Sequential(*layers)
-    model = ExtendedModel(truncated_model, num_classes)
+    model = Activity_Classifier(truncated_model, num_classes)
     logger.info("Model initialized and truncated.")
     return model
 
 
 def get_ann_model(input_size, num_classes, log_dir, verbose):
-    model = ANN(input_size, num_classes, log_dir, verbose)
+    model = Group_Activity_Classifier(input_size, num_classes, log_dir, verbose)
     return model
 
 def get_lstm1_model(num_classes, input_size, hidden_size, num_layers, log_dir, verbose):

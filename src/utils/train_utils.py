@@ -1,5 +1,4 @@
-from src.utils.logging_utils import setup_logger
-from src.utils.config_utils import load_config
+from ..utils import setup_logger
 
 import numpy as np
 import torch
