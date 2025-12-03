@@ -1,4 +1,4 @@
-from ..utils import setup_logger
+from .logging_utils import setup_logger
 
 import numpy as np
 import torch
@@ -6,17 +6,17 @@ from torcheval.metrics.functional import multiclass_f1_score
 from torchmetrics.classification import Accuracy
 
 
-def test_step(data_loader: torch.utils.data.DataLoader, 
+def val_step(data_loader: torch.utils.data.DataLoader, 
               model: torch.nn.Module, 
               loss_fn: torch.nn.Module, 
               device: torch.device,
               logs_path,
               num_classes,
               verbose: bool = True):
-    """Runs a test/validation step for one epoch.
+    """Runs a validation step for one epoch.
 
     Args:
-        data_loader (torch.utils.data.DataLoader): DataLoader for test/validation data.
+        data_loader (torch.utils.data.DataLoader): DataLoader for validation data.
         model (torch.nn.Module): Model to evaluate.
         loss_fn (torch.nn.Module): Loss function.
         device (torch.device): Device to run evaluation on.
@@ -31,6 +31,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
             log_to_console=verbose,
             use_tqdm=True,
         )
+    
     test_loss = 0.0
     y_true = []
     y_pred = []

@@ -31,19 +31,26 @@ class Group_Activity_Classifier(nn.Module):
             Linear(input_size -> 1000) -> Linear(1000 -> n_classes)
         """
         super().__init__()
+
         self.logger = setup_logger(
             log_file=__file__,
             log_dir=log_dir,
             log_to_console=verbose,
             use_tqdm=True,
         )
-        self.logger.info("Initializing Our ANN Model...")
-        self.input_size = input_size
+        
+        self.logger.info("Initializing Our Group Activity Classifier...")
         self.fc_layer = nn.Sequential(
-            nn.Linear(input_size, 1000),
-            nn.Linear(1000, n_classes)
+            nn.Linear(input_size, 512),
+            nn.BatchNorm1d(512),
+            nn.ReLU(),
+            nn.Dropout(0.5),
+            nn.Linear(512, 256),
+            nn.ReLU(),
+            nn.Dropout(0.5),
+            nn.Linear(256, n_classes)
         )
-        self.logger.info(f"ANN Model Initialized with Input Size = {self.input_size} and Output Size = {n_classes}.")
+        self.logger.info(f"Group Activity Classifier Initialized with Input Size = {self.input_size} and Output Size = {n_classes}.")
     
 
     def forward(self, x):

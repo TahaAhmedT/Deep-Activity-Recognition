@@ -1,6 +1,6 @@
 from .datasets import ImagesDataset, FeaturesDataset
 from ..models import *
-from ..utils import train_step, test_step, save_checkpoint, setup_logger
+from ..utils import train_step, val_step, save_checkpoint, setup_logger
 
 import pandas as pd
 import numpy as np
@@ -37,7 +37,7 @@ def get_data_loaders(logger,
         verbose (bool): If True, prints info logs.
 
     Returns:
-        tuple: (trainloader, testloader)
+        tuple: (trainloader, valloader)
     """
     logger.info("Creating data loaders...")
     if features:
@@ -51,7 +51,7 @@ def get_data_loaders(logger,
             sequence=sequence,
             verbose=verbose
         )
-        test_dataset = FeaturesDataset(
+        val_dataset = FeaturesDataset(
             output_file=output_file,
             videos_root=videos_root,
             target_videos=val_ids,
@@ -79,7 +79,7 @@ def get_data_loaders(logger,
                                 transform=transform,
                                 verbose=verbose
                                 )
-            test_dataset = ImagesDataset(videos_root=videos_root,
+            val_dataset = ImagesDataset(videos_root=videos_root,
                                 target_videos=val_ids,
                                 annot_root=annot_root,
                                 log_dir=log_dir,
@@ -103,7 +103,7 @@ def get_data_loaders(logger,
                                 transform=transform,
                                 verbose=verbose
                                 )
-            test_dataset = ImagesDataset(videos_root=videos_root,
+            val_dataset = ImagesDataset(videos_root=videos_root,
                                 target_videos=val_ids,
                                 annot_root=annot_root,
                                 log_dir=log_dir,
@@ -114,9 +114,9 @@ def get_data_loaders(logger,
                                 )
 
     trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    testloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    valloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
     logger.info("Data loaders created.")
-    return trainloader, testloader
+    return trainloader, valloader
 
 def get_resnet_model(logger, num_classes: int, verbose=False):
     """Initializes the ResNet50 model and truncates the last layer.
@@ -258,7 +258,7 @@ def finetune(log_dir: str,
     set_all_seeds(logger, 42)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Using device: {device}")
-    trainloader, testloader = get_data_loaders(
+    trainloader, valloader = get_data_loaders(
                                                 logger,
                                                 batch_size,
                                                 videos_root,
@@ -297,7 +297,7 @@ def finetune(log_dir: str,
     logger.info("Opening a CSV file to log training metrics.")
     with open(metrics_logs, mode="w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["epoch", "train_loss", "train_acc", "test_loss", "test_acc", "test_f1"])
+        writer.writerow(["epoch", "train_loss", "train_acc", "val_loss", "val_acc", "test_f1"])
 
     
     Y_true = []
@@ -343,9 +343,9 @@ def finetune(log_dir: str,
                 logger.info(f"Model checkpoint saved at epoch {epoch+1}/{num_epochs}.")
         
         # Testing step
-        logger.info("Starting testing step...")
-        test_f1_score, test_loss, test_acc, y_true, y_pred = test_step(
-            data_loader=testloader,
+        logger.info("Starting Validation step...")
+        val_f1_score, val_loss, val_acc, y_true, y_pred = val_step(
+            data_loader=valloader,
             model=model,
             loss_fn=criterion,
             device=device,
@@ -354,18 +354,17 @@ def finetune(log_dir: str,
             verbose=verbose
         )
         if use_scheduler:
-            scheduler.step(test_loss)
+            scheduler.step(val_loss)
         
         Y_true.extend(y_true)
         Y_pred.extend(y_pred)
-        # scheduler.step(test_loss)
-        logger.info("Testing step completed.")
+        logger.info("Validation step completed.")
 
         # Append results to CSV
         logger.info("Appending the epoch's metrics to CSV.")
         with open(metrics_logs, mode="a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc, test_f1_score.item()])
+            writer.writerow([epoch+1, train_loss, train_acc, val_loss, val_acc, val_f1_score.item()])
         logger.info("Epoch's metrics appended successfully!")
 
     # Save Y_true and Y_pred to CSV (to visualize confusion matrix later)
