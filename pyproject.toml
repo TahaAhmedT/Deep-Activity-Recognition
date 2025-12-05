@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Group-Activity-Recognition"
+version = "1.0.0"
+description = ""
+authors = [
+    { name = "taha", email = "tahaahmedghoba4y@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache License 2.0" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache License 2.0",
+    "Operating System :: OS Independent",
+]
+
+# Dependencies (currently none, uncomment and add if needed)
+# dependencies = [
+#     "numpy>=1.22",
+#     "torch>=2.0"
+# ]
+
+[project.urls]
+Homepage = "https://github.com/TahaAhmedT/Deep-Activity-Recognition"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[project.scripts]
+# to build: pip install -e .

@@ -9,9 +9,9 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from ...utils import setup_logger, load_config
-from ...helpers import finetune, visualize
+from utils import setup_logger, load_config, finetune, visualize
 
+import os
 
 def main():
     """Main entry point to train the ANN classifier on extracted player features.
@@ -27,13 +27,13 @@ def main():
     CONFIG = load_config()
     logger = setup_logger(
             log_file=__file__,
-            log_dir=CONFIG["baseline3_logs"],
+            log_dir=os.path.join(CONFIG["baseline3_logs"], "exp2"),
             log_to_console=CONFIG["verbose"],
             use_tqdm=True,
         )
     
-    logger.info("Starting Training ANN Model on Image's features Dataset (12 players pooled features)...")
-    finetune(log_dir=CONFIG["baseline3_logs"],
+    logger.info("Starting Training Group Activity Classifier on Image's features Dataset (12 players pooled features)...")
+    finetune(log_dir=os.path.join(CONFIG["baseline3_logs"], "exp2"),
             lr=CONFIG["TRAINING_PARAMS"]["lr"],
             num_epochs=CONFIG["TRAINING_PARAMS"]["num_epochs"],
             batch_size=CONFIG["TRAINING_PARAMS"]["batch_size"],
@@ -42,24 +42,27 @@ def main():
             train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
             val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
             features=True,
-            model_name="ann",
+            model_name="b3",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
-            metrics_logs="logs/training_logs/b3_ann_training.csv",
-            preds_logs="logs/training_logs/b3_ann_test_predictions.csv",
+            metrics_logs="logs/training_logs/baseline3/nn_classifier/b3_ann_training.csv",
+            preds_logs="logs/training_logs/baseline3/nn_classifier/b3_ann_test_predictions.csv",
             save_path="models/b3_ann_models/checkpoints",
-            output_file=CONFIG["DATA_PATHS"]["players_features_root"],
-            ann_input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
+            use_scheduler=CONFIG["TRAINING_PARAMS"]["use_scheduler"],
+            image_level=False,
+            crop=False,
+            output_file=CONFIG["DATA_PATHS"]["pooled_players_features_root"],
+            input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
             verbose=CONFIG["verbose"]
         )
 
-    logger.info("Training ANN Model Finished Successfully!")
+    logger.info("Training Group Activity Classifier Finished Successfully!")
 
     logger.info("Visualizing Results...")
-    visualize(metrics_path="logs/training_logs/b3_ann_training.csv",
-            ys_path="logs/training_logs/b3_ann_test_predictions.csv",
+    visualize(metrics_path="logs/training_logs/baseline3/nn_classifier/b3_ann_training.csv",
+            ys_path="logs/training_logs/baseline3/nn_classifier/b3_ann_test_predictions.csv",
             save_path="assets/baselines_assets/baseline3/ann",
-            log_dir=CONFIG["baseline3_logs"],
+            log_dir=os.path.join(CONFIG["baseline3_logs"], "exp2"),
             verbose=CONFIG["verbose"]
         )
 

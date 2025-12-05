@@ -9,8 +9,7 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from ...utils import load_config, setup_logger
-from ...helpers import finetune, visualize
+from utils import load_config, setup_logger, finetune, visualize
 
 import os
 
@@ -47,7 +46,7 @@ def main():
             train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
             val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
             features=True,
-            model_name="lstm1",
+            model_name="b5",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
             metrics_logs="logs/training_logs/baseline6/exp1/b6_training.csv",
@@ -56,7 +55,7 @@ def main():
             crop=False,
             output_file=CONFIG["DATA_PATHS"]["pooled_players_features_root"],
             input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
-            hidden_size=CONFIG["HIDDEN_SIZE"],
+            hidden_size1=CONFIG["HIDDEN_SIZE2"],
             num_layers=CONFIG["NUM_LAYERS"],
             sequence=True,
             verbose=CONFIG["verbose"]

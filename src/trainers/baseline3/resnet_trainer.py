@@ -8,9 +8,9 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from ...utils import load_config, setup_logger
-from ...helpers import finetune, visualize
+from utils import load_config, setup_logger, finetune, visualize
 
+import os
 
 def main():
     """Main entry point to fine-tune ResNet-50 for player-level classification.
@@ -42,12 +42,14 @@ def main():
         annot_root=CONFIG["DATA_PATHS"]["annot_root"],
         train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
         val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
-        model_name="resnet",
+        features=False,
+        model_name="b1",
         num_classes=CONFIG["NUM_ACTIONS"],
         actions_dict=CONFIG["ACTIONS_DICT"],
         metrics_logs="logs/training_logs/b3_training.csv",
         preds_logs="logs/training_logs/b3_test_predictions.csv",
         save_path="models/b3_models/checkpoints",
+        use_scheduler=CONFIG["TRAINING_PARAMS"]["use_scheduler"],
         image_level=False,
         verbose=CONFIG["verbose"]
         )

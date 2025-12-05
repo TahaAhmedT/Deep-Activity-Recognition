@@ -9,8 +9,7 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from ...utils import load_config, setup_logger
-from ...helpers import finetune, visualize
+from utils import load_config, setup_logger, finetune, visualize
 
 import os
 
@@ -44,7 +43,7 @@ def main():
             train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
             val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
             features=True,
-            model_name="lstm4",
+            model_name="b8",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
             metrics_logs="logs/training_logs/baseline8/exp1/b8_training.csv",

@@ -8,8 +8,7 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from ...utils import load_config, setup_logger
-from ...helpers import finetune, visualize
+from utils import load_config, setup_logger, finetune, visualize
 
 
 import os
@@ -28,7 +27,7 @@ def main():
     CONFIG = load_config()
     logger = setup_logger(
             log_file=__file__,
-            log_dir=CONFIG["baseline4_logs"],
+            log_dir=os.path.join(CONFIG["baseline4_logs"], "exp2"),
             log_to_console=CONFIG["verbose"],
             use_tqdm=True,
         )
@@ -43,15 +42,16 @@ def main():
             train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
             val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
             features=True,
-            model_name="lstm",
+            model_name="b4",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
             metrics_logs="logs/training_logs/baseline4/exp2/b4_training.csv",
             preds_logs="logs/training_logs/baseline4/exp2/b4_test_predictions.csv",
             save_path="models/b4_models/checkpoints/exp2",
+            use_scheduler=CONFIG["TRAINING_PARAMS"]["use_scheduler"],
             output_file=CONFIG["DATA_PATHS"]["frame_features_root"],
             input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
-            hidden_size=CONFIG["HIDDEN_SIZE"],
+            hidden_size1=CONFIG["HIDDEN_SIZE2"],
             num_layers=CONFIG["NUM_LAYERS"],
             sequence=True,
             verbose=CONFIG["verbose"]

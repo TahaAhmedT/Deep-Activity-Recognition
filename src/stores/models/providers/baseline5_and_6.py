@@ -11,7 +11,7 @@ Expected input shape:
     (batch_size, sequence_length, num_players, feature_dim)
 """
 
-from ..utils import setup_logger
+from utils import setup_logger
 
 import torch
 import torch.nn as nn

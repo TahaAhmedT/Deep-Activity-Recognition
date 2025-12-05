@@ -1,4 +1,4 @@
-from ..utils import setup_logger
+from utils import setup_logger
 
 import numpy as np
 import torch
@@ -60,9 +60,6 @@ def train_step(model: torch.nn.Module,
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-
-        # if (batch_idx + 1) % 100 == 0:
-        #     print(f"batch #{batch_idx+1}/{len(data_loader)} Loss: {loss}")
 
     # Compute final metrics
     epoch_loss = train_loss / len(data_loader)

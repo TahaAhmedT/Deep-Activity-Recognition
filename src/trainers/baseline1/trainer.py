@@ -8,8 +8,7 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from ...utils import load_config, setup_logger
-from ...helpers import finetune, visualize
+from utils import load_config, setup_logger, finetune, visualize
 
 
 def main():
@@ -43,13 +42,15 @@ def main():
         train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
         val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
         features=False,
-        model_name="resnet",
+        model_name="b1",
         num_classes=CONFIG["NUM_LABELS"],
         actions_dict=CONFIG["CATEGORIES_DICT"],
         metrics_logs="logs/training_logs/b1_training.csv",
         preds_logs="logs/training_logs/b1_test_predictions.csv",
         save_path="models/b1_models/checkpoints",
+        use_scheduler=CONFIG["TRAINING_PARAMS"]["use_scheduler"],
         image_level=True,
+        crop=False,
         verbose=CONFIG["verbose"]
         )
 

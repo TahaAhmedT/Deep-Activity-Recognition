@@ -11,8 +11,7 @@ This module:
 
 The extracted features will be used to train the temporal classifier in baseline5.
 """
-from ...utils import load_config, setup_logger
-from ...helpers import extract
+from utils import load_config, setup_logger, extract
 
 import os
 
@@ -37,6 +36,7 @@ def main():
           log_to_console=CONFIG["verbose"],
           use_tqdm=True
     )
+    
     logger.info("Starting Features Extraction (player-level)...")
     extract(
         log_dir=os.path.join(CONFIG["baseline5_logs"], "exp1"),

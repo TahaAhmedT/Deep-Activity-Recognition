@@ -2,9 +2,9 @@
 This script extracts deep features from volleyball player images using a fine-tuned ResNet-50 model.
 It loads model checkpoints, applies preprocessing, and saves extracted features for each video clip.
 """
-from ..Preprocessing import extract_features
-from ..utils import setup_logger, load_checkpoint
-from ..helpers import get_resnet_model
+from Preprocessing import extract_features
+from . import setup_logger, load_checkpoint
+from stores import ModelProvidersFactory
 
 import os
 import torch
@@ -40,7 +40,8 @@ def prepare_model(logger, image_level: bool, num_classes: int, checkpoint_path: 
     logger.info(f"Using Device:{device}")
 
     # Load ResNet-50 model with pretrained weights
-    model = get_resnet_model(logger=logger, num_classes=num_classes, verbose=verbose)
+    model_factory = ModelProvidersFactory()
+    model = model_factory.create(model_name="b1", num_classes=num_classes)
 
     # Load a checkpoint saved during training
     logger.info("Loading the Model's Checkpoint...")
@@ -63,7 +64,11 @@ def prepare_model(logger, image_level: bool, num_classes: int, checkpoint_path: 
 
 
 
-def extract(log_dir: str, videos_root: str, train_ids: list[int], val_ids: list[int], annot_root: str, output_root: str, num_classes: int, checkpoint_path: str, image_level: bool, image_classify: bool, verbose: bool):
+def extract(log_dir: str, videos_root: str,
+            train_ids: list[int], val_ids: list[int],
+            annot_root: str, output_root: str, num_classes: int,
+            checkpoint_path: str, image_level: bool,
+            image_classify: bool, verbose: bool):
     """
     function to extract features from volleyball video clips.
 

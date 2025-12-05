@@ -10,7 +10,7 @@ before applying a fully-connected classification head.
 Expected input shape:
     (batch_size, seq_len, feature_dim)
 """
-from ..utils import setup_logger
+from utils import setup_logger
 
 import torch.nn as nn
 
