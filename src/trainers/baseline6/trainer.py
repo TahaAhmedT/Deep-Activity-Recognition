@@ -34,13 +34,13 @@ def main():
     CONFIG = load_config()
     logger = setup_logger(
             log_file=__file__,
-            log_dir=os.path.join(CONFIG["baseline6_logs"], "exp1"),
+            log_dir=os.path.join(CONFIG["baseline6_logs"], "exp3"),
             log_to_console=CONFIG["verbose"],
             use_tqdm=True,
         )
     
     logger.info("Starting Training Group Activity Temporal Classifier on Features' Dataset (Pooled-Players Level)...")
-    finetune(log_dir=os.path.join(CONFIG["baseline6_logs"], "exp1"),
+    finetune(log_dir=os.path.join(CONFIG["baseline6_logs"], "exp3"),
             lr=CONFIG["TRAINING_PARAMS"]["lr"],
             num_epochs=CONFIG["TRAINING_PARAMS"]["num_epochs"],
             batch_size=CONFIG["TRAINING_PARAMS"]["batch_size"],
@@ -49,12 +49,13 @@ def main():
             train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
             val_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
             features=True,
-            model_name="b5",
+            model_name="b4",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
-            metrics_logs="logs/training_logs/baseline6/exp1/b6_training.csv",
-            preds_logs="logs/training_logs/baseline6/exp1/b6_test_predictions.csv",
-            save_path="models/b6_models/exp1",
+            metrics_logs="logs/training_logs/baseline6/exp3/b6_training.csv",
+            preds_logs="logs/training_logs/baseline6/exp3/b6_test_predictions.csv",
+            save_path="models/b6_2",
+            use_scheduler=CONFIG["TRAINING_PARAMS"]["use_scheduler"],
             crop=False,
             output_file=CONFIG["DATA_PATHS"]["pooled_players_features_root"],
             input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
@@ -67,10 +68,10 @@ def main():
     logger.info("Training Group Activity Temporal Classifier Finished Successfully!")
 
     logger.info("Visualizing Results...")
-    visualize(metrics_path="logs/training_logs/baseline6/exp1/b6_training.csv",
-            ys_path="logs/training_logs/baseline6/exp1/b6_test_predictions.csv",
-            save_path="assets/baselines_assets/baseline6/exp1",
-            log_dir=os.path.join(CONFIG["baseline6_logs"], "exp1"),
+    visualize(metrics_path="logs/training_logs/baseline6/exp3/b6_training.csv",
+            ys_path="logs/training_logs/baseline6/exp3/b6_test_predictions.csv",
+            save_path="assets/baselines_assets/baseline6/exp3",
+            log_dir=os.path.join(CONFIG["baseline6_logs"], "exp3"),
             verbose=CONFIG["verbose"]
         )
 

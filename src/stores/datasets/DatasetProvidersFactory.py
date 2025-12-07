@@ -100,7 +100,7 @@ class DatasetProvidersFactory:
                                     verbose=verbose
                                     )
 
-        trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+        trainloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
         valloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
         
         return trainloader, valloader
