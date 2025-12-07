@@ -1,0 +1,353 @@
+[2025-12-07 23:41:57] - [finetune_utils.py:55] - [INFO]: Setting all seeds...
+[2025-12-07 23:41:57] - [finetune_utils.py:105] - [INFO]: Using device: cuda
+[2025-12-07 23:42:45] - [finetune_utils.py:35] - [INFO]: Creating optimizer...
+[2025-12-07 23:42:45] - [finetune_utils.py:37] - [INFO]: Optimizer created: AdamW Optimizer.
+[2025-12-07 23:42:45] - [finetune_utils.py:38] - [INFO]: Initial Learning Rate: 0.0001.
+[2025-12-07 23:42:45] - [finetune_utils.py:43] - [INFO]: Creating Scheduler...
+[2025-12-07 23:42:45] - [finetune_utils.py:45] - [INFO]: Scheduler Created Successfully!
+[2025-12-07 23:42:45] - [finetune_utils.py:134] - [INFO]: Starting Training and Testing with number of epochs = 40
+[2025-12-07 23:42:45] - [finetune_utils.py:137] - [INFO]: Opening a CSV file to log training metrics.
+[2025-12-07 23:42:45] - [finetune_utils.py:148] - [INFO]: Epoch 1
+-----------------------
+[2025-12-07 23:42:45] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:42:55] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:42:55] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:42:57] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:42:57] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 73.9336. Saving best model...
+[2025-12-07 23:42:57] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:42:57] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:42:57] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:42:57] - [finetune_utils.py:148] - [INFO]: Epoch 2
+-----------------------
+[2025-12-07 23:42:57] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:43:06] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:43:06] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:43:08] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:43:08] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:43:08] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:43:08] - [finetune_utils.py:148] - [INFO]: Epoch 3
+-----------------------
+[2025-12-07 23:43:08] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:43:17] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:43:17] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:43:18] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:43:18] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 78.7520. Saving best model...
+[2025-12-07 23:43:19] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:43:19] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:43:19] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:43:19] - [finetune_utils.py:148] - [INFO]: Epoch 4
+-----------------------
+[2025-12-07 23:43:19] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:43:27] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:43:27] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:43:29] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:43:29] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 80.2528. Saving best model...
+[2025-12-07 23:43:29] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:43:29] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:43:29] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:43:29] - [finetune_utils.py:148] - [INFO]: Epoch 5
+-----------------------
+[2025-12-07 23:43:29] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:43:38] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:43:38] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:43:40] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:43:40] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:43:40] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:43:40] - [finetune_utils.py:148] - [INFO]: Epoch 6
+-----------------------
+[2025-12-07 23:43:40] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:43:49] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:43:49] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:43:50] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:43:50] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:43:50] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:43:50] - [finetune_utils.py:148] - [INFO]: Epoch 7
+-----------------------
+[2025-12-07 23:43:50] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:43:59] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:43:59] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:44:01] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:44:01] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 81.5166. Saving best model...
+[2025-12-07 23:44:01] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:44:01] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:44:01] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:44:01] - [finetune_utils.py:148] - [INFO]: Epoch 8
+-----------------------
+[2025-12-07 23:44:01] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:44:10] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:44:10] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:44:12] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:44:12] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:44:12] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:44:12] - [finetune_utils.py:148] - [INFO]: Epoch 9
+-----------------------
+[2025-12-07 23:44:12] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:44:20] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:44:20] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:44:22] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:44:22] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 81.8325. Saving best model...
+[2025-12-07 23:44:22] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:44:22] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:44:22] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:44:22] - [finetune_utils.py:148] - [INFO]: Epoch 10
+-----------------------
+[2025-12-07 23:44:22] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:44:31] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:44:31] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:44:33] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:44:33] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 81.9905. Saving best model...
+[2025-12-07 23:44:33] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:44:33] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:44:33] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:44:33] - [finetune_utils.py:148] - [INFO]: Epoch 11
+-----------------------
+[2025-12-07 23:44:33] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:44:42] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:44:42] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:44:43] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:44:43] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:44:43] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:44:43] - [finetune_utils.py:148] - [INFO]: Epoch 12
+-----------------------
+[2025-12-07 23:44:43] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:44:52] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:44:52] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:44:54] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:44:54] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 83.1754. Saving best model...
+[2025-12-07 23:44:54] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:44:54] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:44:54] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:44:54] - [finetune_utils.py:148] - [INFO]: Epoch 13
+-----------------------
+[2025-12-07 23:44:54] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:45:03] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:45:03] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:45:05] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:45:05] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 84.5182. Saving best model...
+[2025-12-07 23:45:06] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:45:06] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:45:06] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:45:06] - [finetune_utils.py:148] - [INFO]: Epoch 14
+-----------------------
+[2025-12-07 23:45:06] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:45:15] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:45:15] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:45:17] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:45:17] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:45:17] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:45:17] - [finetune_utils.py:148] - [INFO]: Epoch 15
+-----------------------
+[2025-12-07 23:45:17] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:45:25] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:45:25] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:45:27] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:45:27] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:45:27] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:45:27] - [finetune_utils.py:148] - [INFO]: Epoch 16
+-----------------------
+[2025-12-07 23:45:27] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:45:36] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:45:36] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:45:38] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:45:38] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:45:38] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:45:38] - [finetune_utils.py:148] - [INFO]: Epoch 17
+-----------------------
+[2025-12-07 23:45:38] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:45:46] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:45:46] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:45:48] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:45:48] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:45:48] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:45:48] - [finetune_utils.py:148] - [INFO]: Epoch 18
+-----------------------
+[2025-12-07 23:45:48] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:45:57] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:45:57] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:45:59] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:45:59] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 84.5972. Saving best model...
+[2025-12-07 23:45:59] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:45:59] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:45:59] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:45:59] - [finetune_utils.py:148] - [INFO]: Epoch 19
+-----------------------
+[2025-12-07 23:45:59] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:46:08] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:46:08] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:46:10] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:46:10] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 84.9921. Saving best model...
+[2025-12-07 23:46:10] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:46:10] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:46:10] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:46:10] - [finetune_utils.py:148] - [INFO]: Epoch 20
+-----------------------
+[2025-12-07 23:46:10] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:46:19] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:46:19] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:46:21] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:46:21] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:46:21] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:46:21] - [finetune_utils.py:148] - [INFO]: Epoch 21
+-----------------------
+[2025-12-07 23:46:21] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:46:30] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:46:30] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:46:31] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:46:31] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 85.2291. Saving best model...
+[2025-12-07 23:46:32] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:46:32] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:46:32] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:46:32] - [finetune_utils.py:148] - [INFO]: Epoch 22
+-----------------------
+[2025-12-07 23:46:32] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:46:40] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:46:40] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:46:42] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:46:42] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:46:42] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:46:42] - [finetune_utils.py:148] - [INFO]: Epoch 23
+-----------------------
+[2025-12-07 23:46:42] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:46:51] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:46:51] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:46:53] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:46:53] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:46:53] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:46:53] - [finetune_utils.py:148] - [INFO]: Epoch 24
+-----------------------
+[2025-12-07 23:46:53] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:47:01] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:47:01] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:47:03] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:47:03] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:47:03] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:47:03] - [finetune_utils.py:148] - [INFO]: Epoch 25
+-----------------------
+[2025-12-07 23:47:03] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:47:12] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:47:12] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:47:14] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:47:14] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 85.4660. Saving best model...
+[2025-12-07 23:47:14] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-07 23:47:14] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:47:14] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:47:14] - [finetune_utils.py:148] - [INFO]: Epoch 26
+-----------------------
+[2025-12-07 23:47:14] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:47:23] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:47:23] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:47:25] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:47:25] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:47:25] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:47:25] - [finetune_utils.py:148] - [INFO]: Epoch 27
+-----------------------
+[2025-12-07 23:47:25] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:47:34] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:47:34] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:47:35] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:47:35] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:47:35] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:47:35] - [finetune_utils.py:148] - [INFO]: Epoch 28
+-----------------------
+[2025-12-07 23:47:35] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:47:44] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:47:44] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:47:46] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:47:46] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:47:46] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:47:46] - [finetune_utils.py:148] - [INFO]: Epoch 29
+-----------------------
+[2025-12-07 23:47:46] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:47:55] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:47:55] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:47:57] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:47:57] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:47:57] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:47:57] - [finetune_utils.py:148] - [INFO]: Epoch 30
+-----------------------
+[2025-12-07 23:47:57] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:48:05] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:48:05] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:48:07] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:48:07] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:48:07] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:48:07] - [finetune_utils.py:148] - [INFO]: Epoch 31
+-----------------------
+[2025-12-07 23:48:07] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:48:15] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:48:15] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:48:17] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:48:17] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:48:17] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:48:17] - [finetune_utils.py:148] - [INFO]: Epoch 32
+-----------------------
+[2025-12-07 23:48:17] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:48:26] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:48:26] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:48:28] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:48:28] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:48:28] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:48:28] - [finetune_utils.py:148] - [INFO]: Epoch 33
+-----------------------
+[2025-12-07 23:48:28] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:48:36] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:48:36] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:48:38] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:48:38] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:48:38] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:48:38] - [finetune_utils.py:148] - [INFO]: Epoch 34
+-----------------------
+[2025-12-07 23:48:38] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:48:47] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:48:47] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:48:49] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:48:49] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:48:49] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:48:49] - [finetune_utils.py:148] - [INFO]: Epoch 35
+-----------------------
+[2025-12-07 23:48:49] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:48:58] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:48:58] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:49:00] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:49:00] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:49:00] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:49:00] - [finetune_utils.py:148] - [INFO]: Epoch 36
+-----------------------
+[2025-12-07 23:49:00] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:49:08] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:49:08] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:49:10] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:49:10] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:49:10] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:49:10] - [finetune_utils.py:148] - [INFO]: Epoch 37
+-----------------------
+[2025-12-07 23:49:10] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:49:19] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:49:19] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:49:21] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:49:21] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:49:21] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:49:21] - [finetune_utils.py:148] - [INFO]: Epoch 38
+-----------------------
+[2025-12-07 23:49:21] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:49:30] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:49:30] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:49:32] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:49:32] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:49:32] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:49:32] - [finetune_utils.py:148] - [INFO]: Epoch 39
+-----------------------
+[2025-12-07 23:49:32] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:49:40] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:49:40] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:49:42] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:49:42] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:49:42] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-07 23:49:42] - [finetune_utils.py:148] - [INFO]: Epoch 40
+-----------------------
+[2025-12-07 23:49:42] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-07 23:49:50] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-07 23:49:50] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-07 23:49:52] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-07 23:49:52] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-07 23:49:52] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
