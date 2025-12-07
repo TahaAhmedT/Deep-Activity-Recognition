@@ -9,7 +9,10 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from utils import setup_logger, load_config, finetune, visualize
+from utils.logging_utils import setup_logger
+from utils.config_utils import load_config
+from utils.finetune_utils import finetune
+from utils.visualize_utils import visualize
 
 import os
 
@@ -45,9 +48,9 @@ def main():
             model_name="b3",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
-            metrics_logs="logs/training_logs/baseline3/nn_classifier/b3_ann_training.csv",
-            preds_logs="logs/training_logs/baseline3/nn_classifier/b3_ann_test_predictions.csv",
-            save_path="models/b3_ann_models/checkpoints",
+            metrics_logs="logs/training_logs/baseline3/exp2/b3_ann_training.csv",
+            preds_logs="logs/training_logs/baseline3/exp2/b3_ann_test_predictions.csv",
+            save_path="models/b3",
             use_scheduler=CONFIG["TRAINING_PARAMS"]["use_scheduler"],
             image_level=False,
             crop=False,
@@ -59,9 +62,9 @@ def main():
     logger.info("Training Group Activity Classifier Finished Successfully!")
 
     logger.info("Visualizing Results...")
-    visualize(metrics_path="logs/training_logs/baseline3/nn_classifier/b3_ann_training.csv",
-            ys_path="logs/training_logs/baseline3/nn_classifier/b3_ann_test_predictions.csv",
-            save_path="assets/baselines_assets/baseline3/ann",
+    visualize(metrics_path="logs/training_logs/baseline3/exp2/b3_ann_training.csv",
+            ys_path="logs/training_logs/baseline3/exp2/b3_ann_test_predictions.csv",
+            save_path="assets/baselines_assets/baseline3",
             log_dir=os.path.join(CONFIG["baseline3_logs"], "exp2"),
             verbose=CONFIG["verbose"]
         )

@@ -3,7 +3,7 @@ This module defines a simple feed-forward artificial neural network (ANN) used i
 The ANN accepts extracted features as input and outputs class logits for volleyball activity recognition.
 It is intended to be used as a lightweight classifier on top of pretrained feature extractors.
 """
-from utils import setup_logger
+from utils.logging_utils import setup_logger
 
 from torch import nn
 
@@ -38,6 +38,8 @@ class Group_Activity_Classifier(nn.Module):
             log_to_console=verbose,
             use_tqdm=True,
         )
+
+        self.input_size = input_size
         
         self.logger.info("Initializing Group Activity Classifier...")
         self.fc_layer = nn.Sequential(

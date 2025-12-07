@@ -1,4 +1,4 @@
-from utils import setup_logger
+from utils.logging_utils import setup_logger
 
 import numpy as np
 import torch

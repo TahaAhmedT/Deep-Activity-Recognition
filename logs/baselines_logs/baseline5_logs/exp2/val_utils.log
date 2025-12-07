@@ -1,0 +1,80 @@
+[2025-12-07 01:21:48] - [val_utils.py:74] - [INFO]: Validation Loss: 2.01777 | Validation Accuracy: 31.36% | Validation F1-score: 0.24932517111301422
+
+[2025-12-07 01:21:52] - [val_utils.py:74] - [INFO]: Validation Loss: 1.57625 | Validation Accuracy: 63.43% | Validation F1-score: 0.6320695877075195
+
+[2025-12-07 01:21:56] - [val_utils.py:74] - [INFO]: Validation Loss: 1.16839 | Validation Accuracy: 69.91% | Validation F1-score: 0.6949788331985474
+
+[2025-12-07 01:22:01] - [val_utils.py:74] - [INFO]: Validation Loss: 0.93796 | Validation Accuracy: 73.70% | Validation F1-score: 0.7336576581001282
+
+[2025-12-07 01:22:05] - [val_utils.py:74] - [INFO]: Validation Loss: 0.78774 | Validation Accuracy: 76.62% | Validation F1-score: 0.7540744543075562
+
+[2025-12-07 01:22:09] - [val_utils.py:74] - [INFO]: Validation Loss: 0.68903 | Validation Accuracy: 78.12% | Validation F1-score: 0.7757747173309326
+
+[2025-12-07 01:22:13] - [val_utils.py:74] - [INFO]: Validation Loss: 0.62656 | Validation Accuracy: 79.70% | Validation F1-score: 0.7849637866020203
+
+[2025-12-07 01:22:17] - [val_utils.py:74] - [INFO]: Validation Loss: 0.61287 | Validation Accuracy: 78.75% | Validation F1-score: 0.7799666523933411
+
+[2025-12-07 01:22:21] - [val_utils.py:74] - [INFO]: Validation Loss: 0.55458 | Validation Accuracy: 80.33% | Validation F1-score: 0.7987650036811829
+
+[2025-12-07 01:22:25] - [val_utils.py:74] - [INFO]: Validation Loss: 0.68873 | Validation Accuracy: 75.67% | Validation F1-score: 0.7487678527832031
+
+[2025-12-07 01:22:30] - [val_utils.py:74] - [INFO]: Validation Loss: 0.54881 | Validation Accuracy: 80.41% | Validation F1-score: 0.8005815744400024
+
+[2025-12-07 01:22:34] - [val_utils.py:74] - [INFO]: Validation Loss: 0.51053 | Validation Accuracy: 81.75% | Validation F1-score: 0.8158062100410461
+
+[2025-12-07 01:22:38] - [val_utils.py:74] - [INFO]: Validation Loss: 0.51202 | Validation Accuracy: 81.20% | Validation F1-score: 0.8107635378837585
+
+[2025-12-07 01:22:42] - [val_utils.py:74] - [INFO]: Validation Loss: 0.54213 | Validation Accuracy: 80.65% | Validation F1-score: 0.8050278425216675
+
+[2025-12-07 01:22:46] - [val_utils.py:74] - [INFO]: Validation Loss: 0.52232 | Validation Accuracy: 80.81% | Validation F1-score: 0.8032756447792053
+
+[2025-12-07 01:22:50] - [val_utils.py:74] - [INFO]: Validation Loss: 0.47155 | Validation Accuracy: 83.25% | Validation F1-score: 0.8318208456039429
+
+[2025-12-07 01:22:54] - [val_utils.py:74] - [INFO]: Validation Loss: 0.56778 | Validation Accuracy: 80.73% | Validation F1-score: 0.8055443167686462
+
+[2025-12-07 01:22:58] - [val_utils.py:74] - [INFO]: Validation Loss: 0.62001 | Validation Accuracy: 78.44% | Validation F1-score: 0.7835536599159241
+
+[2025-12-07 01:23:02] - [val_utils.py:74] - [INFO]: Validation Loss: 0.51012 | Validation Accuracy: 81.44% | Validation F1-score: 0.8135460019111633
+
+[2025-12-07 01:23:06] - [val_utils.py:74] - [INFO]: Validation Loss: 0.62481 | Validation Accuracy: 78.67% | Validation F1-score: 0.7859907746315002
+
+[2025-12-07 01:23:10] - [val_utils.py:74] - [INFO]: Validation Loss: 0.55166 | Validation Accuracy: 80.09% | Validation F1-score: 0.8008618354797363
+
+[2025-12-07 01:23:15] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53986 | Validation Accuracy: 80.09% | Validation F1-score: 0.7993364930152893
+
+[2025-12-07 01:23:19] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53223 | Validation Accuracy: 80.65% | Validation F1-score: 0.8061131834983826
+
+[2025-12-07 01:23:23] - [val_utils.py:74] - [INFO]: Validation Loss: 0.52800 | Validation Accuracy: 81.36% | Validation F1-score: 0.8129306435585022
+
+[2025-12-07 01:23:27] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53120 | Validation Accuracy: 80.96% | Validation F1-score: 0.8092833757400513
+
+[2025-12-07 01:23:31] - [val_utils.py:74] - [INFO]: Validation Loss: 0.52510 | Validation Accuracy: 81.44% | Validation F1-score: 0.8133973479270935
+
+[2025-12-07 01:23:35] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53525 | Validation Accuracy: 80.81% | Validation F1-score: 0.8067300319671631
+
+[2025-12-07 01:23:39] - [val_utils.py:74] - [INFO]: Validation Loss: 0.54113 | Validation Accuracy: 81.12% | Validation F1-score: 0.8106606602668762
+
+[2025-12-07 01:23:43] - [val_utils.py:74] - [INFO]: Validation Loss: 0.52865 | Validation Accuracy: 81.04% | Validation F1-score: 0.8095457553863525
+
+[2025-12-07 01:23:47] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53176 | Validation Accuracy: 80.96% | Validation F1-score: 0.8096230030059814
+
+[2025-12-07 01:23:51] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53120 | Validation Accuracy: 80.88% | Validation F1-score: 0.8087265491485596
+
+[2025-12-07 01:23:55] - [val_utils.py:74] - [INFO]: Validation Loss: 0.54308 | Validation Accuracy: 80.73% | Validation F1-score: 0.8066979050636292
+
+[2025-12-07 01:23:59] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53943 | Validation Accuracy: 80.25% | Validation F1-score: 0.8021304607391357
+
+[2025-12-07 01:24:03] - [val_utils.py:74] - [INFO]: Validation Loss: 0.52879 | Validation Accuracy: 81.20% | Validation F1-score: 0.810977041721344
+
+[2025-12-07 01:24:07] - [val_utils.py:74] - [INFO]: Validation Loss: 0.54942 | Validation Accuracy: 80.57% | Validation F1-score: 0.8049293160438538
+
+[2025-12-07 01:24:11] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53627 | Validation Accuracy: 80.81% | Validation F1-score: 0.8075331449508667
+
+[2025-12-07 01:24:15] - [val_utils.py:74] - [INFO]: Validation Loss: 0.54569 | Validation Accuracy: 80.33% | Validation F1-score: 0.8030569553375244
+
+[2025-12-07 01:24:20] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53675 | Validation Accuracy: 80.81% | Validation F1-score: 0.8076083660125732
+
+[2025-12-07 01:24:23] - [val_utils.py:74] - [INFO]: Validation Loss: 0.52172 | Validation Accuracy: 81.28% | Validation F1-score: 0.8121218085289001
+
+[2025-12-07 01:24:28] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53532 | Validation Accuracy: 80.88% | Validation F1-score: 0.808417797088623
+

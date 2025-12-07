@@ -1,5 +1,8 @@
 from stores import ModelProvidersFactory, DatasetProvidersFactory
-from . import train_step, val_step, save_checkpoint, setup_logger
+from utils.train_utils import train_step
+from utils.val_utils import val_step
+from utils.checkpoints_utils import save_checkpoint
+from utils.logging_utils import setup_logger
 
 import pandas as pd
 import numpy as np
@@ -10,7 +13,13 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 import csv
+from typing import List
 
+
+def ensure_dir(paths: List[str]):
+    """Ensure directory exists."""
+    for path in paths:
+        os.makedirs(path, exist_ok=True)
 
 def get_optimizer(logger, model, lr):
     """Creates the optimizer for training.
@@ -89,6 +98,8 @@ def finetune(log_dir: str,
             use_tqdm=True,
         )
     
+    # ensure_dir([log_dir, metrics_logs, preds_logs, save_path])
+    
     set_all_seeds(logger, 42)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Using device: {device}")
@@ -126,7 +137,7 @@ def finetune(log_dir: str,
     logger.info("Opening a CSV file to log training metrics.")
     with open(metrics_logs, mode="w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["epoch", "train_loss", "train_acc", "val_loss", "val_acc", "test_f1"])
+        writer.writerow(["epoch", "train_loss", "train_acc", "val_loss", "val_acc", "val_f1"])
 
     
     Y_true = []

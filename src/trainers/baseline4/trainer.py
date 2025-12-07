@@ -8,7 +8,10 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from utils import load_config, setup_logger, finetune, visualize
+from utils.config_utils import load_config
+from utils.logging_utils import setup_logger
+from utils.finetune_utils import finetune
+from utils.visualize_utils import visualize
 
 
 import os
@@ -27,13 +30,13 @@ def main():
     CONFIG = load_config()
     logger = setup_logger(
             log_file=__file__,
-            log_dir=os.path.join(CONFIG["baseline4_logs"], "exp2"),
+            log_dir=os.path.join(CONFIG["baseline4_logs"], "exp3"),
             log_to_console=CONFIG["verbose"],
             use_tqdm=True,
         )
     
     logger.info("Starting Training Group Activity Temporal Classifier on Features' Dataset (Frame Level)...")
-    finetune(log_dir=os.path.join(CONFIG["baseline4_logs"], "exp2"),
+    finetune(log_dir=os.path.join(CONFIG["baseline4_logs"], "exp3"),
             lr=CONFIG["TRAINING_PARAMS"]["lr"],
             num_epochs=CONFIG["TRAINING_PARAMS"]["num_epochs"],
             batch_size=CONFIG["TRAINING_PARAMS"]["batch_size"],
@@ -45,13 +48,13 @@ def main():
             model_name="b4",
             num_classes=CONFIG["NUM_LABELS"],
             actions_dict=CONFIG["CATEGORIES_DICT"],
-            metrics_logs="logs/training_logs/baseline4/exp2/b4_training.csv",
-            preds_logs="logs/training_logs/baseline4/exp2/b4_test_predictions.csv",
-            save_path="models/b4_models/checkpoints/exp2",
+            metrics_logs="logs/training_logs/baseline4/exp3/b4_training.csv",
+            preds_logs="logs/training_logs/baseline4/exp3/b4_test_predictions.csv",
+            save_path="models/b4",
             use_scheduler=CONFIG["TRAINING_PARAMS"]["use_scheduler"],
             output_file=CONFIG["DATA_PATHS"]["frame_features_root"],
             input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
-            hidden_size1=CONFIG["HIDDEN_SIZE2"],
+            hidden_size1=CONFIG["HIDDEN_SIZE1"],
             num_layers=CONFIG["NUM_LAYERS"],
             sequence=True,
             verbose=CONFIG["verbose"]
@@ -60,10 +63,10 @@ def main():
     logger.info("Training Group Activity Temporal Classifier Finished Successfully!")
 
     logger.info("Visualizing Results...")
-    visualize(metrics_path="logs/training_logs/baseline4/exp2/b4_training.csv",
-            ys_path="logs/training_logs/baseline4/exp2/b4_test_predictions.csv",
-            save_path="assets/baselines_assets/baseline4/exp2",
-            log_dir=os.path.join(CONFIG["baseline4_logs"], "exp2"),
+    visualize(metrics_path="logs/training_logs/baseline4/exp3/b4_training.csv",
+            ys_path="logs/training_logs/baseline4/exp3/b4_test_predictions.csv",
+            save_path="assets/baselines_assets/baseline4/exp3",
+            log_dir=os.path.join(CONFIG["baseline4_logs"], "exp3"),
             verbose=CONFIG["verbose"]
         )
 

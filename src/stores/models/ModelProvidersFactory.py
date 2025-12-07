@@ -1,5 +1,5 @@
-from providers import *
-from ModelsEnums import ModelsEnums
+from stores.models.providers import *
+from stores.models.ModelsEnums import ModelsEnums
 
 import torch.nn as nn
 from torchvision.models import resnet50, ResNet50_Weights

@@ -1,4 +1,4 @@
-from .logging_utils import setup_logger
+from utils.logging_utils import setup_logger
 
 import numpy as np
 import torch
@@ -67,7 +67,7 @@ def val_step(data_loader: torch.utils.data.DataLoader,
     # Compute final metrics
     y_true = torch.tensor(y_true)
     y_pred = torch.tensor(y_pred)
-    epoch_f1_score = multiclass_f1_score(y_pred, y_true, num_classes=num_classes, average="wheighted")
+    epoch_f1_score = multiclass_f1_score(y_pred, y_true, num_classes=num_classes, average="weighted")
     epoch_loss = val_loss / len(data_loader)
     epoch_acc = metric_acc.compute().item() * 100  # %
     

@@ -16,7 +16,7 @@ HIDDEN_SIZE2: 512
 NUM_LAYERS: 1
 
 TRAINING_PARAMS:
-  batch_size: 4
+  batch_size: 64
   lr: 0.0001
   num_epochs: 40
   use_scheduler: True

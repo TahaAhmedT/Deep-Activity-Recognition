@@ -1,4 +1,4 @@
-from .logging_utils import setup_logger
+from utils.logging_utils import setup_logger
 
 import os
 import pandas as pd
@@ -23,7 +23,7 @@ def plot_results(results: dict, save_path: str):
 
     for name, vals in results.items():
         # Line plots for individual metrics
-        if name in ["Train_Accuracy", "Train_Loss", "Test_Accuracy", "Test_Loss", "Test_F1_Score"]:
+        if name in ["Train_Accuracy", "Train_Loss", "Val_Accuracy", "Val_Loss", "Val_F1_Score"]:
             line_plot(
                 data=vals,
                 labels=[name],
@@ -45,33 +45,33 @@ def plot_results(results: dict, save_path: str):
                 xlabel="Epoch"
             )
 
-        elif name == "Test_Loss_and_Accuracy":
+        elif name == "Val_Loss_and_Accuracy":
             line_plot(
                 data=vals,
-                labels=["Test Loss", "Test Accuracy"],
+                labels=["Val Loss", "Val Accuracy"],
                 save_path=save_path,
                 figname=name,
-                title="Testing Loss & Accuracy",
+                title="Validation Loss & Accuracy",
                 xlabel="Epoch"
             )
 
-        elif name == "Train_Test_Loss":
+        elif name == "Train_Val_Loss":
             line_plot(
                 data=vals,
-                labels=["Train Loss", "Test Loss"],
+                labels=["Train Loss", "Val Loss"],
                 save_path=save_path,
                 figname=name,
-                title="Train vs Test Loss",
+                title="Train vs Val Loss",
                 xlabel="Epoch"
             )
 
-        elif name == "Train_Test_Accuracy":
+        elif name == "Train_Val_Accuracy":
             line_plot(
                 data=vals,
-                labels=["Train Accuracy", "Test Accuracy"],
+                labels=["Train Accuracy", "Val Accuracy"],
                 save_path=save_path,
                 figname=name,
-                title="Train vs Test Accuracy",
+                title="Train vs Val Accuracy",
                 xlabel="Epoch"
             )
 
@@ -132,24 +132,24 @@ def prepare_results_dict(metrics_data, cm_data):
     results = {
         "Train_Loss": [metrics_data["train_loss"].tolist()],
         "Train_Accuracy": [metrics_data["train_acc"].tolist()],
-        "Test_Loss": [metrics_data["test_loss"].tolist()],
-        "Test_Accuracy": [metrics_data["test_acc"].tolist()],
-        "Test_F1_Score": [metrics_data["test_f1"].tolist()],
+        "Val_Loss": [metrics_data["val_loss"].tolist()],
+        "Val_Accuracy": [metrics_data["val_acc"].tolist()],
+        "Val_F1_Score": [metrics_data["val_f1"].tolist()],
         "Train_Loss_and_Accuracy": [
             metrics_data["train_loss"].tolist(),
             metrics_data["train_acc"].tolist()
         ],
-        "Test_Loss_and_Accuracy": [
-            metrics_data["test_loss"].tolist(),
-            metrics_data["test_acc"].tolist()
+        "Val_Loss_and_Accuracy": [
+            metrics_data["val_loss"].tolist(),
+            metrics_data["val_acc"].tolist()
         ],
-        "Train_Test_Loss": [
+        "Train_Val_Loss": [
             metrics_data["train_loss"].tolist(),
-            metrics_data["test_loss"].tolist()
+            metrics_data["val_loss"].tolist()
         ],
-        "Train_Test_Accuracy": [
+        "Train_Val_Accuracy": [
             metrics_data["train_acc"].tolist(),
-            metrics_data["test_acc"].tolist()
+            metrics_data["val_acc"].tolist()
         ],
         "Confusion_Matrix": (
             cm_data["y_true"].tolist(),

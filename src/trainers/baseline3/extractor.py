@@ -2,7 +2,9 @@
 This script extracts deep features from volleyball player images using a fine-tuned ResNet-50 model.
 """
 
-from utils import load_config, setup_logger, extract
+from utils.config_utils import load_config
+from utils.logging_utils import setup_logger
+from utils.extract_features_utils import extract
 
 
 CONFIG = load_config()

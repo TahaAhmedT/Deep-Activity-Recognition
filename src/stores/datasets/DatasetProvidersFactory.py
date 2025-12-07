@@ -1,4 +1,4 @@
-from providers import FeaturesDataset, ImagesDataset
+from stores.datasets.providers import FeaturesDataset, ImagesDataset
 
 from torchvision import transforms
 from torch.utils.data import DataLoader
@@ -8,7 +8,8 @@ class DatasetProvidersFactory:
     def __init__(self):
         pass
 
-    def get_data_loaders(batch_size: int,
+    def get_data_loaders(self,
+                        batch_size: int,
                         videos_root: str,
                         annot_root: str,
                         train_ids: list[int],

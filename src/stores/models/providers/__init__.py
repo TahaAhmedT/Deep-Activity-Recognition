@@ -5,9 +5,10 @@ from .baseline5_and_6 import Pooled_Players_Activity_Temporal_Classifier
 from .baseline7 import Two_Stage_Activity_Temporal_Classifier
 from .baseline8 import Two_Stage_Pooled_Teams_Activity_Temporal_Classifier
 __all__ = [
-    Activity_Classifier,
-    Group_Activity_Classifier,
-    Group_Activity_Temporal_Classifier,
-    Pooled_Players_Activity_Temporal_Classifier,
-    Two_Stage_Activity_Temporal_Classifier,
-    Two_Stage_Pooled_Teams_Activity_Temporal_Classifier]
+    "Activity_Classifier",
+    "Group_Activity_Classifier",
+    "Group_Activity_Temporal_Classifier",
+    "Pooled_Players_Activity_Temporal_Classifier",
+    "Two_Stage_Activity_Temporal_Classifier",
+    "Two_Stage_Pooled_Teams_Activity_Temporal_Classifier"
+]

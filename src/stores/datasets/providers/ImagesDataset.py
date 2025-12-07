@@ -1,5 +1,5 @@
-from utils import setup_logger
-from Preprocessing import load_tracking_annot, load_video_annot
+from utils.logging_utils import setup_logger
+from Preprocessing.volleyball_annot_loader import load_tracking_annot, load_video_annot
 
 from torch.utils.data import Dataset
 from PIL import Image

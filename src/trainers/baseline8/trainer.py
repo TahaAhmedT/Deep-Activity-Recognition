@@ -9,7 +9,10 @@ This module:
 
 The script is intended to be executed as a standalone program.
 """
-from utils import load_config, setup_logger, finetune, visualize
+from utils.config_utils import load_config
+from utils.logging_utils import setup_logger
+from utils.finetune_utils import finetune
+from utils.visualize_utils import visualize
 
 import os
 
