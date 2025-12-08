@@ -1,0 +1,495 @@
+[2025-12-08 00:25:02] - [trainer.py:39] - [INFO]: Starting Training Two Stage Group Activity Temporal Classifier on Features' Dataset (Player-level, pool each team, then frame-level)...
+[2025-12-08 00:25:02] - [finetune_utils.py:55] - [INFO]: Setting all seeds...
+[2025-12-08 00:25:02] - [finetune_utils.py:105] - [INFO]: Using device: cuda
+[2025-12-08 00:25:02] - [FeaturesDataset.py:54] - [INFO]: Initializing Features Dataset...
+[2025-12-08 00:25:02] - [FeaturesDataset.py:74] - [INFO]: Collecting Images' features and labels...
+[2025-12-08 00:25:04] - [FeaturesDataset.py:56] - [INFO]: Features Dataset Initialized with 2183 Samples!
+[2025-12-08 00:25:04] - [FeaturesDataset.py:54] - [INFO]: Initializing Features Dataset...
+[2025-12-08 00:25:04] - [FeaturesDataset.py:74] - [INFO]: Collecting Images' features and labels...
+[2025-12-08 00:25:06] - [FeaturesDataset.py:56] - [INFO]: Features Dataset Initialized with 1266 Samples!
+[2025-12-08 00:25:06] - [baseline8.py:61] - [INFO]: Initializing Two Stage Activity Temporal Classifier...
+[2025-12-08 00:25:06] - [baseline8.py:85] - [INFO]: Model Initialized Successfully!
+[2025-12-08 00:25:06] - [finetune_utils.py:35] - [INFO]: Creating optimizer...
+[2025-12-08 00:25:06] - [finetune_utils.py:37] - [INFO]: Optimizer created: AdamW Optimizer.
+[2025-12-08 00:25:06] - [finetune_utils.py:38] - [INFO]: Initial Learning Rate: 0.0001.
+[2025-12-08 00:25:06] - [finetune_utils.py:43] - [INFO]: Creating Scheduler...
+[2025-12-08 00:25:06] - [finetune_utils.py:45] - [INFO]: Scheduler Created Successfully!
+[2025-12-08 00:25:06] - [finetune_utils.py:134] - [INFO]: Starting Training and Testing with number of epochs = 40
+[2025-12-08 00:25:06] - [finetune_utils.py:137] - [INFO]: Opening a CSV file to log training metrics.
+[2025-12-08 00:25:06] - [finetune_utils.py:148] - [INFO]: Epoch 1
+-----------------------
+[2025-12-08 00:25:06] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:25:14] - [train_utils.py:68] - [INFO]: Train Loss: 1.17726 | Train Accuracy: 57.75%
+[2025-12-08 00:25:14] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:25:14] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:25:15] - [val_utils.py:74] - [INFO]: Validation Loss: 0.67960 | Validation Accuracy: 75.04% | Validation F1-score: 0.7353070974349976
+
+[2025-12-08 00:25:15] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:25:15] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 75.0395. Saving best model...
+[2025-12-08 00:25:15] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:25:15] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:25:15] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:25:15] - [finetune_utils.py:148] - [INFO]: Epoch 2
+-----------------------
+[2025-12-08 00:25:15] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:25:23] - [train_utils.py:68] - [INFO]: Train Loss: 0.72963 | Train Accuracy: 75.69%
+[2025-12-08 00:25:23] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:25:23] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:25:24] - [val_utils.py:74] - [INFO]: Validation Loss: 0.66289 | Validation Accuracy: 78.20% | Validation F1-score: 0.7720805406570435
+
+[2025-12-08 00:25:24] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:25:24] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 78.1991. Saving best model...
+[2025-12-08 00:25:24] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:25:24] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:25:24] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:25:24] - [finetune_utils.py:148] - [INFO]: Epoch 3
+-----------------------
+[2025-12-08 00:25:24] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:25:32] - [train_utils.py:68] - [INFO]: Train Loss: 0.64098 | Train Accuracy: 78.76%
+[2025-12-08 00:25:32] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:25:32] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:25:33] - [val_utils.py:74] - [INFO]: Validation Loss: 0.55481 | Validation Accuracy: 80.57% | Validation F1-score: 0.7995325922966003
+
+[2025-12-08 00:25:33] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:25:33] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 80.5687. Saving best model...
+[2025-12-08 00:25:33] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:25:33] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:25:33] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:25:33] - [finetune_utils.py:148] - [INFO]: Epoch 4
+-----------------------
+[2025-12-08 00:25:33] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:25:40] - [train_utils.py:68] - [INFO]: Train Loss: 0.53857 | Train Accuracy: 82.94%
+[2025-12-08 00:25:40] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:25:40] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:25:42] - [val_utils.py:74] - [INFO]: Validation Loss: 0.52477 | Validation Accuracy: 81.75% | Validation F1-score: 0.813559353351593
+
+[2025-12-08 00:25:42] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:25:42] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 81.7536. Saving best model...
+[2025-12-08 00:25:42] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:25:42] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:25:42] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:25:42] - [finetune_utils.py:148] - [INFO]: Epoch 5
+-----------------------
+[2025-12-08 00:25:42] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:25:49] - [train_utils.py:68] - [INFO]: Train Loss: 0.42654 | Train Accuracy: 86.24%
+[2025-12-08 00:25:49] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:25:49] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:25:51] - [val_utils.py:74] - [INFO]: Validation Loss: 0.51156 | Validation Accuracy: 81.75% | Validation F1-score: 0.8181630969047546
+
+[2025-12-08 00:25:51] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:25:51] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:25:51] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:25:51] - [finetune_utils.py:148] - [INFO]: Epoch 6
+-----------------------
+[2025-12-08 00:25:51] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:25:58] - [train_utils.py:68] - [INFO]: Train Loss: 0.38145 | Train Accuracy: 88.21%
+[2025-12-08 00:25:58] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:25:58] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:25:59] - [val_utils.py:74] - [INFO]: Validation Loss: 0.61924 | Validation Accuracy: 80.65% | Validation F1-score: 0.8013489246368408
+
+[2025-12-08 00:25:59] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:25:59] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:25:59] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:25:59] - [finetune_utils.py:148] - [INFO]: Epoch 7
+-----------------------
+[2025-12-08 00:25:59] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:26:06] - [train_utils.py:68] - [INFO]: Train Loss: 0.30191 | Train Accuracy: 91.06%
+[2025-12-08 00:26:06] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:26:06] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:26:07] - [val_utils.py:74] - [INFO]: Validation Loss: 0.49516 | Validation Accuracy: 82.62% | Validation F1-score: 0.8240212202072144
+
+[2025-12-08 00:26:07] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:26:07] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 82.6224. Saving best model...
+[2025-12-08 00:26:08] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:26:08] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:26:08] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:26:08] - [finetune_utils.py:148] - [INFO]: Epoch 8
+-----------------------
+[2025-12-08 00:26:08] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:26:15] - [train_utils.py:68] - [INFO]: Train Loss: 0.27943 | Train Accuracy: 91.74%
+[2025-12-08 00:26:15] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:26:15] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:26:16] - [val_utils.py:74] - [INFO]: Validation Loss: 0.55024 | Validation Accuracy: 81.36% | Validation F1-score: 0.8130112290382385
+
+[2025-12-08 00:26:16] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:26:16] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:26:16] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:26:16] - [finetune_utils.py:148] - [INFO]: Epoch 9
+-----------------------
+[2025-12-08 00:26:16] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:26:23] - [train_utils.py:68] - [INFO]: Train Loss: 0.23291 | Train Accuracy: 92.94%
+[2025-12-08 00:26:23] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:26:23] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:26:25] - [val_utils.py:74] - [INFO]: Validation Loss: 0.65858 | Validation Accuracy: 80.41% | Validation F1-score: 0.7928369045257568
+
+[2025-12-08 00:26:25] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:26:25] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:26:25] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:26:25] - [finetune_utils.py:148] - [INFO]: Epoch 10
+-----------------------
+[2025-12-08 00:26:25] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:26:32] - [train_utils.py:68] - [INFO]: Train Loss: 0.20601 | Train Accuracy: 94.40%
+[2025-12-08 00:26:32] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:26:32] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:26:33] - [val_utils.py:74] - [INFO]: Validation Loss: 0.46866 | Validation Accuracy: 84.83% | Validation F1-score: 0.8477591276168823
+
+[2025-12-08 00:26:33] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:26:33] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 84.8341. Saving best model...
+[2025-12-08 00:26:34] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:26:34] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:26:34] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:26:34] - [finetune_utils.py:148] - [INFO]: Epoch 11
+-----------------------
+[2025-12-08 00:26:34] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:26:41] - [train_utils.py:68] - [INFO]: Train Loss: 0.16901 | Train Accuracy: 95.37%
+[2025-12-08 00:26:41] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:26:41] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:26:42] - [val_utils.py:74] - [INFO]: Validation Loss: 0.52567 | Validation Accuracy: 83.41% | Validation F1-score: 0.8352487683296204
+
+[2025-12-08 00:26:42] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:26:42] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:26:42] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:26:42] - [finetune_utils.py:148] - [INFO]: Epoch 12
+-----------------------
+[2025-12-08 00:26:42] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:26:49] - [train_utils.py:68] - [INFO]: Train Loss: 0.18674 | Train Accuracy: 94.59%
+[2025-12-08 00:26:49] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:26:49] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:26:50] - [val_utils.py:74] - [INFO]: Validation Loss: 0.53585 | Validation Accuracy: 83.41% | Validation F1-score: 0.8324509263038635
+
+[2025-12-08 00:26:50] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:26:50] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:26:50] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:26:50] - [finetune_utils.py:148] - [INFO]: Epoch 13
+-----------------------
+[2025-12-08 00:26:50] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:26:58] - [train_utils.py:68] - [INFO]: Train Loss: 0.17631 | Train Accuracy: 95.18%
+[2025-12-08 00:26:58] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:26:58] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:26:59] - [val_utils.py:74] - [INFO]: Validation Loss: 0.71681 | Validation Accuracy: 80.49% | Validation F1-score: 0.8056648969650269
+
+[2025-12-08 00:26:59] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:26:59] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:26:59] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:26:59] - [finetune_utils.py:148] - [INFO]: Epoch 14
+-----------------------
+[2025-12-08 00:26:59] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:27:06] - [train_utils.py:68] - [INFO]: Train Loss: 0.16006 | Train Accuracy: 95.14%
+[2025-12-08 00:27:06] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:27:06] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:27:07] - [val_utils.py:74] - [INFO]: Validation Loss: 0.80381 | Validation Accuracy: 80.73% | Validation F1-score: 0.8061723709106445
+
+[2025-12-08 00:27:07] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:27:07] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:27:07] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:27:07] - [finetune_utils.py:148] - [INFO]: Epoch 15
+-----------------------
+[2025-12-08 00:27:07] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:27:14] - [train_utils.py:68] - [INFO]: Train Loss: 0.11937 | Train Accuracy: 96.93%
+[2025-12-08 00:27:14] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:27:14] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:27:15] - [val_utils.py:74] - [INFO]: Validation Loss: 0.49152 | Validation Accuracy: 84.91% | Validation F1-score: 0.8494634032249451
+
+[2025-12-08 00:27:15] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:27:15] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 84.9131. Saving best model...
+[2025-12-08 00:27:16] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:27:16] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:27:16] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:27:16] - [finetune_utils.py:148] - [INFO]: Epoch 16
+-----------------------
+[2025-12-08 00:27:16] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:27:23] - [train_utils.py:68] - [INFO]: Train Loss: 0.08969 | Train Accuracy: 98.21%
+[2025-12-08 00:27:23] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:27:23] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:27:24] - [val_utils.py:74] - [INFO]: Validation Loss: 0.45215 | Validation Accuracy: 85.70% | Validation F1-score: 0.8570547699928284
+
+[2025-12-08 00:27:24] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:27:24] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 85.7030. Saving best model...
+[2025-12-08 00:27:25] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:27:25] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:27:25] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:27:25] - [finetune_utils.py:148] - [INFO]: Epoch 17
+-----------------------
+[2025-12-08 00:27:25] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:27:32] - [train_utils.py:68] - [INFO]: Train Loss: 0.09672 | Train Accuracy: 97.80%
+[2025-12-08 00:27:32] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:27:32] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:27:33] - [val_utils.py:74] - [INFO]: Validation Loss: 0.46510 | Validation Accuracy: 85.39% | Validation F1-score: 0.8543174266815186
+
+[2025-12-08 00:27:33] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:27:33] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:27:33] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:27:33] - [finetune_utils.py:148] - [INFO]: Epoch 18
+-----------------------
+[2025-12-08 00:27:33] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:27:40] - [train_utils.py:68] - [INFO]: Train Loss: 0.09051 | Train Accuracy: 98.26%
+[2025-12-08 00:27:40] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:27:40] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:27:42] - [val_utils.py:74] - [INFO]: Validation Loss: 0.42716 | Validation Accuracy: 86.89% | Validation F1-score: 0.8689137697219849
+
+[2025-12-08 00:27:42] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:27:42] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 86.8878. Saving best model...
+[2025-12-08 00:27:42] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:27:42] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:27:42] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:27:42] - [finetune_utils.py:148] - [INFO]: Epoch 19
+-----------------------
+[2025-12-08 00:27:42] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:27:49] - [train_utils.py:68] - [INFO]: Train Loss: 0.07101 | Train Accuracy: 98.35%
+[2025-12-08 00:27:49] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:27:49] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:27:51] - [val_utils.py:74] - [INFO]: Validation Loss: 0.46718 | Validation Accuracy: 85.94% | Validation F1-score: 0.8595252633094788
+
+[2025-12-08 00:27:51] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:27:51] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:27:51] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:27:51] - [finetune_utils.py:148] - [INFO]: Epoch 20
+-----------------------
+[2025-12-08 00:27:51] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:27:58] - [train_utils.py:68] - [INFO]: Train Loss: 0.08862 | Train Accuracy: 98.17%
+[2025-12-08 00:27:58] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:27:58] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:27:59] - [val_utils.py:74] - [INFO]: Validation Loss: 0.43920 | Validation Accuracy: 86.81% | Validation F1-score: 0.867216169834137
+
+[2025-12-08 00:27:59] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:27:59] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:27:59] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:27:59] - [finetune_utils.py:148] - [INFO]: Epoch 21
+-----------------------
+[2025-12-08 00:27:59] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:28:06] - [train_utils.py:68] - [INFO]: Train Loss: 0.08214 | Train Accuracy: 98.21%
+[2025-12-08 00:28:06] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:28:06] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:28:07] - [val_utils.py:74] - [INFO]: Validation Loss: 0.42354 | Validation Accuracy: 86.97% | Validation F1-score: 0.8693288564682007
+
+[2025-12-08 00:28:07] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:28:07] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 86.9668. Saving best model...
+[2025-12-08 00:28:08] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:28:08] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:28:08] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:28:08] - [finetune_utils.py:148] - [INFO]: Epoch 22
+-----------------------
+[2025-12-08 00:28:08] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:28:15] - [train_utils.py:68] - [INFO]: Train Loss: 0.06964 | Train Accuracy: 98.58%
+[2025-12-08 00:28:15] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:28:15] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:28:16] - [val_utils.py:74] - [INFO]: Validation Loss: 0.41521 | Validation Accuracy: 87.05% | Validation F1-score: 0.870166540145874
+
+[2025-12-08 00:28:16] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:28:16] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 87.0458. Saving best model...
+[2025-12-08 00:28:17] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:28:17] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:28:17] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:28:17] - [finetune_utils.py:148] - [INFO]: Epoch 23
+-----------------------
+[2025-12-08 00:28:17] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:28:24] - [train_utils.py:68] - [INFO]: Train Loss: 0.08251 | Train Accuracy: 98.17%
+[2025-12-08 00:28:24] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:28:24] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:28:25] - [val_utils.py:74] - [INFO]: Validation Loss: 0.42381 | Validation Accuracy: 87.52% | Validation F1-score: 0.8751754760742188
+
+[2025-12-08 00:28:25] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:28:25] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 87.5197. Saving best model...
+[2025-12-08 00:28:26] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:28:26] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:28:26] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:28:26] - [finetune_utils.py:148] - [INFO]: Epoch 24
+-----------------------
+[2025-12-08 00:28:26] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:28:33] - [train_utils.py:68] - [INFO]: Train Loss: 0.05254 | Train Accuracy: 99.04%
+[2025-12-08 00:28:33] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:28:33] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:28:34] - [val_utils.py:74] - [INFO]: Validation Loss: 0.42525 | Validation Accuracy: 87.28% | Validation F1-score: 0.8732730150222778
+
+[2025-12-08 00:28:34] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:28:34] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:28:34] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:28:34] - [finetune_utils.py:148] - [INFO]: Epoch 25
+-----------------------
+[2025-12-08 00:28:34] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:28:42] - [train_utils.py:68] - [INFO]: Train Loss: 0.07065 | Train Accuracy: 98.67%
+[2025-12-08 00:28:42] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:28:42] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:28:43] - [val_utils.py:74] - [INFO]: Validation Loss: 0.40394 | Validation Accuracy: 87.91% | Validation F1-score: 0.8788191080093384
+
+[2025-12-08 00:28:43] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:28:43] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 87.9147. Saving best model...
+[2025-12-08 00:28:44] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:28:44] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:28:44] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:28:44] - [finetune_utils.py:148] - [INFO]: Epoch 26
+-----------------------
+[2025-12-08 00:28:44] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:28:51] - [train_utils.py:68] - [INFO]: Train Loss: 0.05320 | Train Accuracy: 98.94%
+[2025-12-08 00:28:51] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:28:51] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:28:52] - [val_utils.py:74] - [INFO]: Validation Loss: 0.41569 | Validation Accuracy: 87.91% | Validation F1-score: 0.8788633942604065
+
+[2025-12-08 00:28:52] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:28:52] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:28:52] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:28:52] - [finetune_utils.py:148] - [INFO]: Epoch 27
+-----------------------
+[2025-12-08 00:28:52] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:28:59] - [train_utils.py:68] - [INFO]: Train Loss: 0.05883 | Train Accuracy: 98.76%
+[2025-12-08 00:28:59] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:28:59] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:29:00] - [val_utils.py:74] - [INFO]: Validation Loss: 0.41463 | Validation Accuracy: 87.99% | Validation F1-score: 0.8796734809875488
+
+[2025-12-08 00:29:00] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:29:00] - [finetune_utils.py:186] - [INFO]: New BEST accuracy: 87.9937. Saving best model...
+[2025-12-08 00:29:01] - [finetune_utils.py:200] - [INFO]: Best model saved successfully!
+[2025-12-08 00:29:01] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:29:01] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:29:01] - [finetune_utils.py:148] - [INFO]: Epoch 28
+-----------------------
+[2025-12-08 00:29:01] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:29:08] - [train_utils.py:68] - [INFO]: Train Loss: 0.05716 | Train Accuracy: 98.85%
+[2025-12-08 00:29:08] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:29:08] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:29:10] - [val_utils.py:74] - [INFO]: Validation Loss: 0.45136 | Validation Accuracy: 86.57% | Validation F1-score: 0.8659172058105469
+
+[2025-12-08 00:29:10] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:29:10] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:29:10] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:29:10] - [finetune_utils.py:148] - [INFO]: Epoch 29
+-----------------------
+[2025-12-08 00:29:10] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:29:17] - [train_utils.py:68] - [INFO]: Train Loss: 0.05917 | Train Accuracy: 98.81%
+[2025-12-08 00:29:17] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:29:17] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:29:18] - [val_utils.py:74] - [INFO]: Validation Loss: 0.40629 | Validation Accuracy: 87.68% | Validation F1-score: 0.876529335975647
+
+[2025-12-08 00:29:18] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:29:18] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:29:18] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:29:18] - [finetune_utils.py:148] - [INFO]: Epoch 30
+-----------------------
+[2025-12-08 00:29:18] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:29:25] - [train_utils.py:68] - [INFO]: Train Loss: 0.06297 | Train Accuracy: 98.99%
+[2025-12-08 00:29:25] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:29:25] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:29:26] - [val_utils.py:74] - [INFO]: Validation Loss: 0.41870 | Validation Accuracy: 87.68% | Validation F1-score: 0.8766205310821533
+
+[2025-12-08 00:29:26] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:29:26] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:29:26] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:29:26] - [finetune_utils.py:148] - [INFO]: Epoch 31
+-----------------------
+[2025-12-08 00:29:26] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:29:34] - [train_utils.py:68] - [INFO]: Train Loss: 0.06678 | Train Accuracy: 98.81%
+[2025-12-08 00:29:34] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:29:34] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:29:35] - [val_utils.py:74] - [INFO]: Validation Loss: 0.41828 | Validation Accuracy: 87.36% | Validation F1-score: 0.873511552810669
+
+[2025-12-08 00:29:35] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:29:35] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:29:35] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:29:35] - [finetune_utils.py:148] - [INFO]: Epoch 32
+-----------------------
+[2025-12-08 00:29:35] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:29:42] - [train_utils.py:68] - [INFO]: Train Loss: 0.05290 | Train Accuracy: 98.99%
+[2025-12-08 00:29:42] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:29:42] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:29:43] - [val_utils.py:74] - [INFO]: Validation Loss: 0.42029 | Validation Accuracy: 87.44% | Validation F1-score: 0.8744065761566162
+
+[2025-12-08 00:29:43] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:29:43] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:29:43] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:29:43] - [finetune_utils.py:148] - [INFO]: Epoch 33
+-----------------------
+[2025-12-08 00:29:43] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:29:51] - [train_utils.py:68] - [INFO]: Train Loss: 0.03688 | Train Accuracy: 99.27%
+[2025-12-08 00:29:51] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:29:51] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:29:52] - [val_utils.py:74] - [INFO]: Validation Loss: 0.40105 | Validation Accuracy: 87.68% | Validation F1-score: 0.8765007853507996
+
+[2025-12-08 00:29:52] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:29:52] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:29:52] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:29:52] - [finetune_utils.py:148] - [INFO]: Epoch 34
+-----------------------
+[2025-12-08 00:29:52] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:29:59] - [train_utils.py:68] - [INFO]: Train Loss: 0.04141 | Train Accuracy: 99.27%
+[2025-12-08 00:29:59] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:29:59] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:30:00] - [val_utils.py:74] - [INFO]: Validation Loss: 0.44608 | Validation Accuracy: 87.12% | Validation F1-score: 0.8707258105278015
+
+[2025-12-08 00:30:00] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:30:00] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:30:00] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:30:00] - [finetune_utils.py:148] - [INFO]: Epoch 35
+-----------------------
+[2025-12-08 00:30:00] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:30:08] - [train_utils.py:68] - [INFO]: Train Loss: 0.04038 | Train Accuracy: 99.27%
+[2025-12-08 00:30:08] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:30:08] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:30:09] - [val_utils.py:74] - [INFO]: Validation Loss: 0.41568 | Validation Accuracy: 87.60% | Validation F1-score: 0.8762370347976685
+
+[2025-12-08 00:30:09] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:30:09] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:30:09] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:30:09] - [finetune_utils.py:148] - [INFO]: Epoch 36
+-----------------------
+[2025-12-08 00:30:09] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:30:16] - [train_utils.py:68] - [INFO]: Train Loss: 0.03634 | Train Accuracy: 99.22%
+[2025-12-08 00:30:16] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:30:16] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:30:17] - [val_utils.py:74] - [INFO]: Validation Loss: 0.43554 | Validation Accuracy: 86.89% | Validation F1-score: 0.8694952130317688
+
+[2025-12-08 00:30:17] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:30:17] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:30:17] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:30:17] - [finetune_utils.py:148] - [INFO]: Epoch 37
+-----------------------
+[2025-12-08 00:30:17] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:30:25] - [train_utils.py:68] - [INFO]: Train Loss: 0.06374 | Train Accuracy: 98.81%
+[2025-12-08 00:30:25] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:30:25] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:30:26] - [val_utils.py:74] - [INFO]: Validation Loss: 0.45046 | Validation Accuracy: 87.52% | Validation F1-score: 0.8752990365028381
+
+[2025-12-08 00:30:26] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:30:26] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:30:26] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:30:26] - [finetune_utils.py:148] - [INFO]: Epoch 38
+-----------------------
+[2025-12-08 00:30:26] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:30:33] - [train_utils.py:68] - [INFO]: Train Loss: 0.05425 | Train Accuracy: 98.85%
+[2025-12-08 00:30:33] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:30:33] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:30:34] - [val_utils.py:74] - [INFO]: Validation Loss: 0.41572 | Validation Accuracy: 87.84% | Validation F1-score: 0.8779160976409912
+
+[2025-12-08 00:30:34] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:30:34] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:30:34] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:30:34] - [finetune_utils.py:148] - [INFO]: Epoch 39
+-----------------------
+[2025-12-08 00:30:34] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:30:41] - [train_utils.py:68] - [INFO]: Train Loss: 0.03661 | Train Accuracy: 99.36%
+[2025-12-08 00:30:41] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:30:41] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:30:43] - [val_utils.py:74] - [INFO]: Validation Loss: 0.42572 | Validation Accuracy: 87.60% | Validation F1-score: 0.8756908178329468
+
+[2025-12-08 00:30:43] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:30:43] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:30:43] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:30:43] - [finetune_utils.py:148] - [INFO]: Epoch 40
+-----------------------
+[2025-12-08 00:30:43] - [finetune_utils.py:151] - [INFO]: Starting training step...
+[2025-12-08 00:30:50] - [train_utils.py:68] - [INFO]: Train Loss: 0.03662 | Train Accuracy: 99.50%
+[2025-12-08 00:30:50] - [finetune_utils.py:162] - [INFO]: Training step completed.
+[2025-12-08 00:30:50] - [finetune_utils.py:165] - [INFO]: Starting Validation step...
+[2025-12-08 00:30:51] - [val_utils.py:74] - [INFO]: Validation Loss: 0.40047 | Validation Accuracy: 87.84% | Validation F1-score: 0.8783484697341919
+
+[2025-12-08 00:30:51] - [finetune_utils.py:175] - [INFO]: Validation step completed.
+[2025-12-08 00:30:51] - [finetune_utils.py:203] - [INFO]: Appending the epoch's metrics to CSV.
+[2025-12-08 00:30:51] - [finetune_utils.py:207] - [INFO]: Epoch's metrics appended successfully!
+[2025-12-08 00:30:51] - [trainer.py:65] - [INFO]: Training Two Stage pooled-teams Group Activity Temporal Classifier Finished Successfully!
+[2025-12-08 00:30:51] - [trainer.py:67] - [INFO]: Visualizing Results...
+[2025-12-08 00:30:51] - [visualize_utils.py:173] - [INFO]: Loading data for visualization...
+[2025-12-08 00:30:51] - [visualize_utils.py:175] - [INFO]: Data loaded successfully.
+[2025-12-08 00:30:51] - [visualize_utils.py:177] - [INFO]: Preparing results dictionary...
+[2025-12-08 00:30:51] - [visualize_utils.py:179] - [INFO]: Results dictionary prepared.
+[2025-12-08 00:30:51] - [visualize_utils.py:181] - [INFO]: Generating plots...
+[2025-12-08 00:30:54] - [visualize_utils.py:183] - [INFO]: All plots generated successfully and saved to 'assets/baselines_assets/baseline8/exp2'.
+[2025-12-08 00:30:54] - [trainer.py:75] - [INFO]: Visualization Finished Successfully!
