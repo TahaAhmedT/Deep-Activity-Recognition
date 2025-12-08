@@ -2,7 +2,7 @@ import cv2
 import os
 import pickle
 from typing import List
-from src.Preprocessing.boxinfo import BoxInfo
+from .boxinfo import BoxInfo
 import collections
 
 

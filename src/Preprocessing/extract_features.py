@@ -8,7 +8,7 @@ import torch.nn as nn
 import torchvision.models as models
 import torchvision.transforms as transforms
 from PIL import Image
-from src.Preprocessing.volleyball_annot_loader import load_tracking_annot
+from .volleyball_annot_loader import load_tracking_annot
 
 # dataset_root = '/home/moustafa/0hdd/research/sfu/volleyball-datasets'
 

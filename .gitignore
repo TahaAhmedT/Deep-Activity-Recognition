@@ -5,3 +5,5 @@
 data/*
 models/*
 output/*
+src/Group_Activity_Recognition.egg-info
+build/
