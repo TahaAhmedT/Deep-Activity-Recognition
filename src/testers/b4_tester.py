@@ -13,7 +13,7 @@ def main():
         videos_root=CONFIG["DATA_PATHS"]["videos_root"],
         annot_root=CONFIG["DATA_PATHS"]["annot_root"],
         train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
-        test_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
+        test_ids=CONFIG["TARGET_VIDEOS"]["test_ids"],
         features=True,
         model_name="b4",
         checkpoint="models/b4/best_model.pth",
@@ -28,3 +28,7 @@ def main():
         sequence=True,
         verbose=CONFIG["verbose"]
     )
+
+
+if __name__ == "__main__":
+    main()

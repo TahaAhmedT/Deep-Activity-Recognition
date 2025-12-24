@@ -13,7 +13,7 @@ def main():
         videos_root=CONFIG["DATA_PATHS"]["videos_root"],
         annot_root=CONFIG["DATA_PATHS"]["annot_root"],
         train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
-        test_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
+        test_ids=CONFIG["TARGET_VIDEOS"]["test_ids"],
         features=True,
         model_name="b3",
         checkpoint="models/b3/best_model.pth",
@@ -27,3 +27,7 @@ def main():
         input_size=CONFIG["EXTRACTED_FEATURES_SIZE"],
         verbose=CONFIG["verbose"]
     )
+
+
+if __name__ == "__main__":
+    main()

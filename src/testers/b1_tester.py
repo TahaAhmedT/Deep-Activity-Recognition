@@ -13,7 +13,7 @@ def main():
         videos_root=CONFIG["DATA_PATHS"]["videos_root"],
         annot_root=CONFIG["DATA_PATHS"]["annot_root"],
         train_ids=CONFIG["TARGET_VIDEOS"]["train_ids"],
-        test_ids=CONFIG["TARGET_VIDEOS"]["val_ids"],
+        test_ids=CONFIG["TARGET_VIDEOS"]["test_ids"],
         features=False,
         model_name="b1",
         checkpoint="models/b1/best_model.pth",
@@ -25,4 +25,7 @@ def main():
         crop=False,
         verbose=CONFIG["verbose"]
     )
-    
+
+
+if __name__ == "__main__":
+    main()
