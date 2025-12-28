@@ -49,8 +49,8 @@ Reported test accuracies (this implementation vs. original paper):
 - Baseline 4 — 78.5%  (paper: 63.1%)
 - Baseline 5 — 83.25% (paper: 67.6%)
 - Baseline 6 — 81.6%  (paper: 74.7%)
-- Baseline 7 — 85.5%  (paper: 80.2%)
-- Baseline 8 — 88.0%  (paper: 81.9%)
+- Baseline 7 — 85.7%  (paper: 80.2%)
+- Baseline 8 — 89.5%  (paper: 81.9%)
 
 Baseline 8 details: Team-pooled two-stage temporal model (per-player LSTM → team-level pooling → frame-level LSTM). Operates on pre-extracted player features (not end-to-end).
 
