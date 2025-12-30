@@ -22,6 +22,21 @@ The codebase is organized to allow easy reproduction and extension of the baseli
 
 ---
 
+## Demo 🎬
+
+Watch the demo video below:
+
+<p align="center">
+	<video src="assets/test_assets/test_demo.mp4" controls width="720">
+		Your browser does not support the video tag. Download the demo: <a href="assets/test_assets/test_demo.mp4">assets/test_assets/test_demo.mp4</a>
+	</video>
+</p>
+
+You can also download the demo directly: [Download demo](assets/test_assets/test_demo.mp4)
+
+---
+---
+
 ## Features 🚀
 
 - Preprocessing and annotation loaders for volleyball clips.
