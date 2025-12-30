@@ -24,17 +24,16 @@ The codebase is organized to allow easy reproduction and extension of the baseli
 
 ## Demo 🎬
 
-Watch the demo video below:
 
-<p align="center">
-	<video src="assets/test_assets/test_demo.mp4" controls width="720">
-		Your browser does not support the video tag. Download the demo: <a href="assets/test_assets/test_demo.mp4">assets/test_assets/test_demo.mp4</a>
-	</video>
-</p>
+Watch the demo preview below.
+
+[![Demo thumbnail](assets/test_assets/demo_thumb.svg)](assets/test_assets/test_demo.mp4)
+
+
 
 You can also download the demo directly: [Download demo](assets/test_assets/test_demo.mp4)
 
----
+
 ---
 
 ## Features 🚀
@@ -70,6 +69,13 @@ Reported test accuracies (this implementation vs. original paper):
 Baseline 8 details: Team-pooled two-stage temporal model (per-player LSTM → team-level pooling → frame-level LSTM). Operates on pre-extracted player features (not end-to-end).
 
 ---
+
+### Confusion Matrix — Baseline 8
+
+Below is the confusion matrix for Baseline 8 (test set):
+
+![Baseline 8 Confusion Matrix](assets/test_assets/B8_Confusion_Matrix.png)
+
 
 ## Project Structure 📁
 
